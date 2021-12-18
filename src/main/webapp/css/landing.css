@@ -1,0 +1,44 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
+  }
+
+  .header h1{
+      position: absolute;
+      bottom: 96px;
+      margin-left: 56px;
+      margin-right: 750px;
+      font-size: 40px;
+  }
+
+  .header img{
+      width: 100vw;
+      height: 100vh;
+  }
+  
+  .logo img{
+    width: 12%;
+    height: auto;
+    position: absolute;
+    top: 15px;
+    margin-left: 56px;
+  }
+
+  .logo h1{
+    position: absolute;
+    font-size: 40px;
+    font-style: italic;
+    top: 185px;
+    margin-left: 56px;
+  }
+
+  .btn_signin img{
+    width: 5%;
+    height: auto;
+    position: absolute;
+    top: 25px;
+    margin-left: 1250px;
+  }

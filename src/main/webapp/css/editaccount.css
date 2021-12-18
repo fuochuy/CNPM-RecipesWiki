@@ -1,0 +1,132 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    
+  }
+  body{
+      background: #F7F7F7;
+  }
+  
+  .header__menu {
+      text-align: center;
+      padding: 0 60px;
+      height: 60px;
+    background-color: #c8e3d4;
+    
+  }
+  
+  .header__menu ul li {
+    padding-top: 10px;
+      list-style: none;
+      display: inline-block;
+      margin-right: 80px;
+      position: relative;
+  }
+  
+  .header__menu ul li.active a:after {
+      -webkit-transform: scale(1);
+      -ms-transform: scale(1);
+      transform: scale(1);
+  }
+  
+  .header__menu ul li:hover a:after {
+      -webkit-transform: scale(1);
+      -ms-transform: scale(1);
+      transform: scale(1);
+  }
+  
+  .header__menu ul li:last-child {
+      margin-right: 0;
+  }
+  
+  .header__menu ul li a {
+      font-size: 23px;
+      color: black;
+      display: block;
+      position: relative;
+      padding: 3px 0;
+    text-decoration: none;
+  }
+  .header__menu ul li a span{
+    font-weight: bold;
+  }
+  
+  .header__menu ul li a:after {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 2px;
+      background: black;
+      content: "";
+      -webkit-transition: all, 0.5s;
+      -o-transition: all, 0.5s;
+      transition: all, 0.5s;
+      -webkit-transform: scale(0);
+      -ms-transform: scale(0);
+      transform: scale(0);
+  }
+  
+  .container{
+      margin: 0 auto;
+      
+  }
+  .row{
+      margin-bottom: 10px;
+  }
+  .profile{
+      margin-top: 50px;
+      margin-bottom: 30px;
+  }
+  .profile .head-profile{
+    text-align: center;
+      background-color: #c8e3d4;
+      margin-left: 200px;
+      margin-right: 200px;
+      border-radius: 15px;
+  }
+  .profile .head-profile img{
+      width: 150px;
+  }
+.content h3{
+    margin-left: 200px;
+}
+.content input{
+    margin-left: -100px;
+    background-color: #f7f7f7;
+    margin-right: 200px;
+    padding-right: 230px;
+    padding-left: 20px;
+    height: 50px;
+    border-radius: 10px;
+    border: 1px solid black;
+}
+.edit{
+    margin-top: 40px;
+    margin-bottom: 40px;
+    text-align: center;
+    
+}
+
+.edit button[type="submit"]{
+    width: 100px;
+    height: 50px;
+    border: none;
+    background-color: #0099FF;
+    border-radius: 10px;
+    font-size: 20px;
+    margin-right: 40px;
+}
+.edit button[type="reset"]{
+    width: 100px;
+    height: 50px;
+    border: none;
+    background-color: #FF3333;
+    border-radius: 10px;
+    font-size: 20px;
+    margin-right: 40px;
+    margin-left: 150px;
+}
