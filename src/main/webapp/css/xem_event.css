@@ -116,29 +116,31 @@ button:hover i {
   animation-iteration-count: infinite;
 }
 
-.xemthem {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 40px;
-}
-
 .container {
   margin: 0 auto;
   width: 900px;
   display: inline;
 }
 
+.oo {
+  position: relative;
+}
+
+.container .oo .themsk button {
+  background: #ff6f61;
+}
+
 .themsk {
-  margin-left: 1250px;
-  background-color: #f7cac9;
+  margin-right: 20px;
   border-radius: 10px;
-  display: inline-flex;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  margin-bottom: 20px;
 }
 
 .themsk p {
-  margin-top: 3px;
-  margin-left: 5px;
-  margin-right: 5px;
+  margin: 5px;
   font-size: 25px;
 }
 
@@ -154,21 +156,49 @@ button:hover i {
   font-size: xx-large;
 }
 
+.head_title {
+  margin-top: 40px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+.head_title span {
+  margin-left: 60px;
+  background-color: #fa8072;
+  font-size: 20px;
+  font-weight: bold;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 50px;
+  padding-right: 50px;
+  border-radius: 50%;
+}
+
+.event-in4 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .image-event {
   float: left;
-  width: 60%;
-  margin-left: 280px;
   margin-top: 60px;
-  width: 500px;
-  height: 300px;
-  border-radius: 10px;
+  max-width: 500px;
   overflow: hidden;
 }
 .image-text {
-  margin-top: 60px;
-  margin-left: 30px;
+  margin-top: 35px;
+  margin-left: 40px;
   float: left;
   width: 40%;
+}
+
+.event-in4 .image-event img {
+  border-radius: 10px;
+  display: block;
+
+  max-height: 310px;
+  width: auto;
+  height: auto;
 }
 
 .event-in4 .image-text .text h3 {
@@ -183,8 +213,8 @@ button:hover i {
 }
 
 .xemthem {
-  margin-left: 250px;
-  width: 1000px;
+  text-align: center;
+  margin-bottom: 40px;
 }
 
 .xemthem h3 {

@@ -74,57 +74,30 @@
       margin: 0 auto;
       
   }
-  .content{
-    margin-top: 100px;
-  }
 .row{
-      margin-bottom: 10px;
-  }
-.content h3{    
-    margin-left: 200px;
-}
-.content input{
-    margin-left: -100px;
-    background-color: #f7f7f7;
-    margin-right: 200px;
-    padding-right: 230px;
-    padding-left: 20px;
-    height: 50px;
-    border-radius: 10px;
-    border: 1px solid black;
-}
-.content input[type="file"]{
-    background-color: white;
-    padding: 0;
-    height: auto;
-    border: none;
-    border-radius: 0px;
-    padding-top: 20px;
-
-}
-.edit{
     margin-top: 40px;
-    margin-bottom: 40px;
-    text-align: center;
-    
+    margin-bottom: 10px;
 }
-
-.edit button[type="submit"]{
-    width: 100px;
-    height: 50px;
-    border: none;
-    background-color: #0099FF;
-    border-radius: 10px;
+  
+.event span{
+    margin-left: 60px;
+    background-color: #FA8072;
     font-size: 20px;
-    margin-right: 40px;
+    font-weight: bold;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 50px;
+    padding-right: 50px;
+    border-radius: 50%;
 }
-.edit button[type="reset"]{
-    width: 100px;
-    height: 50px;
-    border: none;
-    background-color: #FF3333;
-    border-radius: 10px;
-    font-size: 20px;
-    margin-right: 40px;
-    margin-left: 150px;
-}
+.notfound img{
+    width: 15%;
+    position: fixed;
+    top: 250px;
+    left: 380px;
+  }
+  .notfound h3{
+    position: fixed;
+    left: 630px;
+    top: 300px;
+  }

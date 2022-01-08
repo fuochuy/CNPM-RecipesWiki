@@ -239,3 +239,16 @@
   font-weight: bold;
   text-decoration: underline;
 }
+
+.notfound img{
+    width: 15%;
+    position: fixed;
+    left: 470px;
+    top: 350px;
+}
+.notfound h3{
+    position: fixed;
+    left: 723px;
+    top: 390px;
+    font-weight: 500;
+}
