@@ -7,11 +7,12 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import cnpm.recipe.model.Account;
+import cnpm.recipe.model.User;
 import cnpm.recipe.service.AccountService;
 import cnpm.recipe.url.JspConst;
-import cnpm.recipe.url.SessionUtil;
 import cnpm.recipe.url.UrlConst;
 
 @WebServlet(name = "auth", urlPatterns = {
@@ -21,7 +22,7 @@ import cnpm.recipe.url.UrlConst;
 })
 public class AuthServlet extends HttpServlet {
 
-	private static final long serialVersionUID = -9065973247091639836L;
+	
 	private AccountService service;
 	private String action;
 	
@@ -58,7 +59,9 @@ public class AuthServlet extends HttpServlet {
 		
 		String username = req.getParameter("username");
 		String password1 = req.getParameter("password1");
-		if(username != null && password1 != null) {
+		String password2 = req.getParameter("password2");
+		if(username != null && password1 != null && password2!=null) {
+			
 			Account account = new Account();
 			account.setUsername(username);
 			account.setPassword(password1);
@@ -68,18 +71,23 @@ public class AuthServlet extends HttpServlet {
 			else {
 				resp.sendRedirect(req.getContextPath() + UrlConst.SIGN_UP);
 			}
+			
+			
 		}
 		String password = req.getParameter("password");
 		if(username!=null && password!=null) {
 			Account login = service.checkLogIn(username, password);
 			if(login!=null) {
-				resp.sendRedirect(req.getContextPath() + UrlConst.HOME);
+				HttpSession session = req.getSession();
+				session.setAttribute("AccountId", login.getId());
+				session.setMaxInactiveInterval(360);
+				
+				req.setAttribute("username", login.getUsername());;
+				resp.sendRedirect(req.getContextPath() + UrlConst.EDIT_PROFILE);
 			}
 			else {
 				resp.sendRedirect(req.getContextPath() + UrlConst.SIGN_IN);
 			}
-			
-			
 		}
 	}
 }

@@ -8,22 +8,22 @@
     <meta name="viewport" />
     <script src="https://kit.fontawesome.com/1147679ae7.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-
     <!-- font awesome cdn link  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="./css/signup.css" />
     <title>Đăng ký tài khoản</title>
 </head>
 <body>
+	
 	<div class="center">
 		<c:if test="${not empty message}">
-				<div class="alert alert-dismissible bg-${alert } text-white border-0 fade show">
-					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-					${message}
-				</div>
-		</c:if>
+		<div class="alert alert-dismissible bg-${alert } text-white border-0 fade show">
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+			${message}
+		</div>
+	</c:if>
         <form method="post" action="sign-up">
           <div class="txt_field">
             <input type="text" required name="username">

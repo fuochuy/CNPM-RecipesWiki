@@ -78,18 +78,23 @@ input[type="checkbox"] {
 }
 
 .container-checkbox {
-  margin-top: 50px;
-  margin-left: 50px;
+  margin-right: 30px;
+  margin-top: 10px;
+  margin-left: 30px;
   float: left;
 }
 
 .checkbox0 {
-  font-size: 22px;
+  color: #34568b;
+  font-weight: bold;
+  font-size: 20px;
   margin-bottom: 20px;
 }
 .checkbox1 {
+  color: #34568b;
+  font-weight: bold;
   margin-left: 20px;
-  font-size: 20px;
+  font-size: 18px;
   margin-bottom: 15px;
 }
 
@@ -144,20 +149,25 @@ input[type="checkbox"] {
 }
 
 .menu .box-container .box .profile img {
+  width: 50px;
   padding: 5px;
   padding-top: 0;
-  width: 50px;
-  display: inline-block;
+  width: 20%;
+  float: left;
+  margin-top: 5px;
 }
 .menu .box-container .box .profile .content_profile {
   padding: 5px;
   padding-top: 0;
   display: inline-block;
+  width: 80%;
+  margin-top: 3px;
+  float: left;
 }
 .menu .box-container .box .profile .content_profile .name {
   font-weight: bold;
+  margin-bottom: 8px;
 }
-
 .xemthem {
   display: flex;
   justify-content: center;
@@ -180,13 +190,14 @@ input[type="checkbox"] {
 }
 
 .xemthem {
-  margin-left: 200px;
   display: flex;
   justify-content: center;
-  margin-bottom: 40px;
+  align-items: center;
+  text-align: center;
 }
 
 .xemthem h3 {
+  margin-bottom: 60px;
   font-weight: bold;
   text-decoration: underline;
 }

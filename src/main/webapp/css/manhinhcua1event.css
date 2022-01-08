@@ -68,17 +68,17 @@ body {
 }
 .container {
   margin: 0 auto;
-  
 }
 
 .image-header {
   margin-top: 50px;
 }
-.image-header img{
+.image-header img {
   width: 100%;
 }
 
-.image-event img{
+.image-event img {
+  margin-left: 20px;
   margin-top: 60px;
   width: 100%;
   border-radius: 10px;
@@ -88,15 +88,15 @@ body {
   margin-top: 60px;
   margin-left: 30px;
 }
-.event-in4 .image-text .text h3 {
+.row .image-text .text h3 {
   font-weight: bold;
-  font-size: 30px;
+  font-size: 22px;
 }
 
-.event-in4 .image-text .text p {
+.row .image-text .text p {
   font-size: 20px;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-top: 17px;
+  margin-bottom: 17px;
 }
 
 button {
@@ -108,7 +108,7 @@ button {
   align-items: center;
   justify-content: center;
   margin: auto;
-  margin-top: 30px;
+  margin-top: 15px;
   cursor: pointer;
   font-family: "Montserrat-Medium";
   text-transform: uppercase;
@@ -150,7 +150,6 @@ button:hover i {
 
 .menu {
   margin-top: 50px;
-  width: 1000px;
 }
 .menu .box-container {
   display: grid;
@@ -200,22 +199,33 @@ button:hover i {
 }
 
 .menu .box-container .box .profile img {
+  width: 50px;
   padding: 5px;
   padding-top: 0;
-  width: 50px;
-  display: inline-block;
+  width: 20%;
+  float: left;
+  margin-top: 5px;
 }
 .menu .box-container .box .profile .content_profile {
   padding: 5px;
   padding-top: 0;
-  display: inline-block;
+  width: 60%;
+  margin-top: 3px;
+  float: left;
 }
 .menu .box-container .box .profile .content_profile .name {
   font-weight: bold;
+  margin-bottom: 8px;
 }
-
 .xemthem {
   display: flex;
   justify-content: center;
-  margin-bottom: 40px;
+  align-items: center;
+  text-align: center;
+}
+
+.xemthem h3 {
+  margin-bottom: 60px;
+  font-weight: bold;
+  text-decoration: underline;
 }

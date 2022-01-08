@@ -14,4 +14,8 @@ public class UrlConst {
 	
 	/* SIGN UP */
 	public static final String SIGN_UP = "/sign-up";
+	
+	
+	/*USER*/
+	public static final String EDIT_PROFILE = "/edit-profile";
 }
