@@ -35,7 +35,19 @@ public class DbConst {
 			+ "AND a.id = ar.album_id "
 			+ "AND ar.recipe_id = r.id ";
 		
-
+	/*Get number of user who enroll an event*/
+	public static final String GET_TGEvent_Num = "SELECT COUNT(*)"
+			+ "FROM thamgiaevent "
+			+ "WHERE idevent = ";
+	
+	/*Get list of user's recipe who enroll an event*/
+	public static final String GET_TGEvent = "SELECT COUNT(*)"
+			+ "FROM thamgiaevent "
+			+ "WHERE idevent = ";
+	
+	/*Insert ThamGiaEvent*/
+	public static final String INSERT_TGEvent = "INSERT thamgiaevent (iduser, idevent, idrecipe) VALUE(?,?,?)";
+	
 }
 
 
