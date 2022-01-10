@@ -21,11 +21,11 @@ public class JspConst {
 	public static final String CREATE_A_EVENT = "/WEB-INF/view/Event/tao_event.jsp";
 	
 	/*TIM KIEM 2*/
-	public static final String TIM_KIEM_2 = "/WEB-INF/view/Event/timkiem2.jsp";
+	public static final String TIM_KIEM_2 = "/WEB-INF/view/TimKiem/timkiem2.jsp";
 	
 	/*TRANG CHU*/
 	public static final String TRANG_CHU = "/WEB-INF/view/TrangChu/trang_chu.jsp";
 	
 	/*MAN HINH CUA 1 CT*/
-	public static final String MAN_HINH_CUA_1_CT = "/WEB-INF/view/Event/manhinhcua1CT.jsp";
+	public static final String MAN_HINH_CUA_1_CT = "/WEB-INF/view/Recipes/manhinhcua1CT.jsp";
 }

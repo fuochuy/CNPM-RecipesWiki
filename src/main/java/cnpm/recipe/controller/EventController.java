@@ -14,7 +14,7 @@ import cnpm.recipe.url.JspConst;
 import cnpm.recipe.url.UrlConst;
 
 @WebServlet(name="eventController", urlPatterns = {
-		UrlConst.CREATE_A_EVENT,UrlConst.VIEW_A_EVENT})
+		UrlConst.CREATE_A_EVENT,UrlConst.VIEW_A_EVENT, UrlConst.VIEW_ALL_EVENT})
 public class EventController extends HttpServlet{
 	
 	private EventService service;
@@ -42,7 +42,11 @@ public class EventController extends HttpServlet{
 			break;
 		case UrlConst.VIEW_A_EVENT:
 			req.getRequestDispatcher(JspConst.VIEW_A_EVENT).forward(req, resp);
+			break;	
+		case UrlConst.VIEW_ALL_EVENT:
+			req.getRequestDispatcher(JspConst.VIEW_ALL_EVENT).forward(req, resp);
 			break;
 		}
+	
 	}
 }
