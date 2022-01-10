@@ -13,7 +13,7 @@
 
     <!-- font awesome cdn link  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link rel="stylesheet" href="css/editaccount.css" />
+    <link rel="stylesheet" href="css/account.css" />
    
     <!--link bootstrap-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
@@ -107,105 +107,82 @@
     </header>
    
     <div class="container">
-          
-
-          
-          <div class="content">
-            <form action="">
-                  <div class="row">
-                    <div class="col-md-6" >
-                        <h3>Chỉnh sửa Avatar</h3>
-                    </div>
-                    <div class="col-md-6" >
-                        <div class="info">
-                          <input  type="file" placeholder="Tải Avatar" name="hinhanh"  id="file-ip-0"  accept="image/*"  onchange="showPreview(event);"/>
-                        </div>
-                    </div>
-                    <div class="preview">
-                      <img id="file-ip-0-preview" />
-                    </div>
-                 </div>  
-
-                <div class="row">
-                    <div class="col-md-6" >
-                        <h3>Họ và tên</h3>
-                    </div>
-                    <div class="col-md-6" >
-                      <div class="info">
-                        <input type="text" name="hoten" placeholder="Nguyễn Phước Huy">
-                      </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6" >
-                        <h3>Ngày tháng năm sinh</h3>
-                    </div>
-                    <div class="col-md-6" >
-                      <div class="info">
-                        <input type="" name="ngaysinh" value="" placeholder="01/01/2001">
-                      </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6" >
-                        <h3>Email</h3>
-                    </div>
-                    <div class="col-md-6" >
-                      <div class="info">
-                        <input type="text" name="email" placeholder="info.@gmail.com">
-                      </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6" >
-                        <h3>Mật khẩu</h3>
-                    </div>
-                    <div class="col-md-6" >
-                      <div class="info">
-                        <input type="password">
-                      </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6" >
-                        <h3>Xác nhận mật khẩu</h3>
-                    </div>
-                    <div class="col-md-6" >
-                      <div class="info">
-                        <input type="password">
-                      </div>
-                    </div>
-                </div>
-                <div class="edit" >
-                    <button type="reset">Hủy</button>
-                  <button type="submit">Lưu</a></button>
+          <div class="profile">
+              <div class="head-profile">
+                  <img src="Image/user/Profile.png" alt="">
+                  <h3>Nguyễn Phước Huy</h3>
               </div>
-            </form>
+          </div>  
+
+          <div class="content">
+            <div class="row">
+                <div class="col-md-6" >
+                    <h3>Họ và tên</h3>
+                </div>
+                <div class="col-md-6" >
+                  <div class="info">
+                    <h2>Nguyễn Phước Huy</h2>
+                  </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6" >
+                    <h3>Ngày tháng năm sinh</h3>
+                </div>
+                <div class="col-md-6" >
+                  <div class="info">
+                    <h2>21/12/2001</h2>
+                  </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6" >
+                    <h3>Email</h3>
+                </div>
+                <div class="col-md-6" >
+                  <div class="info">
+                    <h2>phuochuynguyen.work@gmail.com</h2>
+                  </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6" >
+                    <h3>Mật khẩu</h3>
+                </div>
+                <div class="col-md-6" >
+                  <div class="info">
+                    <h2>**********************</h2>
+                  </div>
+                </div>
+            </div>
           </div>
-          
+          <div class="edit" >
+            <button><a href="editaccount.html">Chỉnh sửa thông tin</a></button>
+        </div>
     </div>
 
 
 
    
     <script>
-      window.onscroll = function() {myFunction()};
-      
+      window.onscroll = function () {
+        myFunction();
+      };
+
       var header = document.getElementById("myHeader");
       var sticky = header.offsetTop;
-      
+
       function myFunction() {
         if (window.pageYOffset > sticky) {
           header.classList.add("sticky");
         } else {
           header.classList.remove("sticky");
         }
-
-        
       }
-  </script>
-  <script src="./js/burger.js"></script>
-    <script src="js/showpicture.js"></script>
+    </script>
+
+    <script src="./js/burger.js"></script>
+    </script>
     <script src="//code.jquery.com/jquery.js"></script>
     <!-- Bootstrap JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>

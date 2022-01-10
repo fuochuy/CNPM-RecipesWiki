@@ -3,8 +3,7 @@ package cnpm.recipe.url;
 public class UrlConst {
 	/* ROOT */
 	public static final String ROOT = "/*";
-	/* HOME */
-	public static final String HOME = "/home";
+	
 	
 	/* LOGIN */
 	public static final String SIGN_IN = "/sign-in";
@@ -18,6 +17,7 @@ public class UrlConst {
 	
 	/*USER*/
 	public static final String EDIT_PROFILE = "/edit-profile";
+	public static final String PROFILE = "/profile";
 	
 	/*VIEW ALL EVENT*/
 	public static final String VIEW_ALL_EVENT = "/xem-tatca-event";

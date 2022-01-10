@@ -2,32 +2,30 @@ package cnpm.recipe.controller;
 
 import java.io.IOException;
 
-import javax.security.auth.message.callback.PrivateKeyCallback.Request;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebFilter;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.catalina.connector.Response;
-
-import cnpm.recipe.service.UserService;
+import cnpm.recipe.service.EventService;
 import cnpm.recipe.url.JspConst;
 import cnpm.recipe.url.UrlConst;
 
-@WebServlet(name = "userServlet", urlPatterns = {
-		UrlConst.EDIT_PROFILE,UrlConst.PROFILE
-})
-public class UserServlet extends HttpServlet{
+@WebServlet(name="eventController", urlPatterns = {
+		UrlConst.CREATE_A_EVENT,UrlConst.VIEW_A_EVENT})
+public class EventController extends HttpServlet{
 	
-	private UserService service;
+	private EventService service;
 	private String acction;
 	
 	@Override
 	public void init() throws ServletException {
+		// TODO Auto-generated method stub
 		super.init();
-		service = new UserService();
-		acction = "";
+		service= new EventService();
+		acction="";
 	}
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -39,17 +37,12 @@ public class UserServlet extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		switch(acction) {
-		case UrlConst.EDIT_PROFILE:
-			req.getRequestDispatcher(JspConst.EDIT_PROFILE).forward(req, resp);
+		case UrlConst.CREATE_A_EVENT:
+			req.getRequestDispatcher(JspConst.CREATE_A_EVENT).forward(req, resp);
 			break;
-		case UrlConst.PROFILE:
-			req.getRequestDispatcher(JspConst.PROFILE).forward(req, resp);
+		case UrlConst.VIEW_A_EVENT:
+			req.getRequestDispatcher(JspConst.VIEW_A_EVENT).forward(req, resp);
 			break;
 		}
 	}
-	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
-	}
-	
 }

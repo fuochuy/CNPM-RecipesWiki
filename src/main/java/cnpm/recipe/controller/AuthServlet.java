@@ -44,7 +44,7 @@ public class AuthServlet extends HttpServlet {
 		case UrlConst.SIGN_IN:
 			req.getRequestDispatcher(JspConst.SIGN_IN)
 			.forward(req,resp);
-		case UrlConst.HOME:
+		case UrlConst.TRANG_CHU:
 			break;
 		case UrlConst.SIGN_UP:
 			req.getRequestDispatcher(JspConst.SIGN_UP)
