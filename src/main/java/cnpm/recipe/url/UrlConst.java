@@ -17,6 +17,7 @@ public class UrlConst {
 	
 	/*USER*/
 	public static final String EDIT_PROFILE = "/edit-profile";
+
 	public static final String PROFILE = "/profile";
 	
 	/*VIEW ALL EVENT*/
@@ -36,4 +37,29 @@ public class UrlConst {
 	
 	/*MAN HINH CUA 1 CT*/
 	public static final String MAN_HINH_CUA_1_CT = "/manhinhcua1CT";
+
+	/*MAN HINH about us*/
+	public static final String ABOUT_US = "/aboutus";
+	
+	/*MAN HINH SU KIEN CUA TOI*/
+	public static final String MY_EVENT = "/myevent";
+	
+	/*MAN HINH SU KIEN CUA TOI KO CO KQ*/
+	public static final String MY_EVENT_404 = "/myevent404";
+	
+	/*TIM KIEM 1*/
+	public static final String TIM_KIEM_1 = "/timkiem1";
+	
+	/*KQ TIM KIEM 1*/
+	public static final String RESULT1 = "/result1";
+	
+	/*KQ TIM KIEM KQ*/
+	public static final String NO_RESULT1 = "/noresult1";
+	
+	/*BO SUU TAP*/
+	public static final String BST = "/album";
+	
+	/*BO SUU TAP 0kq*/
+	public static final String BST_404 = "/album404";
+
 }

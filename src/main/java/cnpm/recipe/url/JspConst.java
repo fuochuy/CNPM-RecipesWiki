@@ -9,6 +9,7 @@ public class JspConst {
 	
 	/*EDIT PROFILE*/
 	public static final String EDIT_PROFILE = "/WEB-INF/view/user/edit-profile.jsp";
+
 	public static final String PROFILE = "/WEB-INF/view/user/profile.jsp";
 	
 	/*VIEW ALL EVENT*/
@@ -28,4 +29,29 @@ public class JspConst {
 	
 	/*MAN HINH CUA 1 CT*/
 	public static final String MAN_HINH_CUA_1_CT = "/WEB-INF/view/Recipes/manhinhcua1CT.jsp";
+
+	/*MAN HINH ABOUT US*/
+	public static final String ABOUT_US = "/WEB-INF/view/user/aboutus.jsp";
+
+	/*MAN HINH SU KIEN CUA TOI*/
+	public static final String MY_EVENT = "/WEB-INF/view/Menu/MyEvent.jsp";
+	
+	/*MAN HINH SU KIEN CUA TOI KO CO KQ*/
+	public static final String MY_EVENT_404 = "/WEB-INF/view/Menu/MyEvent_404.jsp";
+
+	/*TIM KIEM 1*/
+	public static final String TIM_KIEM_1 = "/WEB-INF/view/TimKiem/timkiem1.jsp";
+	
+	/*KQ TIM KIEM 1*/
+	public static final String RESULT1 = "/WEB-INF/view/TimKiem/result1.jsp";
+	
+	/*KQ TIM KIEM 1 0KQ*/
+	public static final String NO_RESULT1 = "/WEB-INF/view/TimKiem/no_result1.jsp";
+	
+	/*BO SUU TAP*/
+	public static final String BST = "/WEB-INF/view/Menu/bst.jsp";
+	
+	/*BO SUU TAP 0kq*/
+	public static final String BST_404 = "/WEB-INF/view/Menu/bst_404.jsp";
+
 }
