@@ -28,7 +28,7 @@ public class UserServlet extends HttpServlet{
 	
 	private UserService service;
 	private String acction;
-	private int AccountId;
+	
 	
 	@Override
 	public void init() throws ServletException {
@@ -39,7 +39,7 @@ public class UserServlet extends HttpServlet{
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		acction=req.getServletPath();
-		AccountId = (int) req.getSession().getAttribute("AccountId");
+		
 		super.service(req, resp);
 		
 	}
@@ -50,11 +50,11 @@ public class UserServlet extends HttpServlet{
 		case UrlConst.EDIT_PROFILE:
 			req.getRequestDispatcher(JspConst.EDIT_PROFILE).forward(req, resp);
 			break;
-		case UrlConst.PROFILE:
-			
+		case UrlConst.PROFILE: 
+			int AccountId = (int) req.getSession().getAttribute("AccountId");
+			System.out.println(AccountId);
 			User user = service.getUserById(AccountId);
 			req.setAttribute("user", user);
-			
 			req.getRequestDispatcher(JspConst.PROFILE).forward(req, resp);
 			break;
 		}
@@ -72,22 +72,25 @@ public class UserServlet extends HttpServlet{
 			
 			part.write(realPath+"/"+fileName);
 			String avatar = "users/"+fileName;
+			
 			String hoten = req.getParameter("hoten");
 			String ngaysinh = req.getParameter("ngaysinh");
 			if(hoten !=null && ngaysinh!=null && hoten!="" && ngaysinh !="" ) {
 				User user = new User();
 				user.setFullname(hoten);
+				int AccountId = (int) req.getSession().getAttribute("AccountId");
+			
 				user.setIdaccount(AccountId);
 				user.setAvatar(avatar);
 				Date DOB = Date.valueOf(ngaysinh);
 				user.setDOB(DOB);
 				service.inserUser(user);
-				resp.sendRedirect(req.getContextPath()+UrlConst.PROFILE);
+				req.getRequestDispatcher(JspConst.PROFILE);
 			}
 			
 		} catch (Exception e) {
 			// TODO: handle exception
-			System.out.println("That bai");
+			
 		}
 
 		

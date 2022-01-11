@@ -23,6 +23,7 @@ public class UserRepository {
 			connection = MySQLConnection.getConnection();
 			String query = DbConst.GET_USERS;
 			statement = connection.prepareStatement(query);
+			statement.setInt(1,id);
 			rs = statement.executeQuery();
 	
 			while (rs.next()) {

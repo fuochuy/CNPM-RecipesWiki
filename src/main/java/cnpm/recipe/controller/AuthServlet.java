@@ -78,12 +78,13 @@ public class AuthServlet extends HttpServlet {
 		if(username!=null && password!=null) {
 			Account login = service.checkLogIn(username, password);
 			if(login!=null) {
-				//HttpSession session = req.getSession();
-				//session.setAttribute("AccountId", login.getId());
-				//session.setMaxInactiveInterval(360);
+				HttpSession session = req.getSession();
+				session.setAttribute("AccountId", login.getId());
+				session.setMaxInactiveInterval(360);
 				
 				//req.setAttribute("username", login.getUsername());
-				req.getSession().setAttribute("AccountId", login.getId());
+				//req.setAttribute("AccountId", login.getId());
+				//req.getRequestDispatcher(JspConst.EDIT_PROFILE).forward(req, resp);
 				resp.sendRedirect(req.getContextPath() + UrlConst.PROFILE);
 			}
 			else {
