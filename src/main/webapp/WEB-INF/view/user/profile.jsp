@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@page import="cnpm.recipe.model.User"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -106,11 +108,12 @@
       </nav>
     </header>
    
+   <%User user =(User) request.getAttribute("user"); %>
     <div class="container">
           <div class="profile">
               <div class="head-profile">
-                  <img src="Image/user/Profile.png" alt="">
-                  <h3>Nguyễn Phước Huy</h3>
+                  <img src="<%=user.getAvatar() %>" alt="">
+                  <h3><%=user.getFullname() %></h3>
               </div>
           </div>  
 
@@ -121,7 +124,7 @@
                 </div>
                 <div class="col-md-6" >
                   <div class="info">
-                    <h2>Nguyễn Phước Huy</h2>
+                    <h2><%=user.getFullname() %></h2>
                   </div>
                 </div>
             </div>
@@ -131,33 +134,12 @@
                 </div>
                 <div class="col-md-6" >
                   <div class="info">
-                    <h2>21/12/2001</h2>
+                    <h2><%=user.getDOB() %></h2>
                   </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-6" >
-                    <h3>Email</h3>
-                </div>
-                <div class="col-md-6" >
-                  <div class="info">
-                    <h2>phuochuynguyen.work@gmail.com</h2>
-                  </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6" >
-                    <h3>Mật khẩu</h3>
-                </div>
-                <div class="col-md-6" >
-                  <div class="info">
-                    <h2>**********************</h2>
-                  </div>
-                </div>
-            </div>
-          </div>
           <div class="edit" >
-            <button><a href="editaccount.html">Chỉnh sửa thông tin</a></button>
+            <button><a href="edit-profile">Chỉnh sửa thông tin</a></button>
         </div>
     </div>
 

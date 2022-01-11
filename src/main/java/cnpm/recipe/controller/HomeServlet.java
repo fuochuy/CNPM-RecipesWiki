@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-@WebServlet(name="homeServlet", urlPatterns = "/home")
 import cnpm.recipe.url.JspConst;
 import cnpm.recipe.url.UrlConst;
 
@@ -23,7 +22,7 @@ public class HomeServlet extends HttpServlet{
 
 		req.getRequestDispatcher(JspConst.TRANG_CHU).forward(req, resp);
 
-		resp.getWriter().append("home");
+		
 
 	}
 }

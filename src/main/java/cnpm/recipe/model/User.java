@@ -1,7 +1,6 @@
 package cnpm.recipe.model;
 
-import java.util.Date;
-
+import java.sql.Date;
 
 public class User {
 	private int id;

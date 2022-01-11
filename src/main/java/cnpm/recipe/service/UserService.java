@@ -12,10 +12,12 @@ public class UserService {
 		repository = new UserRepository();
 	}
 	
-	List<User> getUsers(){
-		return repository.getUsers();
+	public User getUserById(int id){
+		return repository.getUserById(id);
 	}
-	boolean inserUser(User user) {
+	public boolean inserUser(User user) {
 		return repository.inserUser(user) == 1? true:false;
 	}
+
+	
 }

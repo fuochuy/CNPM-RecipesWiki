@@ -5,10 +5,8 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.LinkedList;
-import java.util.List;
 
-import com.mysql.cj.jdbc.Blob;
+
 
 import cnpm.recipe.db.DbConst;
 import cnpm.recipe.db.MySQLConnection;
@@ -20,8 +18,7 @@ public class UserRepository {
 	private ResultSet rs = null;
 	
 	
-	public List<User> getUsers() {
-		List<User> users = new LinkedList<User>();
+	public User getUserById(int id) {
 		try {
 			connection = MySQLConnection.getConnection();
 			String query = DbConst.GET_USERS;
@@ -35,8 +32,7 @@ public class UserRepository {
 				user.setFullname(rs.getString("u.fullname"));
 				user.setDOB(rs.getDate("u.DOB"));
 				user.setAvatar(rs.getString("u.avatar"));
-				
-				users.add(user);
+				return user;
 			}
 		} catch (SQLException e) {
 			System.out.println("Không thể kết nối đến cơ sở dữ liệu");
@@ -51,7 +47,8 @@ public class UserRepository {
 				e.printStackTrace();
 			}
 		}
-		return users;
+		return null;
+		
 	}
 	
 	public int inserUser(User user) {
@@ -66,7 +63,6 @@ public class UserRepository {
 			statement.setDate(3, (Date) user.getDOB());
 			statement.setString(4, user.getAvatar());
 		
-
 			return statement.executeUpdate();
 		} catch (SQLException e) {
 			System.out.println("Không thể kết nối đến cơ sở dữ liệu");

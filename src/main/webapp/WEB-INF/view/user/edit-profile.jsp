@@ -111,7 +111,7 @@
 
           
           <div class="content">
-            <form action="">
+            <form action="edit-profile" method="post" enctype="multipart/form-data">
                   <div class="row">
                     <div class="col-md-6" >
                         <h3>Chỉnh sửa Avatar</h3>
@@ -125,7 +125,6 @@
                       <img id="file-ip-0-preview" />
                     </div>
                  </div>  
-
                 <div class="row">
                     <div class="col-md-6" >
                         <h3>Họ và tên</h3>
@@ -142,40 +141,11 @@
                     </div>
                     <div class="col-md-6" >
                       <div class="info">
-                        <input type="" name="ngaysinh" value="" placeholder="01/01/2001">
+                        <input type="date" name="ngaysinh" value="" placeholder="01/01/2001">
                       </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-6" >
-                        <h3>Email</h3>
-                    </div>
-                    <div class="col-md-6" >
-                      <div class="info">
-                        <input type="text" name="email" placeholder="info.@gmail.com">
-                      </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6" >
-                        <h3>Mật khẩu</h3>
-                    </div>
-                    <div class="col-md-6" >
-                      <div class="info">
-                        <input type="password">
-                      </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6" >
-                        <h3>Xác nhận mật khẩu</h3>
-                    </div>
-                    <div class="col-md-6" >
-                      <div class="info">
-                        <input type="password">
-                      </div>
-                    </div>
-                </div>
+              
                 <div class="edit" >
                     <button type="reset">Hủy</button>
                   <button type="submit">Lưu</a></button>
