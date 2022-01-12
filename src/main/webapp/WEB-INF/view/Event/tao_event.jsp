@@ -118,7 +118,7 @@
         </h3>
       </div>
       <div class="content_upload">
-        <form action="">
+        <form method="post" action="tao_event" enctype="multipart/form-data">
           <label class="form-title" for="tensk">Tên sự kiện</label>
           <input
             type="text"

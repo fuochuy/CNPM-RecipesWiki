@@ -1,5 +1,6 @@
 package cnpm.recipe.repository;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -9,6 +10,7 @@ import java.util.List;
 import cnpm.recipe.db.DbConst;
 import cnpm.recipe.db.MySQLConnection;
 import cnpm.recipe.model.Event;
+import cnpm.recipe.model.User;
 
 public class EventRepository {
 
@@ -52,5 +54,62 @@ public class EventRepository {
 			}
 		}
 		return events;
+	}
+	
+	public int insertEvent(Event event) {
+		try {
+			connection = MySQLConnection.getConnection();
+			String query = DbConst.INSERT_EVENT;
+
+			statement = connection.prepareStatement(query);
+
+			statement.setInt(1, event.getId());
+			statement.setInt(1, event.getId_user());
+			statement.setString(2, event.getTen());
+			statement.setDate(3, (Date) event.getTgbatdau());
+			statement.setDate(3, (Date) event.getTgketthuc());
+			statement.setInt(1, event.getSoluong());
+			statement.setString(4, event.getHinhanh());
+			statement.setString(4, event.getGiaithuong());
+		
+			return statement.executeUpdate();
+		} catch (SQLException e) {
+			System.out.println("Không thể kết nối đến cơ sở dữ liệu");
+			e.printStackTrace();
+		} finally {
+			try {
+				connection.close();
+				statement.close();
+			} catch (SQLException e) {
+				System.out.println("Lỗi đóng kết nối");
+				e.printStackTrace();
+			}
+		}
+		return 0;
+	}
+	
+	public Event getEventById(String id) {
+		Event event = new Event();
+		try {
+			connection = MySQLConnection.getConnection();
+			String query = DbConst.GET_EVENT;
+			statement = connection.prepareStatement(query);
+			rs = statement.executeQuery();
+	
+			
+		} catch (SQLException e) {
+			System.out.println("Không thể kết nối đến cơ sở dữ liệu");
+			e.printStackTrace();
+		} finally {
+			try {
+				connection.close();
+				statement.close();
+				rs.close();
+			} catch (SQLException e) {
+				System.out.println("Lỗi đóng kết nối");
+				e.printStackTrace();
+			}
+		}
+		return event;
 	}
 }
