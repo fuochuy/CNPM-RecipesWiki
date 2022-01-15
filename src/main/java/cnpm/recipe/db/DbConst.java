@@ -4,11 +4,12 @@ public class DbConst {
 	
 	
 	/*Account*/
-	public static final String INSERT_ACCOUNT ="INSERT account (username,password,status) VALUE (?,?,1)";
-	public static final String GET_ACCOUNTS ="SELECT a.id,a.username, a.password,a.status FROM account a";
+	public static final String INSERT_USER ="INSERT user (email,password,status) VALUE (?,?,1)";
+	public static final String GET_USERS ="SELECT u.id,u.email, u.password,u.status, u.fullname, u.DOB, u.avatar FROM user u";
 	/*User*/
-	public static final String GET_USERS = "SELECT u.id, u.idaccount, u.fullname, u.DOB, u.avatar FROM user u, account a WHERE a.id = u.idaccount and u.idaccount = ?";
-	public static final String INSERT_USER = "INSERT user(idaccount, fullname, DOB, avatar) VALUE (?,?,?,?)";
+	//public static final String GET_USERS = "SELECT u.id, u.idaccount, u.fullname, u.DOB, u.avatar FROM user u, account a WHERE a.id = u.idaccount and u.idaccount = ?";
+	//public static final String INSERT_USER = "INSERT user(idaccount, fullname, DOB, avatar) VALUE (?,?,?,?)";
+	public static final String UPDATE_USER = "UPDATE user SET fullname = ?, DOB = ?, avatar = ? WHERE id = ?";
 	
 	/*Recipe*/
 	public static final String GET_RECIPES = "SELECT r.id, r.iduser, r.ten, r.mota, r.nguyenlieu,r.hinhanh,"
