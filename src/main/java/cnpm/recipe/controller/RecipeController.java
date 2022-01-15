@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import cnpm.recipe.model.Recipe;
 import cnpm.recipe.service.RecipeService;
 import cnpm.recipe.url.JspConst;
 import cnpm.recipe.url.UrlConst;
@@ -37,6 +38,8 @@ public class RecipeController extends HttpServlet{
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		switch(acction) {
 		case UrlConst.MAN_HINH_CUA_1_CT:
+			Recipe recipe = service.getRecipeById("123");
+			req.setAttribute("view-a-recipe", recipe);
 			req.getRequestDispatcher(JspConst.MAN_HINH_CUA_1_CT).forward(req, resp);
 			break;		
 		}

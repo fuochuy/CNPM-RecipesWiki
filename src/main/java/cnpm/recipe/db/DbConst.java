@@ -51,6 +51,9 @@ public class DbConst {
 	/*THEM 1 EVENT*/
 	public static final String INSERT_EVENT = "INSERT event(iduser, ten, mota, tgbatdau, tgketthuc, soluong, hinhanh, giaithuong) VALUE (?,?,?,?,?,?,?,?)";
 	
+	/*LAY 1 CT VOI ID*/
+	public static final String GET_RECIPE = "SELECT r.id, r.iduser, r.ten, r.mota, r.nguyenlieu,r.hinhanh,"
+			+ " r.luotthich,r.tgdang, r.tgthuchien FROM recipe r WHERE r.id = ";
 }
 
 

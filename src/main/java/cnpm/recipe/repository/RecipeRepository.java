@@ -53,4 +53,29 @@ public class RecipeRepository {
 		}
 		return recipes;
 	}
+	
+	public Recipe getRecipeById(String id) {
+		Recipe recipe = new Recipe();
+		try {
+			connection = MySQLConnection.getConnection();
+			String query = DbConst.GET_RECIPE;
+			statement = connection.prepareStatement(query);
+			rs = statement.executeQuery();
+	
+			
+		} catch (SQLException e) {
+			System.out.println("Không thể kết nối đến cơ sở dữ liệu");
+			e.printStackTrace();
+		} finally {
+			try {
+				connection.close();
+				statement.close();
+				rs.close();
+			} catch (SQLException e) {
+				System.out.println("Lỗi đóng kết nối");
+				e.printStackTrace();
+			}
+		}
+		return recipe;
+	}
 }

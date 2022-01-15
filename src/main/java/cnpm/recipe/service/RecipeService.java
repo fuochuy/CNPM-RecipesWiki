@@ -15,4 +15,8 @@ private RecipeRepository repository;
 	public List<Recipe> getRecipes(){
 		return repository.getRecipes();
 	}
+	
+	public Recipe getRecipeById(String id) {
+		return repository.getRecipeById(id);
+	}
 }
