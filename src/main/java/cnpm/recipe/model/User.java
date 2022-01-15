@@ -4,23 +4,66 @@ import java.sql.Date;
 
 public class User {
 	private int id;
-	private int idaccount;
+	private String username;
+	private String password;
+	private int status;
 	private String fullname;
 	private Date DOB;
 	private String avatar;
-	
 	public User() {
 		
 	}
 
-	public User(int id, int idaccount, String fullname, Date dOB, String avatar) {
+	
+
+	public User(int id, String username, String password, int status, String fullname, Date dOB, String avatar) {
 		super();
 		this.id = id;
-		this.idaccount = idaccount;
+		this.username = username;
+		this.password = password;
+		this.status = status;
 		this.fullname = fullname;
 		DOB = dOB;
 		this.avatar = avatar;
 	}
+
+
+
+	public String getFullname() {
+		return fullname;
+	}
+
+
+
+	public void setFullname(String fullname) {
+		this.fullname = fullname;
+	}
+
+
+
+	public Date getDOB() {
+		return DOB;
+	}
+
+
+
+	public void setDOB(Date dOB) {
+		DOB = dOB;
+	}
+
+
+
+	public String getAvatar() {
+		return avatar;
+	}
+
+
+
+	public void setAvatar(String avatar) {
+		this.avatar = avatar;
+	}
+
+
 
 	public int getId() {
 		return id;
@@ -30,39 +73,28 @@ public class User {
 		this.id = id;
 	}
 
-	public int getIdaccount() {
-		return idaccount;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setIdaccount(int idaccount) {
-		this.idaccount = idaccount;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
-	public String getFullname() {
-		return fullname;
+	public String getPassword() {
+		return password;
 	}
 
-	public void setFullname(String fullname) {
-		this.fullname = fullname;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
-	public Date getDOB() {
-		return DOB;
+	public int getStatus() {
+		return status;
 	}
 
-	public void setDOB(Date dOB) {
-		DOB = dOB;
-	}
-
-	public String getAvatar() {
-		return avatar;
-	}
-
-	public void setAvatar(String b) {
-		this.avatar = b;
-	}
-	
-	
+	public void setStatus(int status) {
+		this.status = status;
+	};
 	
 }
-

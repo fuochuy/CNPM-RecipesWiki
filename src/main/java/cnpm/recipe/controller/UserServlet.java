@@ -51,9 +51,8 @@ public class UserServlet extends HttpServlet{
 			req.getRequestDispatcher(JspConst.EDIT_PROFILE).forward(req, resp);
 			break;
 		case UrlConst.PROFILE: 
-			int AccountId = (int) req.getSession().getAttribute("AccountId");
-			System.out.println(AccountId);
-			User user = service.getUserById(AccountId);
+			User user =  (User) req.getSession().getAttribute("user");
+			System.out.println(user.getUsername());
 			req.setAttribute("user", user);
 			req.getRequestDispatcher(JspConst.PROFILE).forward(req, resp);
 			break;
@@ -76,15 +75,10 @@ public class UserServlet extends HttpServlet{
 			String hoten = req.getParameter("hoten");
 			String ngaysinh = req.getParameter("ngaysinh");
 			if(hoten !=null && ngaysinh!=null && hoten!="" && ngaysinh !="" ) {
-				User user = new User();
-				user.setFullname(hoten);
-				int AccountId = (int) req.getSession().getAttribute("AccountId");
-			
-				user.setIdaccount(AccountId);
-				user.setAvatar(avatar);
+				
+				User user =  (User) req.getSession().getAttribute("user");
 				Date DOB = Date.valueOf(ngaysinh);
-				user.setDOB(DOB);
-				service.inserUser(user);
+				service.updateUser(user.getId(), hoten, DOB, avatar);
 				req.getRequestDispatcher(JspConst.PROFILE);
 			}
 			

@@ -9,9 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import cnpm.recipe.model.Account;
 import cnpm.recipe.model.User;
-import cnpm.recipe.service.AccountService;
+import cnpm.recipe.service.UserService;
 import cnpm.recipe.url.JspConst;
 import cnpm.recipe.url.UrlConst;
 
@@ -23,13 +22,13 @@ import cnpm.recipe.url.UrlConst;
 public class AuthServlet extends HttpServlet {
 
 	
-	private AccountService service;
+	private UserService service;
 	private String action;
 	
 	@Override
 	public void init() throws ServletException {
 		super.init();
-		service = new AccountService();
+		service = new UserService();
 		action ="";
 	}
 	@Override
@@ -62,10 +61,10 @@ public class AuthServlet extends HttpServlet {
 		String password2 = req.getParameter("password2");
 		if(username != null && password1 != null && password2!=null) {
 			
-			Account account = new Account();
-			account.setUsername(username);
-			account.setPassword(password1);
-			if(service.insertAccount(account)) {
+			User user = new User();
+			user.setUsername(username);
+			user.setPassword(password1);
+			if(service.insertUser(user)) {
 				resp.sendRedirect(req.getContextPath() + UrlConst.SIGN_IN);
 			}
 			else {
@@ -76,10 +75,10 @@ public class AuthServlet extends HttpServlet {
 		}
 		String password = req.getParameter("password");
 		if(username!=null && password!=null) {
-			Account login = service.checkLogIn(username, password);
+			User login = service.checkLogIn(username, password);
 			if(login!=null) {
 				HttpSession session = req.getSession();
-				session.setAttribute("AccountId", login.getId());
+				session.setAttribute("user", login);
 				session.setMaxInactiveInterval(360);
 				
 				//req.setAttribute("username", login.getUsername());
