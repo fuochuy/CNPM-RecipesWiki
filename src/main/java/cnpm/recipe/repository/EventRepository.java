@@ -63,15 +63,14 @@ public class EventRepository {
 
 			statement = connection.prepareStatement(query);
 
-			statement.setInt(1, event.getId());
 			statement.setInt(1, event.getId_user());
 			statement.setString(2, event.getTen());
-			statement.setString(4, event.getMota());
-			statement.setDate(3, (Date) event.getTgbatdau());
-			statement.setDate(3, (Date) event.getTgketthuc());
-			statement.setInt(1, event.getSoluong());
-			statement.setString(4, event.getHinhanh());
-			statement.setString(4, event.getGiaithuong());
+			statement.setString(3, event.getMota());
+			statement.setDate(4, (Date) event.getTgbatdau());
+			statement.setDate(5, (Date) event.getTgketthuc());
+			statement.setInt(6, event.getSoluong());
+			statement.setString(7, event.getHinhanh());
+			statement.setString(8, event.getGiaithuong());
 		
 			return statement.executeUpdate();
 		} catch (SQLException e) {
