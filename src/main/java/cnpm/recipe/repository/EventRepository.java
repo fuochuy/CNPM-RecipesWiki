@@ -66,6 +66,7 @@ public class EventRepository {
 			statement.setInt(1, event.getId());
 			statement.setInt(1, event.getId_user());
 			statement.setString(2, event.getTen());
+			statement.setString(4, event.getMota());
 			statement.setDate(3, (Date) event.getTgbatdau());
 			statement.setDate(3, (Date) event.getTgketthuc());
 			statement.setInt(1, event.getSoluong());
@@ -92,10 +93,21 @@ public class EventRepository {
 		Event event = new Event();
 		try {
 			connection = MySQLConnection.getConnection();
-			String query = DbConst.GET_EVENT;
+			String query = DbConst.GET_EVENT_BY_ID;
 			statement = connection.prepareStatement(query);
 			rs = statement.executeQuery();
-	
+			
+			while (rs.next()) {				
+				event.setId(rs.getInt("e.id"));
+				event.setId_user(rs.getInt("e.iduser"));
+				event.setTen(rs.getString("e.ten"));
+				event.setMota(rs.getString("e.mota"));			
+				event.setTgbatdau(rs.getDate("e.tgbatdau"));
+				event.setTgketthuc(rs.getDate("e.tgbatdau"));
+				event.setSoluong(rs.getInt("e.soluong"));
+				event.setHinhanh(rs.getString("e.hinhanh"));
+				event.setGiaithuong(rs.getString("e.giaithuong"));
+			}
 			
 		} catch (SQLException e) {
 			System.out.println("Không thể kết nối đến cơ sở dữ liệu");

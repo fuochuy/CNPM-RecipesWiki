@@ -55,6 +55,11 @@ public class DbConst {
 	/*LAY 1 CT VOI ID*/
 	public static final String GET_RECIPE = "SELECT r.id, r.iduser, r.ten, r.mota, r.nguyenlieu,r.hinhanh,"
 			+ " r.luotthich,r.tgdang, r.tgthuchien FROM recipe r WHERE r.id = ";
+	
+	/*lay 1 Event*/
+	public static final String GET_EVENT_BY_ID = "SELECT e.id, e.iduser, e.ten, e.mota, e.tgbatdau, e.tgketthuc,"
+			+ " e.soluong, e.hinhanh, e.giaithuong  FROM event e WHERE e.id = 1";
+	
 }
 
 

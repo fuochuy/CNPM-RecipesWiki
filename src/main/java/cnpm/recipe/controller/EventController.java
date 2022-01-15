@@ -50,6 +50,7 @@ public class EventController extends HttpServlet{
 		case UrlConst.VIEW_A_EVENT:			
 			Event event = service.getEventById("123");
 			req.setAttribute("view-a-event", event);
+			req.getRequestDispatcher(JspConst.VIEW_A_EVENT).forward(req, resp);
 			break;	
 		case UrlConst.VIEW_ALL_EVENT:
 			List<Event> list_events = service.getEvent();
@@ -71,33 +72,40 @@ public class EventController extends HttpServlet{
 				Files.createDirectory(Path.of(realPath));
 			}
 			
-			part.write(realPath+"/"+fileName);
-			String anhminhhoa = "Event/"+fileName;
+			Event event2 = new Event(1,1,"CUOC THI AN UONG", "Mota",Date.valueOf("2022-01-15"),Date.valueOf("2022-01-15"),10, "users/1.jpg","100k");
+			service.insertEvent(event2);
+			//if (service.insertEvent(event2));
+				req.getRequestDispatcher(JspConst.VIEW_A_EVENT).forward(req, resp);
 			
-			String tensukien = req.getParameter("tensukien");
-			String ngaybd = req.getParameter("ngaybd");
-			String ngaykt = req.getParameter("ngaykt");
-			String giaithuong = req.getParameter("giaithuong");
-			String mota = req.getParameter("mota");
-			
-			if(tensukien !=null && ngaybd!=null && ngaykt!=null &&
-					tensukien!="" && ngaybd!="" && ngaykt !="" ) {
-				Event event = new Event();
-				
-				int AccountId = (int) req.getSession().getAttribute("AccountId");
-								
-				event.setId_user(1);
-				event.setTen(tensukien);
-				event.setTen(mota);
-				event.setTgbatdau(Date.valueOf(ngaybd));
-				event.setTgketthuc(Date.valueOf(ngaykt));			
-				event.setSoluong(0);
-				event.setGiaithuong(giaithuong);
-				event.setHinhanh(anhminhhoa);
-									
-				if (service.insertEvent(event));
-					resp.sendRedirect(req.getContextPath() + UrlConst.VIEW_A_EVENT);			
-			}
+//			part.write(realPath+"/"+fileName);
+//			String anhminhhoa = "Event/"+fileName;
+//			
+//			String tensukien = req.getParameter("tensukien");
+//			String ngaybd = req.getParameter("ngaybd");
+//			String ngaykt = req.getParameter("ngaykt");
+//			String giaithuong = req.getParameter("giaithuong");
+//			String mota = req.getParameter("mota");
+//			
+//			if(tensukien !=null && ngaybd!=null && ngaykt!=null &&
+//					tensukien!="" && ngaybd!="" && ngaykt !="" ) {
+//				Event event = new Event();
+//				
+//				int AccountId = (int) req.getSession().getAttribute("AccountId");
+//								
+//				event.setId_user(1);
+//				event.setTen(tensukien);
+//				event.setTen(mota);
+//				event.setTgbatdau(Date.valueOf(ngaybd));
+//				event.setTgketthuc(Date.valueOf(ngaykt));			
+//				event.setSoluong(0);
+//				event.setGiaithuong(giaithuong);
+//				event.setHinhanh(anhminhhoa);
+//								
+//				//Event event2 = new Event(1,1,"CUOC THI AN UONG", "Mota",Date.valueOf("2022-01-15"),Date.valueOf("2022-01-15"),10, "users/1.jpg","100k");
+//				
+//				if (service.insertEvent(event2));
+//					resp.sendRedirect(req.getContextPath() + UrlConst.VIEW_A_EVENT);			
+//			}
 			
 		} catch (Exception e) {
 			// TODO: handle exception

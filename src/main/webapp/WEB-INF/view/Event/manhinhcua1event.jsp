@@ -128,7 +128,7 @@
         <div class="col-md-1"></div>
         <div class="col-md-10">
           <div class="image-header">
-            <img src="<%=event.getHinhanh()%>" alt="" />
+            <img src=<%=event.getHinhanh()%> alt="" />
           </div>
         </div>
         <div class="col-md-1"></div>
@@ -145,9 +145,9 @@
           <div class="image-text">
             <div class="text">
               <h3><%=event.getTen()%></h3>
-              <p>Tham gia: 20</p>
+              <p>Tham gia: <%=event.getSoluong()%></p>
               <p>Sự kiện của: <%=event.getId_user()%></p>
-              <p>Ngày bắt đầu: <%=event.getTgketthuc()%></p>
+              <p>Ngày bắt đầu: <%=event.getTgbatdau()%></p>
               <p>Ngày kết thúc: <%=event.getTgketthuc()%></p>
               <p>Giải thưởng: <%=event.getGiaithuong()%></p>
             </div>
