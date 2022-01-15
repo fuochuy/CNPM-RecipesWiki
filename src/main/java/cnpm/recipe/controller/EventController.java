@@ -85,8 +85,8 @@ public class EventController extends HttpServlet{
 				Event event = new Event();
 				
 				int AccountId = (int) req.getSession().getAttribute("AccountId");
-				
-				event.setId_user(AccountId);
+								
+				event.setId_user(1);
 				event.setTen(tensukien);
 				event.setTen(mota);
 				event.setTgbatdau(Date.valueOf(ngaybd));
@@ -94,7 +94,7 @@ public class EventController extends HttpServlet{
 				event.setSoluong(0);
 				event.setGiaithuong(giaithuong);
 				event.setHinhanh(anhminhhoa);
-							
+									
 				if (service.insertEvent(event));
 					resp.sendRedirect(req.getContextPath() + UrlConst.VIEW_A_EVENT);			
 			}

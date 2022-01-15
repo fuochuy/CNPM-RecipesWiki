@@ -172,7 +172,7 @@
             <img id="file-ip-0-preview" />
           </div>
 
-          <button>
+          <button type="submit">
             Tạo sự kiện
             <i class="zmdi zmdi-long-arrow-right"></i>
           </button>

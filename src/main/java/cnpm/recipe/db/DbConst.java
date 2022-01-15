@@ -49,7 +49,7 @@ public class DbConst {
 	public static final String INSERT_TGEvent = "INSERT thamgiaevent (iduser, idevent, idrecipe) VALUE(?,?,?)";
 	
 	/*THEM 1 EVENT*/
-	public static final String INSERT_EVENT = "INSERT event(id, iduser, ten, mota, tgbatdau, tgketthuc, soluong, hinhanh, giaithuong) VALUE (?,?,?,?,?,?,?,?,?)";
+	public static final String INSERT_EVENT = "INSERT event(iduser, ten, mota, tgbatdau, tgketthuc, soluong, hinhanh, giaithuong) VALUE (?,?,?,?,?,?,?,?)";
 	
 }
 
