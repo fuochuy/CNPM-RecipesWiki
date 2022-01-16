@@ -13,7 +13,7 @@ function add_step() {
 
   var file = document.createElement("input");
   file.type = "file";
-  file.name = "hinhanh";
+  file.name = "hinhanh" +step;
   file.id = "file-ip-" + step;
   file.accept = "image/*";
   file.onchange = function () {

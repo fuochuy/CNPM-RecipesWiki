@@ -6,7 +6,8 @@ import cnpm.recipe.model.Recipe;
 import cnpm.recipe.repository.RecipeRepository;
 
 public class RecipeService {
-private RecipeRepository repository;
+	
+	private RecipeRepository repository;
 	
 	public RecipeService() {
 		repository=new RecipeRepository();
@@ -14,5 +15,8 @@ private RecipeRepository repository;
 	
 	public List<Recipe> getRecipes(){
 		return repository.getRecipes();
+	}
+	public boolean insertRecipe(Recipe recipe) {
+		return repository.insertRecipe(recipe) == 1? true:false;
 	}
 }

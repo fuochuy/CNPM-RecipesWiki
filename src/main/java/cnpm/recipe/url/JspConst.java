@@ -7,6 +7,8 @@ public class JspConst {
 	/* SIGN UP */
 	public static final String SIGN_UP = "/WEB-INF/view/auth/sign-up.jsp";
 	
+	/*TẠO CÔNG THỨC*/
+	public static final String CREATE_RECIPE = "/WEB-INF/view/Recipes/dangcongthuc.jsp";
 	/*EDIT PROFILE*/
 	public static final String EDIT_PROFILE = "/WEB-INF/view/user/edit-profile.jsp";
 

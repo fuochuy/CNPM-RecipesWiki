@@ -52,6 +52,8 @@ public class DbConst {
 	/*THEM 1 EVENT*/
 	public static final String INSERT_EVENT = "INSERT event(iduser, ten, mota, tgbatdau, tgketthuc, soluong, hinhanh, giaithuong) VALUE (?,?,?,?,?,?,?,?)";
 	
+	public static final String INSERT_RECIPE = "INSERT recipe(id,iduser,idchude,idtheloai,idevent,ten,mota,nguyenlieu,hinhanh,tgdang,tgthuchien) VALUE (?,?,?,?,?,?,?,?,?,?,?)";
+	public static final String INSERT_BUOC = "INSERT step(buoc,idrecipe,des,hinhanh) VALUE (?,?,?,?)";
 }
 
 

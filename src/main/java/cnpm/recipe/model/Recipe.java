@@ -5,6 +5,9 @@ import java.sql.Date;
 public class Recipe {
 	private int id;
 	private int idUser;
+	private int idchude;
+	private int idtheloai;
+	private int idevent;
 	private String ten;
 	private String moTa;
 	private String nguyenLieu;
@@ -13,11 +16,18 @@ public class Recipe {
 	private Date tgDang;
 	private int tgThucHien;
 	
-	public Recipe(int id, int idUser, String ten, String moTa, String nguyenLieu, String hinhAnh, int luotThich,
-			Date tgDang, int tgThucHien) {
+	
+	public Recipe() {
+	}
+	
+	public Recipe(int id, int idUser, int idchude, int idtheloai, int idevent, String ten, String moTa,
+			String nguyenLieu, String hinhAnh, int luotThich, Date tgDang, int tgThucHien) {
 		super();
 		this.id = id;
 		this.idUser = idUser;
+		this.idchude = idchude;
+		this.idtheloai = idtheloai;
+		this.idevent = idevent;
 		this.ten = ten;
 		this.moTa = moTa;
 		this.nguyenLieu = nguyenLieu;
@@ -26,10 +36,28 @@ public class Recipe {
 		this.tgDang = tgDang;
 		this.tgThucHien = tgThucHien;
 	}
-	public Recipe() {
-	}
+	
 	public int getId() {
 		return id;
+	}
+	
+	public int getIdchude() {
+		return idchude;
+	}
+	public void setIdchude(int idchude) {
+		this.idchude = idchude;
+	}
+	public int getIdtheloai() {
+		return idtheloai;
+	}
+	public void setIdtheloai(int idtheloai) {
+		this.idtheloai = idtheloai;
+	}
+	public int getIdevent() {
+		return idevent;
+	}
+	public void setIdevent(int idevent) {
+		this.idevent = idevent;
 	}
 	public void setId(int id) {
 		this.id = id;

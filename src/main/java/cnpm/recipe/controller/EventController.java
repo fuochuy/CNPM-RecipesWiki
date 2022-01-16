@@ -7,7 +7,6 @@ import java.sql.Date;
 import java.util.List;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebFilter;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -15,7 +14,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
 import cnpm.recipe.model.Event;
-import cnpm.recipe.model.User;
 import cnpm.recipe.service.EventService;
 import cnpm.recipe.url.JspConst;
 import cnpm.recipe.url.UrlConst;
@@ -84,9 +82,9 @@ public class EventController extends HttpServlet{
 					tensukien!="" && ngaybd!="" && ngaykt !="" ) {
 				Event event = new Event();
 				
-				int AccountId = (int) req.getSession().getAttribute("AccountId");
+				int iduser = (int) req.getSession().getAttribute("iduser");
 								
-				event.setId_user(1);
+				event.setId_user(iduser);
 				event.setTen(tensukien);
 				event.setTen(mota);
 				event.setTgbatdau(Date.valueOf(ngaybd));
@@ -94,8 +92,10 @@ public class EventController extends HttpServlet{
 				event.setSoluong(0);
 				event.setGiaithuong(giaithuong);
 				event.setHinhanh(anhminhhoa);
-									
+				System.out.println(event.getTen());	
+				System.out.println("hello");
 				if (service.insertEvent(event));
+					System.out.println("Thành công");
 					resp.sendRedirect(req.getContextPath() + UrlConst.VIEW_A_EVENT);			
 			}
 			

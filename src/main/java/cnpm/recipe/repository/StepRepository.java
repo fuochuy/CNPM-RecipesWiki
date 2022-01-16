@@ -9,6 +9,7 @@ import java.util.List;
 
 import cnpm.recipe.db.DbConst;
 import cnpm.recipe.db.MySQLConnection;
+import cnpm.recipe.model.Recipe;
 import cnpm.recipe.model.Step;
 
 public class StepRepository {
@@ -48,5 +49,33 @@ public class StepRepository {
 			}
 		}
 		return Steps;
+	}
+	public int insertStep(Step step) {
+		try {
+			connection = MySQLConnection.getConnection();
+			String query = DbConst.INSERT_BUOC;
+
+			statement = connection.prepareStatement(query);
+			statement.setInt(1, step.getBuoc());
+			statement.setInt(2, step.getId_recipe());
+			statement.setString(3, step.getDes());
+			statement.setString(4, step.getHinhanh());
+			
+			
+			return statement.executeUpdate();
+		} catch (SQLException e) {
+			System.out.println("Không thể kết nối đến cơ sở dữ liệu ở StepRepository");
+			e.printStackTrace();
+		} finally {
+			try {
+				connection.close();
+				statement.close();
+			} catch (SQLException e) {
+				System.out.println("Lỗi đóng kết nối");
+				e.printStackTrace();
+			}
+		}
+		return 0;
+
 	}
 }

@@ -1,6 +1,7 @@
 package cnpm.recipe.repository;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -15,6 +16,41 @@ public class RecipeRepository {
 	private Connection connection = null;
 	private PreparedStatement statement = null;
 	private ResultSet rs = null;
+	
+	public int insertRecipe(Recipe recipe) {
+		try {
+			connection = MySQLConnection.getConnection();
+			String query = DbConst.INSERT_RECIPE;
+
+			statement = connection.prepareStatement(query);
+			statement.setInt(1, recipe.getId());
+			statement.setInt(2, recipe.getIdUser());
+			statement.setInt(3, recipe.getIdchude());
+			statement.setInt(4, recipe.getIdtheloai());
+			statement.setInt(5, recipe.getIdevent());
+			statement.setString(6, recipe.getTen());
+			statement.setString(7, recipe.getMoTa());
+			statement.setString(8, recipe.getNguyenLieu());
+			statement.setString(9, recipe.getHinhAnh());
+			statement.setDate(10, recipe.getTgDang());
+			statement.setInt(11, recipe.getTgThucHien());
+			
+			return statement.executeUpdate();
+		} catch (SQLException e) {
+			System.out.println("Không thể kết nối đến cơ sở dữ liệu");
+			e.printStackTrace();
+		} finally {
+			try {
+				connection.close();
+				statement.close();
+			} catch (SQLException e) {
+				System.out.println("Lỗi đóng kết nối");
+				e.printStackTrace();
+			}
+		}
+		return 0;
+
+	}
 	
 	public List<Recipe> getRecipes() {
 		List<Recipe> recipes = new LinkedList<Recipe>();

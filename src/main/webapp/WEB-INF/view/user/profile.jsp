@@ -109,7 +109,9 @@
     </header>
    
    <%User user =(User) request.getAttribute("user"); %>
+   
     <div class="container">
+  
           <div class="profile">
               <div class="head-profile">
                   <img src="<%=user.getAvatar() %>" alt="">

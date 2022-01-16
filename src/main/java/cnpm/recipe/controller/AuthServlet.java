@@ -79,6 +79,7 @@ public class AuthServlet extends HttpServlet {
 			if(login!=null) {
 				HttpSession session = req.getSession();
 				session.setAttribute("user", login);
+				session.setAttribute("iduser", login.getId());
 				session.setMaxInactiveInterval(360);
 				
 				//req.setAttribute("username", login.getUsername());

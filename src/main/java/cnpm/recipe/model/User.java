@@ -27,19 +27,13 @@ public class User {
 		this.avatar = avatar;
 	}
 
-
-
 	public String getFullname() {
 		return fullname;
 	}
 
-
-
 	public void setFullname(String fullname) {
 		this.fullname = fullname;
 	}
-
-
 
 	public Date getDOB() {
 		return DOB;

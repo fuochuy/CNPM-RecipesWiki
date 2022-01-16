@@ -106,7 +106,7 @@
             <a href="./aboutus.html" class="menu-item">About us</a>
           </li>
           <li class="btn_account">
-            <a href="./account.html" class="menu-item"
+            <a href="profile" class="menu-item"
               ><img src="./Image/icon/account.png"
             /></a>
           </li>
