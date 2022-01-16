@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@page import="cnpm.recipe.model.Event"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -120,12 +122,13 @@
       </nav>
     </header>
 
+	<%Event event =(Event) request.getAttribute("view-a-event"); %>
     <div class="container">
       <div class="row">
         <div class="col-md-1"></div>
         <div class="col-md-10">
           <div class="image-header">
-            <img src="Image/manhinhcua1event/hinhqc.jpg" alt="" />
+            <img src=<%=event.getHinhanh()%> alt="" />
           </div>
         </div>
         <div class="col-md-1"></div>
@@ -135,18 +138,18 @@
         <div class="col-md-1"></div>
         <div class="col-md-5">
           <div class="image-event">
-            <img src="Image/manhinhcua1event/monnhau.png" alt="" />
+            <img src="<%=event.getHinhanh()%>" alt="" />
           </div>
         </div>
         <div class="col-md-5">
           <div class="image-text">
             <div class="text">
-              <h3>Cuộc thi làm món nhậu đỉnh cao</h3>
-              <p>Tham gia: 20</p>
-              <p>Sự kiện của: Nick</p>
-              <p>Ngày bắt đầu: 20/11/2021</p>
-              <p>Ngày kết thúc: 30/11/2021</p>
-              <p>Giải thưởng: 1 thùng bia SAIGON</p>
+              <h3><%=event.getTen()%></h3>
+              <p>Tham gia: <%=event.getSoluong()%></p>
+              <p>Sự kiện của: <%=event.getId_user()%></p>
+              <p>Ngày bắt đầu: <%=event.getTgbatdau()%></p>
+              <p>Ngày kết thúc: <%=event.getTgketthuc()%></p>
+              <p>Giải thưởng: <%=event.getGiaithuong()%></p>
             </div>
             <button type="submit">Tham gia</button>
             <button type="submit">Mời</button>

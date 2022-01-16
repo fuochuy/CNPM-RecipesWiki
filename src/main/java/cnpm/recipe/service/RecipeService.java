@@ -18,5 +18,8 @@ public class RecipeService {
 	}
 	public boolean insertRecipe(Recipe recipe) {
 		return repository.insertRecipe(recipe) == 1? true:false;
+	
+	public Recipe getRecipeById(String id) {
+		return repository.getRecipeById(id);
 	}
 }

@@ -42,12 +42,13 @@ public class EventController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		switch(acction) {
-		case UrlConst.CREATE_A_EVENT:
+		case UrlConst.CREATE_A_EVENT:			
 			req.getRequestDispatcher(JspConst.CREATE_A_EVENT).forward(req, resp);
 			break;
 		case UrlConst.VIEW_A_EVENT:			
 			Event event = service.getEventById("123");
 			req.setAttribute("view-a-event", event);
+			req.getRequestDispatcher(JspConst.VIEW_A_EVENT).forward(req, resp);
 			break;	
 		case UrlConst.VIEW_ALL_EVENT:
 			List<Event> list_events = service.getEvent();
@@ -63,6 +64,7 @@ public class EventController extends HttpServlet{
 		
 		try {
 			Part part = req.getPart("hinhanh");
+			System.out.println(1);
 			String realPath = req.getServletContext().getRealPath("/Event");
 			String fileName = Path.of(part.getSubmittedFileName()).getFileName().toString();
 			if(!Files.exists(Path.of(realPath))) {
@@ -72,9 +74,9 @@ public class EventController extends HttpServlet{
 			part.write(realPath+"/"+fileName);
 			String anhminhhoa = "Event/"+fileName;
 			
-			String tensukien = req.getParameter("tensukien");
-			String ngaybd = req.getParameter("ngaybd");
-			String ngaykt = req.getParameter("ngaykt");
+			String tensukien = req.getParameter("tensk");
+			String ngaybd = req.getParameter("ngayvagiobatdau");
+			String ngaykt = req.getParameter("ngayvagioketthuc");
 			String giaithuong = req.getParameter("giaithuong");
 			String mota = req.getParameter("mota");
 			
@@ -95,7 +97,7 @@ public class EventController extends HttpServlet{
 				System.out.println(event.getTen());	
 				System.out.println("hello");
 				if (service.insertEvent(event));
-					System.out.println("Thành công");
+					System.out.println("Thï¿½nh cï¿½ng");
 					resp.sendRedirect(req.getContextPath() + UrlConst.VIEW_A_EVENT);			
 			}
 			

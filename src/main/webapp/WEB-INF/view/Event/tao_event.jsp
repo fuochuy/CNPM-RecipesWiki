@@ -151,7 +151,7 @@
 
           <label class="form-title" for="mota">Mô tả</label>
           <textarea
-            name=""
+            name="mota"
             id=""
             placeholder="Hãy mô tả cho sự kiện này"
             class="form-control-textarea"
