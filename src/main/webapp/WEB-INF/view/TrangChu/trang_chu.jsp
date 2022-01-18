@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@page import="cnpm.recipe.model.Recipe"%>
+<%@page import="java.util.List"%>
+<%@page import="java.util.Random"%>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -153,196 +158,86 @@
       </div>
       <!--image slider end-->
     </div>
-
+	<%List<Recipe> recipes = (List<Recipe>)request.getAttribute("listRecipe"); %>
+	<%int length = recipes.size(); %>
+	<%Random rand = new Random(); %>
     <div class="menu" id="menu">
       <h3>Các món ăn hot</h3>
+      
       <div class="box-container">
-        <div class="box">
+      <%for(int i=0; i<3; i++){ %>
+      	<%int temp = rand.nextInt(length); %>
+      	<div class="box">
           <div class="image">
-            <img src="Image/menu/menu-1.jpg" alt="" />
+            <img src="<%=recipes.get(temp).getHinhAnh() %>" alt="" />
           </div>
           <div class="content">
-            <h3>Ốc hương rang muối</h3>
+            <h3><%=recipes.get(temp).getTen() %></h3>
             <p>
-              Mùa đông lạnh lạnh tranh thủ dậy sớm làm món bún ốc sườn cho cả
-              nhà
+              <%=recipes.get(temp).getMoTa()%>
             </p>
           </div>
           <div class="profile">
-            <img src="Image/user/Profile.png" alt="" />
+            <img src="<%=recipes.get(temp).getAvatarUser() %>" alt="" />
             <div class="content_profile">
-              <p class="name">Nguyễn Phước Huy</p>
-              <p>12/12/2021</p>
+              <p class="name"><%=recipes.get(temp).getNameUser() %></p>
+              <p><%=recipes.get(temp).getTgDang() %></p>
             </div>
           </div>
         </div>
-
-        <div class="box">
-          <div class="image">
-            <img src="Image/menu/menu-2.jpg" alt="" />
-          </div>
-          <div class="content">
-            <h3>Ốc hương rang muối</h3>
-            <p>
-              Mùa đông lạnh lạnh tranh thủ dậy sớm làm món bún ốc sườn cho cả
-              nhà
-            </p>
-          </div>
-          <div class="profile">
-            <img src="Image/user/Profile.png" alt="" />
-            <div class="content_profile">
-              <p class="name">Nguyễn Phước Huy</p>
-              <p>12/12/2021</p>
-            </div>
-          </div>
+      <%} %>
         </div>
-
-        <div class="box">
-          <div class="image">
-            <img src="Image/menu/menu-3.jpg" alt="" />
-          </div>
-          <div class="content">
-            <h3>Ốc hương rang muối</h3>
-            <p>
-              Mùa đông lạnh lạnh tranh thủ dậy sớm làm món bún ốc sườn cho cả
-              nhà
-            </p>
-          </div>
-          <div class="profile">
-            <img src="Image/user/Profile.png" alt="" />
-            <div class="content_profile">
-              <p class="name">Nguyễn Phước Huy</p>
-              <p>12/12/2021</p>
-            </div>
-          </div>
-        </div>
-      </div>
 
       <h3>Các món ăn được xem nhiều nhất</h3>
       <div class="box-container">
-        <div class="box">
+        <%for(int i=0; i<3; i++){ %>
+      	<%int temp = rand.nextInt(length); %>
+      	<div class="box">
           <div class="image">
-            <img src="Image/menu/menu-4.jpg" alt="" />
+            <img src="<%=recipes.get(temp).getHinhAnh() %>" alt="" />
           </div>
           <div class="content">
-            <h3>Ốc hương rang muối</h3>
+            <h3><%=recipes.get(temp).getTen() %></h3>
             <p>
-              Mùa đông lạnh lạnh tranh thủ dậy sớm làm món bún ốc sườn cho cả
-              nhà
+              <%=recipes.get(temp).getMoTa() %>
             </p>
           </div>
           <div class="profile">
-            <img src="Image/user/Profile.png" alt="" />
+            <img src="<%=recipes.get(temp).getAvatarUser() %>" alt="" />
             <div class="content_profile">
-              <p class="name">Nguyễn Phước Huy</p>
-              <p>12/12/2021</p>
+              <p class="name"><%=recipes.get(temp).getNameUser() %></p>
+              <p><%=recipes.get(temp).getTgDang() %></p>
             </div>
           </div>
         </div>
-
-        <div class="box">
-          <div class="image">
-            <img src="Image/menu/menu-5.jpg" alt="" />
-          </div>
-          <div class="content">
-            <h3>Ốc hương rang muối</h3>
-            <p>
-              Mùa đông lạnh lạnh tranh thủ dậy sớm làm món bún ốc sườn cho cả
-              nhà
-            </p>
-          </div>
-          <div class="profile">
-            <img src="Image/user/Profile.png" alt="" />
-            <div class="content_profile">
-              <p class="name">Nguyễn Phước Huy</p>
-              <p>12/12/2021</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="box">
-          <div class="image">
-            <img src="Image/menu/menu-6.jpg" alt="" />
-          </div>
-          <div class="content">
-            <h3>Ốc hương rang muối</h3>
-            <p>
-              Mùa đông lạnh lạnh tranh thủ dậy sớm làm món bún ốc sườn cho cả
-              nhà
-            </p>
-          </div>
-          <div class="profile">
-            <img src="Image/user/Profile.png" alt="" />
-            <div class="content_profile">
-              <p class="name">Nguyễn Phước Huy</p>
-              <p>12/12/2021</p>
-            </div>
-          </div>
-        </div>
+      <%} %>
       </div>
 
-      <h3>Món ăn dành chó bạn</h3>
+      <h3>Món ăn dành cho bạn</h3>
       <div class="box-container">
-        <div class="box">
-          <div class="image">
-            <img src="Image/menu/menu-7.jpg" alt="" />
-          </div>
-          <div class="content">
-            <h3>Ốc hương rang muối</h3>
-            <p>
-              Mùa đông lạnh lạnh tranh thủ dậy sớm làm món bún ốc sườn cho cả
-              nhà
-            </p>
-          </div>
-          <div class="profile">
-            <img src="Image/user/Profile.png" alt="" />
-            <div class="content_profile">
-              <p class="name">Nguyễn Phước Huy</p>
-              <p>12/12/2021</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="box">
-          <div class="image">
-            <img src="Image/menu/menu-8.jpg" alt="" />
-          </div>
-          <div class="content">
-            <h3>Ốc hương rang muối</h3>
-            <p>
-              Mùa đông lạnh lạnh tranh thủ dậy sớm làm món bún ốc sườn cho cả
-              nhà
-            </p>
-          </div>
-          <div class="profile">
-            <img src="Image/user/Profile.png" alt="" />
-            <div class="content_profile">
-              <p class="name">Nguyễn Phước Huy</p>
-              <p>12/12/2021</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="box">
-          <div class="image">
-            <img src="Image/menu/menu-9.jpg" alt="" />
-          </div>
-
-          <div class="content">
-            <h3>Ốc hương rang muối</h3>
-            <p>
-              Mùa đông lạnh lạnh tranh thủ dậy sớm làm món bún ốc sườn cho cả
-              nhà
-            </p>
-          </div>
-          <div class="profile">
-            <img src="Image/user/Profile.png" alt="" />
-            <div class="content_profile">
-              <p class="name">Nguyễn Phước Huy</p>
-              <p>12/12/2021</p>
-            </div>
-          </div>
-        </div>
+       <%for(int i=0; i<3; i++){ %>
+	      	
+	      	
+	      	<%int temp = rand.nextInt(length); %>
+	      	<div class="box">
+	          <div class="image">
+	            <img src="<%=recipes.get(temp).getHinhAnh() %>" alt="" />
+	          </div>
+	          <div class="content">
+	            <h3><%=recipes.get(temp).getTen() %></h3>
+	            <p>
+	              <%=recipes.get(temp).getMoTa() %>
+	            </p>
+	          </div>
+	          <div class="profile">
+	            <img src="<%=recipes.get(temp).getAvatarUser() %>" alt="" />
+	            <div class="content_profile">
+	              <p class="name"><%=recipes.get(temp).getNameUser() %></p>
+	              <p><%=recipes.get(temp).getTgDang() %></p>
+	            </div>
+	          </div>
+	        </div>
+      <%} %>
       </div>
 
       <div class="xemthem">

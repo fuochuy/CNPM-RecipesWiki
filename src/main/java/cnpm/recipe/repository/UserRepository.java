@@ -133,7 +133,7 @@ public class UserRepository {
 				User user = new User();
 				user.setId(rs.getInt("u.id"));
 				user.setUsername(rs.getString("u.email"));
-				user.setPassword(rs.getString("a.password"));
+				user.setPassword(rs.getString("u.password"));
 				user.setStatus(rs.getInt("u.status"));
 				user.setFullname(rs.getString("u.fullname"));
 				user.setDOB(rs.getDate("u.DOB"));

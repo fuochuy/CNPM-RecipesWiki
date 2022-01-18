@@ -24,6 +24,5 @@ public class Album_Recipes {
 	public void setId_recipe(int id_recipe) {
 		this.id_recipe = id_recipe;
 	}
-	
-	
+
 }

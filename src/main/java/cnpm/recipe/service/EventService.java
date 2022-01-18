@@ -22,7 +22,7 @@ public class EventService {
 		return repository.insertEvent(event) == 1? true:false;
 	}
 	
-	public Event getEventById(String id) {
+	public Event getEventById(int id) {
 		return repository.getEventById(id);
 	}
 

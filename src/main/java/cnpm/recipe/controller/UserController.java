@@ -56,6 +56,7 @@ public class UserController extends HttpServlet{
 			req.setAttribute("user", user);
 			req.getRequestDispatcher(JspConst.PROFILE).forward(req, resp);
 			break;
+		
 		}
 	}
 	@Override

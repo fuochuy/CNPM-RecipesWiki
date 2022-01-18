@@ -92,12 +92,13 @@ public class EventRepository {
 		return 0;
 	}
 	
-	public Event getEventById(String id) {
+	public Event getEventById(int id) {
 		Event event = new Event();
 		try {
 			connection = MySQLConnection.getConnection();
 			String query = DbConst.GET_EVENT_BY_ID;
 			statement = connection.prepareStatement(query);
+			statement.setInt(1, id);
 			rs = statement.executeQuery();
 			
 			while (rs.next()) {				

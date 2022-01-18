@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@page import="cnpm.recipe.model.Event"%>
+<%@page import="cnpm.recipe.model.Recipe"%>
 <%@page import="java.util.List"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,29 +12,17 @@
       src="https://kit.fontawesome.com/1147679ae7.js"
       crossorigin="anonymous"
     ></script>
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/swiper/swiper-bundle.min.css"
-    />
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 
     <!-- font awesome cdn link  -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="css/monancuatoi.css" />
+   
     <!--link bootstrap-->
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-    />
-    <link rel="stylesheet" href="css\xem_event.css" />
-    <!--link bootstrap-->
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-    />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
     <title>RecipesWiki</title>
   </head>
+
   <body>
     <div class="Mcontainer">
       <nav class="navbar">
@@ -109,10 +97,10 @@
               <li><a href="#">Ăn sáng</a></li>
             </ul>
           </li>
-          <li class="active">
+          <li>
             <a href="./aboutus.html" class="menu-item">About us</a>
           </li>
-          <li class="btn_account">
+          <li class="btn_account active">
             <a href="./account.html" class="menu-item"
               ><img src="./Image/icon/account.png"
             /></a>
@@ -120,65 +108,77 @@
         </ul>
       </nav>
     </header>
-
+   
     <div class="container">
-      <div class="row">
-        <div class="head_title">
-          <span>Sự kiện hot</span>
+        <div class="row">
+            <div class="Mycook">
+                <span>Món của tôi</span>
+            </div>
         </div>
-      </div>
-      <div class="oo">
-        <div class="themsk">
-          <button type="submit">Thêm sự kiện</button>
-        </div>
-      </div>
+        
+        <%List<Recipe> recipes =(List<Recipe>) request.getAttribute("listRecipe"); %>
+        <%for (Recipe recipe:recipes){ %>
+        	<div class="content">
+                <img src="<%=recipe.getHinhAnh() %>" alt="">
+                <div class="content-text">
+                    <h3><%=recipe.getTen() %></h3>
+                    <p><%=recipe.getMoTa() %></p>
+                </div>
+                <div class="row dish">
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-3 profie-img">
+                                <img src="<%=recipe.getAvatarUser() %>" alt="">
+                            </div>
+                            <div class="col-md-9">
+                                <div class="row">
+                                    <p class="username"><%=recipe.getNameUser() %></p>
+                                </div>
+                                <div class="row">
+                                    <p class="ngaydang"><%=recipe.getTgDang() %></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 btn-xoa">
+                        <button><a href="my-Recipe?id=<%=recipe.getId()%>">Xóa món này</a></button>
+                    </div>
+                </div>
+          </div> 
+        <%} %>
+          
+          
+          
     </div>
-	
-	 <%List<Event> listEvent =(List<Event>) request.getAttribute("xem-tatca-event"); %>
-		
-		<%for(Event event:listEvent){ %>
-			<div class="event-in4">
-			
-			      <div class="image-event">
-			      <a href="event?id=<%=event.getId() %>"> <img src="<%=event.getHinhanh()%>" alt="" /></a>
-			       
-			      </div>
-		      
-			      <div class="image-text">
-				        <div class="text">
-					          <h3><%=event.getTen() %></h3>
-					          <p>Tham gia: <%=event.getSoluong() %></p>
-					          <p>Sự kiện của: <%=event.getTenuser() %></p>
-					          <p>Ngày bắt đầu: <%=event.getTgbatdau() %></p>
-					          <p>Ngày kết thúc: <%=event.getTgketthuc() %></p>
-					          <p>Giải thưởng: <%=event.getGiaithuong() %></p>
-				        </div>
-				        <button type="submit">Tham gia</button>
-				        <button type="submit">Mời</button>
-			      </div>
-    		</div>
-	     <%}%>
-    
+
+    <div class="newdish" >
+        <button><a href="create-recipe">+ Viết món mới</a></button>
+    </div>
+
+
 
    
 
-    <!-- menu section ends -->
     <script>
-      window.onscroll = function () {
-        myFunction();
-      };
-
-      var header = document.getElementById("myHeader");
-      var sticky = header.offsetTop;
-
-      function myFunction() {
-        if (window.pageYOffset > sticky) {
-          header.classList.add("sticky");
-        } else {
-          header.classList.remove("sticky");
+        window.onscroll = function() {myFunction()};
+        
+        var header = document.getElementById("myHeader");
+        var sticky = header.offsetTop;
+        
+        function myFunction() {
+          if (window.pageYOffset > sticky) {
+            header.classList.add("sticky");
+          } else {
+            header.classList.remove("sticky");
+          }
+  
+          
         }
-      }
     </script>
     <script src="./js/burger.js"></script>
+    <script src="//code.jquery.com/jquery.js"></script>
+    <!-- Bootstrap JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </body>
 </html>
+    

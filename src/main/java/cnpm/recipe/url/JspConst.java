@@ -9,6 +9,8 @@ public class JspConst {
 	
 	/*TẠO CÔNG THỨC*/
 	public static final String CREATE_RECIPE = "/WEB-INF/view/Recipes/dangcongthuc.jsp";
+	/*Công thức của tôi*/
+	public static final String MYRECIPE = "/WEB-INF/view/Recipes/myRecipe.jsp";
 	/*EDIT PROFILE*/
 	public static final String EDIT_PROFILE = "/WEB-INF/view/user/edit-profile.jsp";
 

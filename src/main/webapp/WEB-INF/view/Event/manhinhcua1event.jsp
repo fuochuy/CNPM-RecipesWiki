@@ -122,7 +122,7 @@
       </nav>
     </header>
 
-	<%Event event =(Event) request.getAttribute("view-a-event"); %>
+	<%Event event =(Event) request.getAttribute("event"); %>
     <div class="container">
       <div class="row">
         <div class="col-md-1"></div>
@@ -151,7 +151,10 @@
               <p>Ngày kết thúc: <%=event.getTgketthuc()%></p>
               <p>Giải thưởng: <%=event.getGiaithuong()%></p>
             </div>
-            <button type="submit">Tham gia</button>
+            
+            <a href="create-recipe?thamgiaEvent=<%=event.getId()%>" class="menu-item">
+            	<button>Tham gia</button>
+            </a>
             <button type="submit">Mời</button>
           </div>
         </div>

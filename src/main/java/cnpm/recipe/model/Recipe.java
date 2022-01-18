@@ -7,7 +7,6 @@ public class Recipe {
 	private int idUser;
 	private int idchude;
 	private int idtheloai;
-	private int idevent;
 	private String ten;
 	private String moTa;
 	private String nguyenLieu;
@@ -15,19 +14,24 @@ public class Recipe {
 	private int luotThich;
 	private Date tgDang;
 	private int tgThucHien;
-	
+	private String avatarUser;
+	private String nameUser;
 	
 	public Recipe() {
 	}
 	
-	public Recipe(int id, int idUser, int idchude, int idtheloai, int idevent, String ten, String moTa,
-			String nguyenLieu, String hinhAnh, int luotThich, Date tgDang, int tgThucHien) {
+	
+	
+
+
+	
+	public Recipe(int id, int idUser, int idchude, int idtheloai, String ten, String moTa, String nguyenLieu,
+			String hinhAnh, int luotThich, Date tgDang, int tgThucHien, String avatarUser, String nameUser) {
 		super();
 		this.id = id;
 		this.idUser = idUser;
 		this.idchude = idchude;
 		this.idtheloai = idtheloai;
-		this.idevent = idevent;
 		this.ten = ten;
 		this.moTa = moTa;
 		this.nguyenLieu = nguyenLieu;
@@ -35,8 +39,46 @@ public class Recipe {
 		this.luotThich = luotThich;
 		this.tgDang = tgDang;
 		this.tgThucHien = tgThucHien;
+		this.avatarUser = avatarUser;
+		this.nameUser = nameUser;
 	}
 	
+
+
+
+
+
+
+	public String getNameUser() {
+		return nameUser;
+	}
+
+
+
+
+
+
+	public void setNameUser(String nameUser) {
+		this.nameUser = nameUser;
+	}
+
+
+
+
+
+
+	public String getAvatarUser() {
+		return avatarUser;
+	}
+
+
+
+	public void setAvatarUser(String avatarUser) {
+		this.avatarUser = avatarUser;
+	}
+
+
+
 	public int getId() {
 		return id;
 	}
@@ -53,12 +95,7 @@ public class Recipe {
 	public void setIdtheloai(int idtheloai) {
 		this.idtheloai = idtheloai;
 	}
-	public int getIdevent() {
-		return idevent;
-	}
-	public void setIdevent(int idevent) {
-		this.idevent = idevent;
-	}
+	
 	public void setId(int id) {
 		this.id = id;
 	}

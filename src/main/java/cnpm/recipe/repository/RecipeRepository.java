@@ -27,13 +27,13 @@ public class RecipeRepository {
 			statement.setInt(2, recipe.getIdUser());
 			statement.setInt(3, recipe.getIdchude());
 			statement.setInt(4, recipe.getIdtheloai());
-			statement.setInt(5, recipe.getIdevent());
-			statement.setString(6, recipe.getTen());
-			statement.setString(7, recipe.getMoTa());
-			statement.setString(8, recipe.getNguyenLieu());
-			statement.setString(9, recipe.getHinhAnh());
-			statement.setDate(10, recipe.getTgDang());
-			statement.setInt(11, recipe.getTgThucHien());
+			statement.setNString(5, recipe.getTen());
+			statement.setNString(6, recipe.getMoTa());
+			statement.setNString(7, recipe.getNguyenLieu());
+			statement.setString(8, recipe.getHinhAnh());
+			statement.setDate(9, recipe.getTgDang());
+			statement.setInt(10, recipe.getTgThucHien());
+			
 			
 			return statement.executeUpdate();
 		} catch (SQLException e) {
@@ -64,14 +64,15 @@ public class RecipeRepository {
 				Recipe recipe = new Recipe();
 				recipe.setId(rs.getInt("r.id"));
 				recipe.setIdUser(rs.getInt("r.iduser"));
-				recipe.setTen(rs.getString("r.ten"));
-				recipe.setMoTa(rs.getString("r.mota"));
+				recipe.setTen(rs.getNString("r.ten"));
+				recipe.setMoTa(rs.getNString("r.mota"));
 				recipe.setHinhAnh(rs.getString("r.hinhanh"));
-				recipe.setNguyenLieu(rs.getString("r.nguyenlieu"));
+				recipe.setNguyenLieu(rs.getNString("r.nguyenlieu"));
 				recipe.setLuotThich(rs.getInt("r.luotthich"));
 				recipe.setTgDang(rs.getDate("r.tgdang"));
 				recipe.setTgThucHien(rs.getInt("r.tgthuchien"));
-				
+				recipe.setAvatarUser(rs.getString("u.avatar"));
+				recipe.setNameUser(rs.getNString("u.fullname"));
 				recipes.add(recipe);
 			}
 		} catch (SQLException e) {
@@ -90,7 +91,7 @@ public class RecipeRepository {
 		return recipes;
 	}
 	
-	public Recipe getRecipeById(String id) {
+	public Recipe getRecipeById(int id) {
 		Recipe recipe = new Recipe();
 		try {
 			connection = MySQLConnection.getConnection();
@@ -113,5 +114,72 @@ public class RecipeRepository {
 			}
 		}
 		return recipe;
+	}
+	
+	public List<Recipe> getRecipeByIdUser(int id) {
+		List<Recipe> recipes = new LinkedList<Recipe>();
+		try {
+			connection = MySQLConnection.getConnection();
+			String query = DbConst.GET_RECIPE_BY_IDUSER;
+			statement = connection.prepareStatement(query);
+			statement.setInt(1, id);
+			rs = statement.executeQuery();
+	
+			while (rs.next()) {
+				Recipe recipe = new Recipe();
+				recipe.setId(rs.getInt("r.id"));
+				recipe.setIdUser(rs.getInt("r.iduser"));
+				recipe.setTen(rs.getNString("r.ten"));
+				recipe.setMoTa(rs.getNString("r.mota"));
+				recipe.setHinhAnh(rs.getString("r.hinhanh"));
+				recipe.setNguyenLieu(rs.getNString("r.nguyenlieu"));
+				recipe.setLuotThich(rs.getInt("r.luotthich"));
+				recipe.setTgDang(rs.getDate("r.tgdang"));
+				recipe.setTgThucHien(rs.getInt("r.tgthuchien"));
+				recipe.setAvatarUser(rs.getString("u.avatar"));
+				recipe.setNameUser(rs.getNString("u.fullname"));
+				recipes.add(recipe);
+			}
+		} catch (SQLException e) {
+			System.out.println("Không thể kết nối đến cơ sở dữ liệu");
+			e.printStackTrace();
+		} finally {
+			try {
+				connection.close();
+				statement.close();
+				rs.close();
+			} catch (SQLException e) {
+				System.out.println("Lỗi đóng kết nối");
+				e.printStackTrace();
+			}
+		}
+		return recipes;
+	}
+	
+	public int deleteRecipeById(int id) {
+		List<Recipe> recipes = new LinkedList<Recipe>();
+		try {
+			connection = MySQLConnection.getConnection();
+			String query = DbConst.DELETE_RECIPES;
+			statement = connection.prepareStatement(query);
+			statement.setInt(1, id);
+			rs = statement.executeQuery();
+	
+			return statement.executeUpdate();
+			
+		} catch (SQLException e) {
+			System.out.println("Không thể kết nối đến cơ sở dữ liệu");
+			e.printStackTrace();
+		} finally {
+			try {
+				connection.close();
+				statement.close();
+				rs.close();
+			} catch (SQLException e) {
+				System.out.println("Lỗi đóng kết nối");
+				e.printStackTrace();
+			}
+		}
+		return 0;
 	}
 }

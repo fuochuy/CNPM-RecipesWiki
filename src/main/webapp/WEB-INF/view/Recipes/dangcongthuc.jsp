@@ -161,17 +161,7 @@
             <i class="zmdi zmdi-chevron-down"></i>
           </div>
 
-          <p>Event</p>
-          <div class="form-holder">
-            <select name="event" id="" class="form-control">
-              <option value="" disabled selected>Nhập lựa chọn của bạn</option>
-               <%List<Event> listEvent =(List<Event>) request.getAttribute("listEvent"); %>
-     		<%for(Event event:listEvent){ %>
-				<option value="<%=event.getId() %>"><%=event.getTen()%></option>
-             <%}%>
-            </select>
-            <i class="zmdi zmdi-chevron-down"></i>
-          </div>
+          
 
           <p>Ảnh minh họa</p>
           <input

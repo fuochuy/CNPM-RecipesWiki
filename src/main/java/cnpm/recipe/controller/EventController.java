@@ -48,8 +48,14 @@ public class EventController extends HttpServlet{
 			req.getRequestDispatcher(JspConst.CREATE_A_EVENT).forward(req, resp);
 			break;
 		case UrlConst.VIEW_A_EVENT:			
-			Event event = service.getEventById("123");
-			req.setAttribute("view-a-event", event);
+			
+			
+			if (req.getParameter("id") != null) {
+				int idEvent = Integer.parseInt(req.getParameter("id"));
+				Event event = service.getEventById(idEvent);
+				req.setAttribute("event", event);
+			}
+			
 			req.getRequestDispatcher(JspConst.VIEW_A_EVENT).forward(req, resp);
 			break;	
 		case UrlConst.VIEW_ALL_EVENT:

@@ -14,8 +14,8 @@ public class DbConst {
 	
 	/*Recipe*/
 	public static final String GET_RECIPES = "SELECT r.id, r.iduser, r.ten, r.mota, r.nguyenlieu,r.hinhanh,"
-			+ " r.luotthich,r.tgdang, r.tgthuchien FROM recipe r, user u WHERE r.iduser=u.id ";
-	
+			+ " r.luotthich,r.tgdang, r.tgthuchien,u.avatar, u.fullname FROM recipe r,user u WHERE r.iduser=u.id";
+	public static final String DELETE_RECIPES = "DELETE FROM recipe WHERE id=?";
 	/*Event*/
 	public static final String GET_EVENT = "SELECT e.id, e.iduser,e.tenuser, e.ten, e.mota, e.tgbatdau, e.tgketthuc,"
 			+ " e.soluong, e.hinhanh,e.hinhquangcao, e.giaithuong  FROM event e, user u WHERE e.iduser = u.id ";
@@ -48,16 +48,19 @@ public class DbConst {
 			+ "WHERE idevent = ";
 	
 	/*Insert ThamGiaEvent*/
-	public static final String INSERT_TGEvent = "INSERT thamgiaevent (iduser, idevent, idrecipe) VALUE(?,?,?)";
-	
+	public static final String INSERT_TGEvent = "SP_ThamgiaEvent(?,?,?)";
+	//INSERT thamgiaevent (iduser, idevent, idrecipe) VALUE(?,?,?)
 	/*THEM 1 EVENT*/
 	public static final String INSERT_EVENT = "INSERT event(iduser,tenuser, ten, mota, tgbatdau, tgketthuc, soluong, hinhanh,hinhquangcao, giaithuong) VALUE (?,?,?,?,?,?,?,?,?,?)";
 	
-	public static final String INSERT_RECIPE = "INSERT recipe(id,iduser,idchude,idtheloai,idevent,ten,mota,nguyenlieu,hinhanh,tgdang,tgthuchien) VALUE (?,?,?,?,?,?,?,?,?,?,?)";
+	public static final String INSERT_RECIPE = "INSERT recipe(id,iduser,idchude,idtheloai,ten,mota,nguyenlieu,hinhanh,tgdang,tgthuchien) VALUE (?,?,?,?,?,?,?,?,?,?)";
 	public static final String INSERT_BUOC = "INSERT step(buoc,idrecipe,des,hinhanh) VALUE (?,?,?,?)";
 	/*LAY 1 CT VOI ID*/
 	public static final String GET_RECIPE = "SELECT r.id, r.iduser, r.ten, r.mota, r.nguyenlieu,r.hinhanh,"
-			+ " r.luotthich,r.tgdang, r.tgthuchien FROM recipe r WHERE r.id = ";
+			+ " r.luotthich,r.tgdang, r.tgthuchien, u.avatar, u.fullname FROM recipe r, user u WHERE r.iduser=u.id";
+	
+	public static final String GET_RECIPE_BY_IDUSER = "SELECT r.id, r.iduser, r.ten, r.mota, r.nguyenlieu,r.hinhanh,"
+			+ " r.luotthich,r.tgdang, r.tgthuchien, u.avatar, u.fullname FROM recipe r,user u WHERE r.iduser=u.id AND r.iduser=?";
 	
 	/*lay 1 Event*/
 	public static final String GET_EVENT_BY_ID = "SELECT e.id, e.iduser, e.tenuser, e.ten, e.mota, e.tgbatdau, e.tgketthuc,"
