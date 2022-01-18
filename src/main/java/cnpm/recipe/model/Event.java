@@ -4,31 +4,69 @@ import java.sql.Date;
 public class Event {
 	private int id;
 	private int id_user;
+	private String tenuser;
 	private String ten;
 	private String mota;	
 	private Date tgbatdau;
 	private Date tgketthuc;
 	private int soluong;
 	private String hinhanh;
+	private String hinhanhquangcao;
 	private String giaithuong;
 	
 	
 	public Event() {}
 
 
-	public Event(int id, int id_user, String ten, String mota, Date tgbatdau, Date tgketthuc, int soluong,
-			String hinhanh, String giaithuong) {
+	
+
+	
+
+
+
+
+	public Event(int id, int id_user, String tenuser, String ten, String mota, Date tgbatdau, Date tgketthuc,
+			int soluong, String hinhanh, String hinhanhquangcao, String giaithuong) {
 		super();
 		this.id = id;
 		this.id_user = id_user;
+		this.tenuser = tenuser;
 		this.ten = ten;
 		this.mota = mota;
 		this.tgbatdau = tgbatdau;
 		this.tgketthuc = tgketthuc;
 		this.soluong = soluong;
 		this.hinhanh = hinhanh;
+		this.hinhanhquangcao = hinhanhquangcao;
 		this.giaithuong = giaithuong;
 	}
+
+
+
+	
+
+	public String getHinhanhquangcao() {
+		return hinhanhquangcao;
+	}
+
+
+
+
+
+
+
+
+
+	public void setHinhanhquangcao(String hinhanhquangcao) {
+		this.hinhanhquangcao = hinhanhquangcao;
+	}
+
+
+
+
+
+
+
 
 
 	public int getId() {
@@ -39,6 +77,20 @@ public class Event {
 	public void setId(int id) {
 		this.id = id;
 	}
+	
+
+	public String getTenuser() {
+		return tenuser;
+	}
+
+
+
+
+	public void setTenuser(String tenuser) {
+		this.tenuser = tenuser;
+	}
+
+
 
 
 	public int getId_user() {

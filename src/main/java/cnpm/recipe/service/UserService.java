@@ -24,9 +24,9 @@ public class UserService {
 		return repository.insertUser(account) == 1? true:false;
 	}
 	
-	//public User getUserById(int id){
-		//return repository.getUserById(id);
-	//}
+	public User getUserById(int id){
+		return repository.getUserById(id);
+	}
 	public boolean updateUser(int id, String fullname, Date DOB, String avatar) {
 		return repository.updateUser(id, fullname, DOB, avatar) == 1? true:false;
 	}

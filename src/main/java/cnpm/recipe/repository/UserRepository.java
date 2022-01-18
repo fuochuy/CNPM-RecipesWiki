@@ -120,11 +120,11 @@ public class UserRepository {
 		return null;
 	}
 	
-	/*
+	
 	public User getUserById(int id) {
 		try {
 			connection = MySQLConnection.getConnection();
-			String query = DbConst.GET_USERS;
+			String query = DbConst.GET_USER_BYID;
 			statement = connection.prepareStatement(query);
 			statement.setInt(1,id);
 			rs = statement.executeQuery();
@@ -132,9 +132,9 @@ public class UserRepository {
 			while (rs.next()) {
 				User user = new User();
 				user.setId(rs.getInt("u.id"));
-				user.setUsername(rs.getString("a.username"));
+				user.setUsername(rs.getString("u.email"));
 				user.setPassword(rs.getString("a.password"));
-				user.setStatus(rs.getInt("a.status"));
+				user.setStatus(rs.getInt("u.status"));
 				user.setFullname(rs.getString("u.fullname"));
 				user.setDOB(rs.getDate("u.DOB"));
 				user.setAvatar(rs.getString("u.avatar"));
@@ -156,7 +156,7 @@ public class UserRepository {
 		return null;
 		
 	}
-	*/
+	
 	public int updateUser(int id, String fullname, Date DOB, String avatar) {
 		try {
 			connection = MySQLConnection.getConnection();

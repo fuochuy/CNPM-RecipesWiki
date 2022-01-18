@@ -15,10 +15,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
+import cnpm.recipe.model.Chude;
+import cnpm.recipe.model.Event;
 import cnpm.recipe.model.Recipe;
 import cnpm.recipe.model.Step;
+import cnpm.recipe.model.TheLoai;
+import cnpm.recipe.service.ChudeService;
+import cnpm.recipe.service.EventService;
 import cnpm.recipe.service.RecipeService;
 import cnpm.recipe.service.StepService;
+import cnpm.recipe.service.TheLoaiService;
 import cnpm.recipe.url.JspConst;
 import cnpm.recipe.url.UrlConst;
 
@@ -30,6 +36,10 @@ import cnpm.recipe.url.UrlConst;
 public class RecipeController extends HttpServlet{
 	private RecipeService service;
 	private StepService serviceBuoc;
+	
+	private ChudeService chuDeService;
+	private EventService eventService;
+	private TheLoaiService theLoaiService;
 	private String acction;
 	private int idBuoc;
 	
@@ -39,6 +49,9 @@ public class RecipeController extends HttpServlet{
 		super.init();
 		service= new RecipeService();
 		serviceBuoc = new StepService();
+		chuDeService = new ChudeService();
+		eventService = new EventService();
+		theLoaiService = new TheLoaiService();
 		acction="";
 		idBuoc=1;
 	}
@@ -58,6 +71,13 @@ public class RecipeController extends HttpServlet{
 			req.getRequestDispatcher(JspConst.MAN_HINH_CUA_1_CT).forward(req, resp);
 			break;		
 		case UrlConst.CREATE_A_RECIPE:
+			List<Chude> listChuDe = chuDeService.getChude();
+			List<TheLoai> listTheLoai = theLoaiService.getAllTheLoai();
+			List<Event> listEvent = eventService.getEvent();
+			
+			req.setAttribute("listTheLoai", listTheLoai);
+			req.setAttribute("listChuDe", listChuDe);
+			req.setAttribute("listEvent", listEvent);
 			req.getRequestDispatcher(JspConst.CREATE_RECIPE).forward(req, resp);
 			break;
 		}

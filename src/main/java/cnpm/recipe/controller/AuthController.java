@@ -19,7 +19,7 @@ import cnpm.recipe.url.UrlConst;
 		UrlConst.SIGN_UP,
 		UrlConst.SIGN_OUT
 })
-public class AuthServlet extends HttpServlet {
+public class AuthController extends HttpServlet {
 
 	
 	private UserService service;

@@ -62,5 +62,8 @@ public class UrlConst {
 	
 	/*BO SUU TAP 0kq*/
 	public static final String BST_404 = "/album404";
+	
+	/*CHU DE*/
+	public static final String CHUDE = "/chude";
 
 }

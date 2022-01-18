@@ -129,14 +129,14 @@
 
           <label class="form-title" for="tgbatdau">Ngày và giờ bắt đầu</label>
           <input
-            type="datetime-local"
+            type="date"
             class="form-date"
             name="ngayvagiobatdau"
           />
 
           <label class="form-title" for="tgketthuc">Ngày và giờ kết thúc</label>
           <input
-            type="datetime-local"
+            type="date"
             class="form-date"
             name="ngayvagioketthuc"
           />
@@ -161,6 +161,14 @@
           <input
             type="file"
             name="hinhanh"
+            id="file-ip-0"
+            accept="image/*"
+            onchange="showPreview(event);"
+          />
+          <p>Ảnh quảng cáo</p>
+          <input
+            type="file"
+            name="hinhanhquangcao"
             id="file-ip-0"
             accept="image/*"
             onchange="showPreview(event);"

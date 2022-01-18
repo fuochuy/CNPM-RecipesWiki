@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@page import="cnpm.recipe.model.Event"%>
+<%@page import="java.util.List"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -130,64 +133,34 @@
         </div>
       </div>
     </div>
+	
+	 <%List<Event> listEvent =(List<Event>) request.getAttribute("xem-tatca-event"); %>
+		
+		<%for(Event event:listEvent){ %>
+			<div class="event-in4">
+			
+			      <div class="image-event">
+			      <a href=""> <img src="<%=event.getHinhanh()%>" alt="" /></a>
+			       
+			      </div>
+		      
+			      <div class="image-text">
+				        <div class="text">
+					          <h3><%=event.getTen() %></h3>
+					          <p>Tham gia: <%=event.getSoluong() %></p>
+					          <p>Sự kiện của: <%=event.getTenuser() %></p>
+					          <p>Ngày bắt đầu: <%=event.getTgbatdau() %></p>
+					          <p>Ngày kết thúc: <%=event.getTgketthuc() %></p>
+					          <p>Giải thưởng: <%=event.getGiaithuong() %></p>
+				        </div>
+				        <button type="submit">Tham gia</button>
+				        <button type="submit">Mời</button>
+			      </div>
+    		</div>
+	     <%}%>
+    
 
-    <div class="event-in4">
-      <div class="image-event">
-        <img src="Image/manhinhcua1event/monnhau.png" alt="" />
-      </div>
-      <div class="image-text">
-        <div class="text">
-          <h3>Cuộc thi làm món nhậu đỉnh cao</h3>
-          <p>Tham gia: 20</p>
-          <p>Sự kiện của: Nick</p>
-          <p>Ngày bắt đầu: 20/11/2021</p>
-          <p>Ngày kết thúc: 30/11/2021</p>
-          <p>Giải thưởng: 1 thùng bia SAIGON</p>
-        </div>
-        <button type="submit">Tham gia</button>
-        <button type="submit">Mời</button>
-      </div>
-    </div>
-
-    <div class="event-in4">
-      <div class="image-event">
-        <img src="Image/manhinhcua1event/monnhau.png" alt="" />
-      </div>
-      <div class="image-text">
-        <div class="text">
-          <h3>Cuộc thi làm món nhậu đỉnh cao</h3>
-          <p>Tham gia: 20</p>
-          <p>Sự kiện của: Nick</p>
-          <p>Ngày bắt đầu: 20/11/2021</p>
-          <p>Ngày kết thúc: 30/11/2021</p>
-          <p>Giải thưởng: 1 thùng bia SAIGON</p>
-        </div>
-        <button type="submit">Tham gia</button>
-        <button type="submit">Mời</button>
-      </div>
-    </div>
-
-    <div class="event-in4">
-      <div class="image-event">
-        <img src="Image/manhinhcua1event/monnhau.png" alt="" />
-      </div>
-      <div class="image-text">
-        <div class="text">
-          <h3>Cuộc thi làm món nhậu đỉnh cao</h3>
-          <p>Tham gia: 20</p>
-          <p>Sự kiện của: Nick</p>
-          <p>Ngày bắt đầu: 20/11/2021</p>
-          <p>Ngày kết thúc: 30/11/2021</p>
-          <p>Giải thưởng: 1 thùng bia SAIGON</p>
-        </div>
-        <button type="submit">Tham gia</button>
-        <button type="submit">Mời</button>
-      </div>
-    </div>
-
-    <div class="xemthem">
-      <h3 type="submit">Xem thêm</h3>
-    </div>
+   
 
     <!-- menu section ends -->
     <script>

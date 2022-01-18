@@ -6,6 +6,7 @@ public class DbConst {
 	/*Account*/
 	public static final String INSERT_USER ="INSERT user (email,password,status) VALUE (?,?,1)";
 	public static final String GET_USERS ="SELECT u.id,u.email, u.password,u.status, u.fullname, u.DOB, u.avatar FROM user u";
+	public static final String GET_USER_BYID ="SELECT u.id,u.email, u.password,u.status, u.fullname, u.DOB, u.avatar FROM user u WHERE u.id=?";
 	/*User*/
 	//public static final String GET_USERS = "SELECT u.id, u.idaccount, u.fullname, u.DOB, u.avatar FROM user u, account a WHERE a.id = u.idaccount and u.idaccount = ?";
 	//public static final String INSERT_USER = "INSERT user(idaccount, fullname, DOB, avatar) VALUE (?,?,?,?)";
@@ -16,11 +17,11 @@ public class DbConst {
 			+ " r.luotthich,r.tgdang, r.tgthuchien FROM recipe r, user u WHERE r.iduser=u.id ";
 	
 	/*Event*/
-	public static final String GET_EVENT = "SELECT e.id, e.iduser, e.ten, e.mota, e.tgbatdau, e.tgketthuc,"
-			+ " e.soluong, e.hinhanh, e.giaithuong  FROM event e, user u WHERE e.iduser = u.id ";
+	public static final String GET_EVENT = "SELECT e.id, e.iduser,e.tenuser, e.ten, e.mota, e.tgbatdau, e.tgketthuc,"
+			+ " e.soluong, e.hinhanh,e.hinhquangcao, e.giaithuong  FROM event e, user u WHERE e.iduser = u.id ";
 	
 	/*Chude*/
-	public static final String GET_ALL_CHUDE = "SELECT cd.id, cd.ten, cd.mota, cd.hinhanh FROM chude ";
+	public static final String GET_ALL_CHUDE = "SELECT cd.id, cd.ten, cd.mota, cd.hinhanh FROM chude cd";
 
 	/*Get all step for a recipe*/
 	public static final String GET_STEP_FOR_RECIPE = "SELECT st.id, st.buoc, st.idrecipe, st.hinhanh, st.des "
@@ -50,7 +51,7 @@ public class DbConst {
 	public static final String INSERT_TGEvent = "INSERT thamgiaevent (iduser, idevent, idrecipe) VALUE(?,?,?)";
 	
 	/*THEM 1 EVENT*/
-	public static final String INSERT_EVENT = "INSERT event(iduser, ten, mota, tgbatdau, tgketthuc, soluong, hinhanh, giaithuong) VALUE (?,?,?,?,?,?,?,?)";
+	public static final String INSERT_EVENT = "INSERT event(iduser,tenuser, ten, mota, tgbatdau, tgketthuc, soluong, hinhanh,hinhquangcao, giaithuong) VALUE (?,?,?,?,?,?,?,?,?,?)";
 	
 	public static final String INSERT_RECIPE = "INSERT recipe(id,iduser,idchude,idtheloai,idevent,ten,mota,nguyenlieu,hinhanh,tgdang,tgthuchien) VALUE (?,?,?,?,?,?,?,?,?,?,?)";
 	public static final String INSERT_BUOC = "INSERT step(buoc,idrecipe,des,hinhanh) VALUE (?,?,?,?)";
@@ -59,8 +60,11 @@ public class DbConst {
 			+ " r.luotthich,r.tgdang, r.tgthuchien FROM recipe r WHERE r.id = ";
 	
 	/*lay 1 Event*/
-	public static final String GET_EVENT_BY_ID = "SELECT e.id, e.iduser, e.ten, e.mota, e.tgbatdau, e.tgketthuc,"
-			+ " e.soluong, e.hinhanh, e.giaithuong  FROM event e WHERE e.id = 1";
+	public static final String GET_EVENT_BY_ID = "SELECT e.id, e.iduser, e.tenuser, e.ten, e.mota, e.tgbatdau, e.tgketthuc,"
+			+ " e.soluong, e.hinhanh,e.hinhquangcao, e.giaithuong  FROM event e WHERE e.id = ?";
+	
+	/*lay 1 Event*/
+	public static final String GET_ALL_THELOAI = "SELECT tl.id, tl.tentheloai from theloai tl";
 	
 }
 

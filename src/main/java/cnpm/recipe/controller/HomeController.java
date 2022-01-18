@@ -15,7 +15,7 @@ import cnpm.recipe.url.UrlConst;
 @WebServlet(name="homeServlet", urlPatterns =
 		UrlConst.TRANG_CHU)
 
-public class HomeServlet extends HttpServlet{
+public class HomeController extends HttpServlet{
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

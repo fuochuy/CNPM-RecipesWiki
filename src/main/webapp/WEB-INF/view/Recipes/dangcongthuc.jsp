@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@page import="cnpm.recipe.model.Chude"%>
+<%@page import="cnpm.recipe.model.TheLoai"%>
+<%@page import="cnpm.recipe.model.Event"%>
+<%@page import="java.util.List"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -135,11 +140,11 @@
           <div class="form-holder">
             <select name="chude" id="form-control" class="form-control">
               <option value="" disabled selected>Nhập lựa chọn của bạn</option>
-              <option value="1">Món ăn hàng ngày</option>
-              <option value="2">Món ăn ngày tết</option>
-              <option value="3">Món ăn ngày hè</option>
-              <option value="4">Món ăn chay</option>
-              <option value="5">Tất cả chủ đề</option>
+            <%List<Chude> listChuDe =(List<Chude>) request.getAttribute("listChuDe"); %>
+     		<%for(Chude chude:listChuDe){ %>
+				<option value="<%=chude.getId() %>"><%=chude.getTen() %></option>
+             <%}%>
+             
             </select>
             <i class="zmdi zmdi-chevron-down"></i>
           </div>
@@ -148,14 +153,10 @@
           <div class="form-holder">
             <select name="theloai" id="" class="form-control">
               <option value="" disabled selected>Nhập lựa chọn của bạn</option>
-              <option value="1">Bữa sáng</option>
-              <option value="2">Bữa trưa</option>
-              <option value="3">Bữa tối</option>
-              <option value="4">Tráng miệng</option>
-              <option value="5">Ăn nhẹ</option>
-              <option value="3">Sinh nhật</option>
-              <option value="3">Giáng sinh</option>
-              <option value="3">Năm mới</option>
+             <%List<TheLoai> listTheLoai =(List<TheLoai>) request.getAttribute("listTheLoai"); %>
+     		<%for(TheLoai theloai:listTheLoai){ %>
+				<option value="<%=theloai.getId() %>"><%=theloai.getTentheloai() %></option>
+             <%}%>
             </select>
             <i class="zmdi zmdi-chevron-down"></i>
           </div>
@@ -164,9 +165,10 @@
           <div class="form-holder">
             <select name="event" id="" class="form-control">
               <option value="" disabled selected>Nhập lựa chọn của bạn</option>
-              <option value="1">Không tham gia</option>
-              <option value="2">Ăn trưa</option>
-              <option value="3">Ăn tối</option>
+               <%List<Event> listEvent =(List<Event>) request.getAttribute("listEvent"); %>
+     		<%for(Event event:listEvent){ %>
+				<option value="<%=event.getId() %>"><%=event.getTen()%></option>
+             <%}%>
             </select>
             <i class="zmdi zmdi-chevron-down"></i>
           </div>

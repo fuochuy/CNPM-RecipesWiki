@@ -55,5 +55,8 @@ public class JspConst {
 	
 	/*BO SUU TAP 0kq*/
 	public static final String BST_404 = "/WEB-INF/view/Menu/bst_404.jsp";
+	
+	/*BO SUU TAP 0kq*/
+	public static final String CHUDE = "/WEB-INF/view/Topic/TatCaChuDe.jsp";
 
 }

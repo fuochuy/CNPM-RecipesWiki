@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@page import="cnpm.recipe.model.Chude"%>
+<%@page import="java.util.List"%>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -93,8 +97,16 @@
                       <ul class="submenu">
                         <li><a href="#"  >Ăn sáng</a></li>
                         <li><a href="#" >Ăn trưa</a></li>
-                        <li><a href="#"  >Ăn sáng</a></li>
-                        
+                        <li><a href="#"  >Ăn tối</a></li>
+                        <li><a href="#"  >Dã ngoại</a></li>
+                        <li><a href="#"  >Giáng sinh</a></li>
+                        <li><a href="#"  >Halloween</a></li>
+                        <li><a href="#" >Lễ tình nhân</a></li>
+                        <li><a href="#"  >Món chay</a></li>
+                        <li><a href="#"  >Ngày tết</a></li>
+                        <li><a href="#"  >Sinh nhật</a></li>
+                        <li><a href="chude"  >Tất cả chủ đề</a></li>
+                       
                       </ul>
                   </li>
                   <li class="active"><a href="./aboutus.html" class="menu-item">About us</a></li>
@@ -132,61 +144,21 @@
       </div>
 
       <div class="topic-container">
-        <div class="row" id="topic1">
+      <%List<Chude> topics =(List<Chude>) request.getAttribute("topics"); %>
+      <%for(int i=0; i<topics.size(); i++){ %>
+      	<div class="row" id="<%="topic"+(i+1)%>">
           <div class="col-md-3">
-            <img class="pic-menu" src="Image/menu/menu-1.jpg" alt="" />
+            <img class="pic-menu" src="<%=topics.get(i).getHinhanh() %>" alt="" />
           </div>
           <div class="col-md-9">
-            <h3>Điểm mặt các món ngon, cứ nhìn là thấy Tết</h3>
+            <h3><%=topics.get(i).getTen() %></h3>
             <p>
-              Ẩm thực ngày tết ở mỗi vùng miền vô cùng đa dạng và phong phú. Tuy
-              nhiên, dù xa đâu, dù xưa hay nay, luôn có những món ăn chỉ cần
-              nhìn là thấy Tết.
+             <%=topics.get(i).getMota() %>
             </p>
           </div>
         </div>
-
-        <div class="row" id="topic2">
-          <div class="col-md-3">
-            <img class="pic-menu" src="Image/menu/menu-2.jpg" alt="" />
-          </div>
-          <div class="col-md-9">
-            <h3>Điểm mặt các món ngon, cứ nhìn là thấy Tết</h3>
-            <p>
-              Ẩm thực ngày tết ở mỗi vùng miền vô cùng đa dạng và phong phú. Tuy
-              nhiên, dù xa đâu, dù xưa hay nay, luôn có những món ăn chỉ cần
-              nhìn là thấy Tết.
-            </p>
-          </div>
-        </div>
-
-        <div class="row" id="topic3">
-          <div class="col-md-3">
-            <img class="pic-menu" src="Image/menu/menu-3.jpg" alt="" />
-          </div>
-          <div class="col-md-9">
-            <h3>Điểm mặt các món ngon, cứ nhìn là thấy Tết</h3>
-            <p>
-              Ẩm thực ngày tết ở mỗi vùng miền vô cùng đa dạng và phong phú. Tuy
-              nhiên, dù xa đâu, dù xưa hay nay, luôn có những món ăn chỉ cần
-              nhìn là thấy Tết.
-            </p>
-          </div>
-        </div>
-        <div class="row" id="topic4">
-          <div class="col-md-3">
-            <img class="pic-menu" src="Image/menu/menu-4.jpg" alt="" />
-          </div>
-          <div class="col-md-9">
-            <h3>Điểm mặt các món ngon, cứ nhìn là thấy Tết</h3>
-            <p>
-              Ẩm thực ngày tết ở mỗi vùng miền vô cùng đa dạng và phong phú. Tuy
-              nhiên, dù xa đâu, dù xưa hay nay, luôn có những món ăn chỉ cần
-              nhìn là thấy Tết.
-            </p>
-          </div>
-        </div>
-
+      <%} %>
+ 
         <div class="showmore">
           <button id="showmore">Xem thêm</button>
         </div>

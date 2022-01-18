@@ -24,7 +24,7 @@ import cnpm.recipe.url.UrlConst;
 @WebServlet(name = "userServlet", urlPatterns = {
 		UrlConst.EDIT_PROFILE,UrlConst.PROFILE
 })
-public class UserServlet extends HttpServlet{
+public class UserController extends HttpServlet{
 	
 	private UserService service;
 	private String acction;
@@ -51,8 +51,8 @@ public class UserServlet extends HttpServlet{
 			req.getRequestDispatcher(JspConst.EDIT_PROFILE).forward(req, resp);
 			break;
 		case UrlConst.PROFILE: 
-			User user =  (User) req.getSession().getAttribute("user");
-			System.out.println(user.getUsername());
+			int iduser = (int) req.getSession().getAttribute("iduser");
+			User user = service.getUserById(iduser);
 			req.setAttribute("user", user);
 			req.getRequestDispatcher(JspConst.PROFILE).forward(req, resp);
 			break;

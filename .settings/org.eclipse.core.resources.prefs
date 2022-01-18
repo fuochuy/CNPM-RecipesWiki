@@ -1,5 +1,5 @@
 eclipse.preferences.version=1
-encoding//src/main/java/cnpm/recipe/controller/AuthServlet.java=UTF-8
+encoding//src/main/java/cnpm/recipe/controller/AuthController.java=UTF-8
 encoding//src/main/java/cnpm/recipe/controller/RecipeController.java=UTF-8
 encoding//src/main/java/cnpm/recipe/filter/EncodingFilter.java=UTF-8
 encoding//src/main/java/cnpm/recipe/repository/Album_Recipes_Repository.java=UTF-8
@@ -8,6 +8,7 @@ encoding//src/main/java/cnpm/recipe/repository/EventRepository.java=UTF-8
 encoding//src/main/java/cnpm/recipe/repository/RecipeRepository.java=UTF-8
 encoding//src/main/java/cnpm/recipe/repository/StepRepository.java=UTF-8
 encoding//src/main/java/cnpm/recipe/repository/Thamgia_Event_Repository.java=UTF-8
+encoding//src/main/java/cnpm/recipe/repository/TheLoai_Repository.java=UTF-8
 encoding//src/main/java/cnpm/recipe/repository/UserRepository.java=UTF-8
 encoding//src/main/java/cnpm/recipe/url/JspConst.java=UTF-8
 encoding//src/main/java/cnpm/recipe/url/UrlConst.java=UTF-8

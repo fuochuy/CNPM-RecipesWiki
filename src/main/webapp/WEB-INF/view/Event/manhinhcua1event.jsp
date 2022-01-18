@@ -128,7 +128,7 @@
         <div class="col-md-1"></div>
         <div class="col-md-10">
           <div class="image-header">
-            <img src=<%=event.getHinhanh()%> alt="" />
+            <img src="<%=event.getHinhanhquangcao() %>" alt="" />
           </div>
         </div>
         <div class="col-md-1"></div>
