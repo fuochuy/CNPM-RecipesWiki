@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@page import="cnpm.recipe.model.Event"%>
+pageEncoding="UTF-8"%> <%@ taglib uri="http://java.sun.com/jsp/jstl/core"
+prefix="c"%> <%@page import="cnpm.recipe.model.Event"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -105,9 +104,17 @@
           <li class="has-submenu">
             <a href="" class="menu-item">Chủ đề</a>
             <ul class="submenu">
-              <li><a href="#">Ăn sáng</a></li>
-              <li><a href="#">Ăn trưa</a></li>
-              <li><a href="#">Ăn sáng</a></li>
+              <li><a href="search?id=1">Ăn sáng</a></li>
+              <li><a href="search?id=3">Ăn trưa</a></li>
+              <li><a href="search?id=2">Ăn tối</a></li>
+              <li><a href="search?id=4">Dã ngoại</a></li>
+              <li><a href="search?id=5">Giáng sinh</a></li>
+              <li><a href="search?id=6">Halloween</a></li>
+              <li><a href="search?id=7">Lễ tình nhân</a></li>
+              <li><a href="search?id=8">Món chay</a></li>
+              <li><a href="search?id=9">Ngày tết</a></li>
+              <li><a href="search?id=10">Sinh nhật</a></li>
+              <li><a href="chude">Tất cả chủ đề</a></li>
             </ul>
           </li>
           <li class="active">
@@ -122,7 +129,7 @@
       </nav>
     </header>
 
-	<%Event event =(Event) request.getAttribute("event"); %>
+    <%Event event =(Event) request.getAttribute("event"); %>
     <div class="container">
       <div class="row">
         <div class="col-md-1"></div>
@@ -151,9 +158,12 @@
               <p>Ngày kết thúc: <%=event.getTgketthuc()%></p>
               <p>Giải thưởng: <%=event.getGiaithuong()%></p>
             </div>
-            
-            <a href="create-recipe?thamgiaEvent=<%=event.getId()%>" class="menu-item">
-            	<button>Tham gia</button>
+
+            <a
+              href="create-recipe?thamgiaEvent=<%=event.getId()%>"
+              class="menu-item"
+            >
+              <button>Tham gia</button>
             </a>
             <button type="submit">Mời</button>
           </div>

@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -9,14 +9,23 @@
       src="https://kit.fontawesome.com/1147679ae7.js"
       crossorigin="anonymous"
     ></script>
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
 
     <!-- font awesome cdn link  -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
     <link rel="stylesheet" href="css/bst.css" />
-   
+
     <!--link bootstrap-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    />
     <title>Bộ sưu tập của tôi</title>
   </head>
 
@@ -89,9 +98,17 @@
           <li class="has-submenu">
             <a href="" class="menu-item">Chủ đề</a>
             <ul class="submenu">
-              <li><a href="#">Ăn sáng</a></li>
-              <li><a href="#">Ăn trưa</a></li>
-              <li><a href="#">Ăn sáng</a></li>
+              <li><a href="search?id=1">Ăn sáng</a></li>
+              <li><a href="search?id=3">Ăn trưa</a></li>
+              <li><a href="search?id=2">Ăn tối</a></li>
+              <li><a href="search?id=4">Dã ngoại</a></li>
+              <li><a href="search?id=5">Giáng sinh</a></li>
+              <li><a href="search?id=6">Halloween</a></li>
+              <li><a href="search?id=7">Lễ tình nhân</a></li>
+              <li><a href="search?id=8">Món chay</a></li>
+              <li><a href="search?id=9">Ngày tết</a></li>
+              <li><a href="search?id=10">Sinh nhật</a></li>
+              <li><a href="chude">Tất cả chủ đề</a></li>
             </ul>
           </li>
           <li>
@@ -105,64 +122,66 @@
         </ul>
       </nav>
     </header>
-   
+
     <div class="container">
-        <div class="row">
-            <div class="Mycook">
-                <span>Bộ sưu tập của tôi</span>
-            </div>
+      <div class="row">
+        <div class="Mycook">
+          <span>Bộ sưu tập của tôi</span>
         </div>
-          <div class="content">
-                <img src="Image/BST/pic1.jpg" alt="">
-                <div class="content-text">
-                    <h3>Khổ qua nhồi thịt</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Distinctio, aspernatur neque? Esse debitis soluta alias rem, delectus excepturi sapiente laborum provident molestias possimus quas reprehenderit eum velit consectetur praesentium doloribus?</p>
+      </div>
+      <div class="content">
+        <img src="Image/BST/pic1.jpg" alt="" />
+        <div class="content-text">
+          <h3>Khổ qua nhồi thịt</h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+            Distinctio, aspernatur neque? Esse debitis soluta alias rem,
+            delectus excepturi sapiente laborum provident molestias possimus
+            quas reprehenderit eum velit consectetur praesentium doloribus?
+          </p>
+        </div>
+        <div class="row dish">
+          <div class="col-md-6">
+            <div class="row">
+              <div class="col-md-3 profie-img">
+                <img src="Image/user/Profile.png" alt="" />
+              </div>
+              <div class="col-md-9">
+                <div class="row">
+                  <p class="username">Phước Huy</p>
                 </div>
-                <div class="row dish">
-                    <div class="col-md-6">
-                        <div class="row">
-                            <div class="col-md-3 profie-img">
-                                <img src="Image/user/Profile.png" alt="">
-                            </div>
-                            <div class="col-md-9">
-                                <div class="row">
-                                    <p class="username"> Phước Huy</p>
-                                </div>
-                                <div class="row">
-                                    <p class="ngaydang">17/12/2021</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 btn-xoa">
-                        <button><a href="">Xóa món này khỏi bộ sưu tập</a></button>
-                    </div>
+                <div class="row">
+                  <p class="ngaydang">17/12/2021</p>
                 </div>
-          </div> 
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 btn-xoa">
+            <button><a href="">Xóa món này khỏi bộ sưu tập</a></button>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div class="more" >
-        <button><a href="">Xem thêm</a></button>
+    <div class="more">
+      <button><a href="">Xem thêm</a></button>
     </div>
 
-
-
-   
     <script>
-        window.onscroll = function() {myFunction()};
-        
-        var header = document.getElementById("myHeader");
-        var sticky = header.offsetTop;
-        
-        function myFunction() {
-          if (window.pageYOffset > sticky) {
-            header.classList.add("sticky");
-          } else {
-            header.classList.remove("sticky");
-          }
-  
-          
+      window.onscroll = function () {
+        myFunction();
+      };
+
+      var header = document.getElementById("myHeader");
+      var sticky = header.offsetTop;
+
+      function myFunction() {
+        if (window.pageYOffset > sticky) {
+          header.classList.add("sticky");
+        } else {
+          header.classList.remove("sticky");
         }
+      }
     </script>
     <script src="./js/burger.js"></script>
     <script src="//code.jquery.com/jquery.js"></script>

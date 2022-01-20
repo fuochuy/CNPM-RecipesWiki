@@ -7,14 +7,23 @@
       src="https://kit.fontawesome.com/1147679ae7.js"
       crossorigin="anonymous"
     ></script>
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
 
     <!-- font awesome cdn link  -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
     <link rel="stylesheet" href="css/search1.css" />
 
-     <!--link bootstrap-->
-     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <!--link bootstrap-->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    />
 
     <title>Tìm kiếm</title>
   </head>
@@ -72,35 +81,59 @@
     </div>
 
     <header class="header__menu" id="myHeader">
-
-        <nav>
-            <ul class="menu-ul">
-                <li class=""><a href="./trang_chu.html" class="menu-item">Trang chủ</a></li>
-                <li class="active"><a href="./search1.html" class="menu-item">Tìm kiếm</a></li>
-                <li class="" ><a href="./trang_chu.html" class="menu-item"><span >RecipesWiki</span></a></li>
-                <li class="has-submenu">
-                    <a href="" class="menu-item">Chủ đề</a>
-                    <ul class="submenu">
-                      <li><a href="#"  >Ăn sáng</a></li>
-                      <li><a href="#" >Ăn trưa</a></li>
-                      <li><a href="#"  >Ăn sáng</a></li>
-                      
-                    </ul>
-                </li>
-                <li class=""><a href="./aboutus.html" class="menu-item">About us</a></li>
-                <li class="btn_account"> <a href="./account.html" class="menu-item"><img src="./Image/icon/account.png" /></a></li>
-            </ul>  
-        </nav>
-
+      <nav>
+        <ul class="menu-ul">
+          <li class="">
+            <a href="./trang_chu.html" class="menu-item">Trang chủ</a>
+          </li>
+          <li class="active">
+            <a href="./search1.html" class="menu-item">Tìm kiếm</a>
+          </li>
+          <li class="">
+            <a href="./trang_chu.html" class="menu-item"
+              ><span>RecipesWiki</span></a
+            >
+          </li>
+          <li class="has-submenu">
+            <a href="" class="menu-item">Chủ đề</a>
+            <ul class="submenu">
+              <li><a href="search?id=1">Ăn sáng</a></li>
+              <li><a href="search?id=3">Ăn trưa</a></li>
+              <li><a href="search?id=2">Ăn tối</a></li>
+              <li><a href="search?id=4">Dã ngoại</a></li>
+              <li><a href="search?id=5">Giáng sinh</a></li>
+              <li><a href="search?id=6">Halloween</a></li>
+              <li><a href="search?id=7">Lễ tình nhân</a></li>
+              <li><a href="search?id=8">Món chay</a></li>
+              <li><a href="search?id=9">Ngày tết</a></li>
+              <li><a href="search?id=10">Sinh nhật</a></li>
+              <li><a href="chude">Tất cả chủ đề</a></li>
+            </ul>
+          </li>
+          <li class="">
+            <a href="./aboutus.html" class="menu-item">About us</a>
+          </li>
+          <li class="btn_account">
+            <a href="./account.html" class="menu-item"
+              ><img src="./Image/icon/account.png"
+            /></a>
+          </li>
+        </ul>
+      </nav>
     </header>
-    <div class="logo"><img src="./Image/burger/food_logo.png" alt=""></div>
+    <div class="logo"><img src="./Image/burger/food_logo.png" alt="" /></div>
     <div class="search">
-        <form action="">
-            <input type="text"  class="form-search" placeholder="Tên món, nguyên liệu, chủ đề,..." >
-            <button type="submit" class="btn-search">Tìm kiếm
-                <img  src="Image/icon/search.png" alt="">
-            </button>
-        </form>
+      <form action="">
+        <input
+          type="text"
+          class="form-search"
+          placeholder="Tên món, nguyên liệu, chủ đề,..."
+        />
+        <button type="submit" class="btn-search">
+          Tìm kiếm
+          <img src="Image/icon/search.png" alt="" />
+        </button>
+      </form>
     </div>
 
     <script>
@@ -122,4 +155,5 @@
 
     <script src="./js/burger.js"></script>
     <script src="//code.jquery.com/jquery.js"></script>
-</body>
+  </body>
+</html>
