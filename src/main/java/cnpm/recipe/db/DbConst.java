@@ -25,8 +25,8 @@ public class DbConst {
 
 	/*Get all step for a recipe*/
 	public static final String GET_STEP_FOR_RECIPE = "SELECT st.id, st.buoc, st.idrecipe, st.hinhanh, st.des "
-			+ "FROM step "
-			+ "WHERE idrecipe = ";
+			+ "FROM step st "
+			+ "WHERE st.idrecipe = ?";
 	
 	/*Get all recipes in this album of user*/
 	public static final String GET_AllRecipes_InAlbum_OfUser = "SELECT r.id, r.iduser, r.ten, r.mota, r.nguyenlieu,r.hinhanh, "
@@ -70,9 +70,9 @@ public class DbConst {
 	public static final String GET_ALL_THELOAI = "SELECT tl.id, tl.tentheloai from theloai tl";
 	
 	public static final String UPDATE_LUOTTHICH ="CALL SP_Tangluotthich(?)";
-	
+	public static final String GET_COMMENT_BYID_RECIPE ="SELECT c.id, c.idrecipe, u.fullname, u.avatar,c.content, c.ngaydang FROM comment c, user u WHERE c.iduser=u.id AND c.idrecipe=?";
+		
 }
-
 
 
 

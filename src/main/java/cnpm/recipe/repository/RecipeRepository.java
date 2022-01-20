@@ -1,7 +1,6 @@
 package cnpm.recipe.repository;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -191,6 +190,31 @@ public class RecipeRepository {
 				connection.close();
 				statement.close();
 				rs.close();
+			} catch (SQLException e) {
+				System.out.println("Lỗi đóng kết nối");
+				e.printStackTrace();
+			}
+		}
+		return 0;
+	}
+	public int updateLuotThich(int idrecipe) {
+		try {
+			connection = MySQLConnection.getConnection();
+			String query = DbConst.UPDATE_LUOTTHICH;
+
+			statement = connection.prepareStatement(query);
+
+			
+			statement.setInt(1, idrecipe);
+
+			return statement.executeUpdate();
+		} catch (SQLException e) {
+			System.out.println("Không thể kết nối đến cơ sở dữ liệu");
+			e.printStackTrace();
+		} finally {
+			try {
+				connection.close();
+				statement.close();
 			} catch (SQLException e) {
 				System.out.println("Lỗi đóng kết nối");
 				e.printStackTrace();

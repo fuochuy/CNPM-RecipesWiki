@@ -40,6 +40,7 @@ public class UrlConst {
 	
 	/*MAN HINH CUA 1 CT*/
 	public static final String MAN_HINH_CUA_1_CT = "/recipe";
+	public static final String YEUTHICH = "/recipe-like";
 
 	/*MAN HINH about us*/
 	public static final String ABOUT_US = "/aboutus";

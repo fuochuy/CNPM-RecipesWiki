@@ -16,22 +16,22 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
 import cnpm.recipe.model.Chude;
+import cnpm.recipe.model.Comment;
 import cnpm.recipe.model.Recipe;
 import cnpm.recipe.model.Step;
 import cnpm.recipe.model.TheLoai;
-import cnpm.recipe.model.User;
 import cnpm.recipe.service.ChudeService;
+import cnpm.recipe.service.CommentService;
 import cnpm.recipe.service.RecipeService;
 import cnpm.recipe.service.StepService;
 import cnpm.recipe.service.Thamgia_Event_Service;
 import cnpm.recipe.service.TheLoaiService;
-import cnpm.recipe.service.UserService;
 import cnpm.recipe.url.JspConst;
 import cnpm.recipe.url.UrlConst;
 
 @MultipartConfig
 @WebServlet(name="recipeController", urlPatterns = {
-		UrlConst.MAN_HINH_CUA_1_CT,UrlConst.CREATE_A_RECIPE,UrlConst.MYRECIPE,UrlConst.DELETE_RECIPE
+		UrlConst.MAN_HINH_CUA_1_CT,UrlConst.CREATE_A_RECIPE,UrlConst.MYRECIPE,UrlConst.DELETE_RECIPE,UrlConst.YEUTHICH
 		})
 
 public class RecipeController extends HttpServlet{
@@ -41,7 +41,8 @@ public class RecipeController extends HttpServlet{
 	private ChudeService chuDeService;
 	private Thamgia_Event_Service thamGiaEventService;
 	private TheLoaiService theLoaiService;
-	private UserService userService;
+	private StepService stepService;
+	private CommentService commentService;
 	private int idEvent;
 	private String acction;
 	private int idRecipe;
@@ -55,7 +56,8 @@ public class RecipeController extends HttpServlet{
 		chuDeService = new ChudeService();
 		thamGiaEventService = new Thamgia_Event_Service();
 		theLoaiService = new TheLoaiService();
-		userService = new UserService();
+		stepService = new StepService();
+		commentService = new CommentService();
 		acction="";
 		idEvent=0;
 		idRecipe=11;
@@ -71,10 +73,34 @@ public class RecipeController extends HttpServlet{
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		switch(acction) {
 		case UrlConst.MAN_HINH_CUA_1_CT:			
-			int id= Integer.parseInt(req.getParameter("id"));
-			Recipe recipe = service.getRecipeById(id);
-			req.setAttribute("recipe", recipe);
-			req.getRequestDispatcher(JspConst.MAN_HINH_CUA_1_CT).forward(req, resp);
+			
+			
+			if(req.getParameter("id")!=null) {
+				int id= Integer.parseInt(req.getParameter("id"));
+				Recipe recipe = service.getRecipeById(id);
+				List<Step> listStep = stepService.getgetListStepByIdRecipeStep(id);
+				List<Comment> listComment = commentService.getListCommentByIdRecipe(id);
+				req.setAttribute("listComment", listComment);
+				req.setAttribute("listStep", listStep);
+				req.setAttribute("recipe", recipe);
+				req.getRequestDispatcher(JspConst.MAN_HINH_CUA_1_CT).forward(req, resp);
+			}
+			
+			break;		
+			
+		case UrlConst.YEUTHICH:			
+		
+			if(req.getParameter("id")!=null) {
+				int id= Integer.parseInt(req.getParameter("id"));
+				service.updateLuotThich(id);
+				Recipe recipe = service.getRecipeById(id);
+				List<Step> listStep = stepService.getgetListStepByIdRecipeStep(id);
+				List<Comment> listComment = commentService.getListCommentByIdRecipe(id);
+				req.setAttribute("listComment", listComment);
+				req.setAttribute("listStep", listStep);
+				req.setAttribute("recipe", recipe);
+				req.getRequestDispatcher(JspConst.MAN_HINH_CUA_1_CT).forward(req, resp);
+			}
 			break;		
 		case UrlConst.CREATE_A_RECIPE:
 			if(req.getParameter("thamgiaEvent")!=null) {
@@ -84,7 +110,6 @@ public class RecipeController extends HttpServlet{
 			
 			List<Chude> listChuDe = chuDeService.getChude();
 			List<TheLoai> listTheLoai = theLoaiService.getAllTheLoai();
-
 			req.setAttribute("listTheLoai", listTheLoai);
 			req.setAttribute("listChuDe", listChuDe);
 			req.getRequestDispatcher(JspConst.CREATE_RECIPE).forward(req, resp);

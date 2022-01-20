@@ -49,7 +49,6 @@ public class EventController extends HttpServlet{
 			break;
 		case UrlConst.VIEW_A_EVENT:			
 			
-			
 			if (req.getParameter("id") != null) {
 				int idEvent = Integer.parseInt(req.getParameter("id"));
 				Event event = service.getEventById(idEvent);

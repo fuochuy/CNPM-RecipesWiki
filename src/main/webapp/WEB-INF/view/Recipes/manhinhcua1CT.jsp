@@ -2,6 +2,10 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page import="cnpm.recipe.model.Recipe"%>
+<%@page import="cnpm.recipe.model.Step"%>
+<%@page import="cnpm.recipe.model.Comment"%>
+<%@page import="java.util.List"%>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -122,7 +126,7 @@
 	<%Recipe recipe =(Recipe) request.getAttribute("recipe"); %>
     <div class="container">
       <div class="content">
-        <form action="" id="">
+        
           <div class="row">
             <div class="col-md-6">
               <div class="recipes-image">
@@ -135,7 +139,7 @@
                 <div class="row">
                   <div class="col-md-4">
                     <img src="Image/manhinhcua1CT/heart.png" alt="" />
-                    <a> Like </a>
+                    <a href="recipe-like?id=<%=recipe.getId()%>">Like</a>
                     <span><%=recipe.getLuotThich() %></span>
                   </div>
 
@@ -153,7 +157,7 @@
                 </div>
               </div>
               <div class="recipes-name">
-                <span> Bún ốc sườn Hà Nội </span>
+                <span> <%=recipe.getTen() %> </span>
               </div>
 
               <div class="recipes-tag">
@@ -200,61 +204,21 @@
                 <a> Export </a>
               </div>
               <div class="buoc">
-                <div class="sttbuoc">
-                  <label> Bước 1: </label>
+              <%List<Step> listStep =(List<Step>) request.getAttribute("listStep"); %>
+              <%for(Step step:listStep){ %>
+              	<div class="sttbuoc">
+                  <label> <%="Bước" + step.getBuoc() %> </label>
                 </div>
                 <div class="content-buoc">
                   <span>
-                    Em mua loại ốc đã làm rồi, đặt thêm nước ốc(cần có nước ốc
-                    nhé ạ) ốc đổ ra bát rồi cho 1,5 thìa nước mắm, ít tiêu 0,5
-                    thìa bột nghệ trộn đều ướp 30p
+                   <%=step.getDes() %>
                   </span>
                   <div class="hinhanh-buoc">
-                    <img src="Image/manhinhcua1CT/buoc1.png" alt="" />
+                    <img src="<%=step.getHinhanh() %>" alt="" />
                   </div>
                 </div>
-
-                <div class="sttbuoc">
-                  <label> Bước 2: </label>
-                </div>
-                <div class="content-buoc">
-                  <span>
-                    Em mua loại ốc đã làm rồi, đặt thêm nước ốc(cần có nước ốc
-                    nhé ạ) ốc đổ ra bát rồi cho 1,5 thìa nước mắm, ít tiêu 0,5
-                    thìa bột nghệ trộn đều ướp 30p
-                  </span>
-                  <div class="hinhanh-buoc">
-                    <img src="Image/manhinhcua1CT/buoc1.png" alt="" />
-                  </div>
-                </div>
-
-                <div class="sttbuoc">
-                  <label> Bước 3: </label>
-                </div>
-                <div class="content-buoc">
-                  <span>
-                    Em mua loại ốc đã làm rồi, đặt thêm nước ốc(cần có nước ốc
-                    nhé ạ) ốc đổ ra bát rồi cho 1,5 thìa nước mắm, ít tiêu 0,5
-                    thìa bột nghệ trộn đều ướp 30p
-                  </span>
-                  <div class="hinhanh-buoc">
-                    <img src="Image/manhinhcua1CT/buoc1.png" alt="" />
-                  </div>
-                </div>
-
-                <div class="sttbuoc">
-                  <label> Bước 4: </label>
-                </div>
-                <div class="content-buoc">
-                  <span>
-                    Em mua loại ốc đã làm rồi, đặt thêm nước ốc(cần có nước ốc
-                    nhé ạ) ốc đổ ra bát rồi cho 1,5 thìa nước mắm, ít tiêu 0,5
-                    thìa bột nghệ trộn đều ướp 30p
-                  </span>
-                  <div class="hinhanh-buoc">
-                    <img src="Image/manhinhcua1CT/buoc1.png" alt="" />
-                  </div>
-                </div>
+              <%} %>
+    
               </div>
             </div>
           </div>
@@ -269,39 +233,30 @@
               <img src="Image/manhinhcua1CT/comment.png" alt="" />
               <label>Bình luận</label>
             </div>
-
+			<form action="" id="">
             <input
               type="text"
               name=""
               class="form-control"
               placeholder="Nhập bình luận"
             />
+            </form>
+			<%List<Comment> listComment= (List<Comment>) request.getAttribute("listComment");%>
+			<%for(Comment c:listComment){ %>
+				<div class="profile">
+              		<img src="<%=c.getAvatar() %>" alt="" />
+	              	<div class="content_profile">
+	                	<p class="name"><%=c.getFullname() %></p>
+	                	<p><%= c.getContent() %></p>
+	              	</div>
+            	</div>
+			<%} %>
+            
 
-            <div class="profile">
-              <img src="Image/user/DucDam.png" alt="" />
-              <div class="content_profile">
-                <p class="name">Đàm Hồng Đức</p>
-                <p>Quá tuyệt vời !!!</p>
-              </div>
-            </div>
-
-            <div class="profile">
-              <img src="Image/user/DucDam.png" alt="" />
-              <div class="content_profile">
-                <p class="name">Đàm Hồng Đức</p>
-                <p>Ngon thật sự !!!</p>
-              </div>
-            </div>
-
-            <div class="profile">
-              <img src="Image/user/DucDam.png" alt="" />
-              <div class="content_profile">
-                <p class="name">Đàm Hồng Đức</p>
-                <p>Sao anh có thể làm ngon như vậy ạ !!!</p>
-              </div>
-            </div>
+            
+            
           </div>
-        </form>
+        
       </div>
     </div>
     <script>

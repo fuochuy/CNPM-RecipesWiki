@@ -19,4 +19,11 @@ private StepRepository repository;
 	public boolean insertStep(Step step) {
 		return repository.insertStep(step) == 1? true:false;
 	}
+	
+	public List<Step> getgetListStepByIdRecipeStep(int id){
+		return repository.getListStepByIdRecipe(id);
+	}
+	
+	
+	
 }

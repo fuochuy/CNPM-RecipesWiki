@@ -4,6 +4,7 @@ encoding//src/main/java/cnpm/recipe/controller/RecipeController.java=UTF-8
 encoding//src/main/java/cnpm/recipe/filter/EncodingFilter.java=UTF-8
 encoding//src/main/java/cnpm/recipe/repository/Album_Recipes_Repository.java=UTF-8
 encoding//src/main/java/cnpm/recipe/repository/ChudeRepository.java=UTF-8
+encoding//src/main/java/cnpm/recipe/repository/CommentRepository.java=UTF-8
 encoding//src/main/java/cnpm/recipe/repository/EventRepository.java=UTF-8
 encoding//src/main/java/cnpm/recipe/repository/RecipeRepository.java=UTF-8
 encoding//src/main/java/cnpm/recipe/repository/StepRepository.java=UTF-8

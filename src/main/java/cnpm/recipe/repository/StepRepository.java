@@ -85,6 +85,7 @@ public class StepRepository {
 			connection = MySQLConnection.getConnection();
 			String query = DbConst.GET_STEP_FOR_RECIPE;
 			statement = connection.prepareStatement(query);
+			statement.setInt(1, id);
 			rs = statement.executeQuery();
 	
 			while (rs.next()) {

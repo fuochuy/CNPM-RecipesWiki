@@ -30,4 +30,7 @@ public class RecipeService {
 	public boolean deleteRecipeById(int id) {
 		return repository.deleteRecipeById(id) == 1? true:false;
 	}
+	public boolean updateLuotThich(int idrecipe) {
+		return repository.updateLuotThich(idrecipe) ==1?true:false;
+	}
 }
