@@ -70,5 +70,6 @@ public class UrlConst {
 	public static final String CHUDE = "/chude";
 	
 	public static final String SEARCH = "/search";
+	public static final String COMMENT = "/recipe-comment";
 
 }

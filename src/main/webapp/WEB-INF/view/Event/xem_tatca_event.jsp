@@ -161,7 +161,9 @@
 					          <p>Ngày kết thúc: <%=event.getTgketthuc() %></p>
 					          <p>Giải thưởng: <%=event.getGiaithuong() %></p>
 				        </div>
-				        <button type="submit">Tham gia</button>
+				       	<a href="create-recipe?thamgiaEvent=<%=event.getId()%>" class="menu-item">
+			              <button>Tham gia</button>
+			            </a>
 				        <button type="submit">Mời</button>
 			      </div>
     		</div>

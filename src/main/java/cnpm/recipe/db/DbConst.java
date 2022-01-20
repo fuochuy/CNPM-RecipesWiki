@@ -79,6 +79,7 @@ public class DbConst {
 			"SELECT r.id, r.iduser, r.ten, r.mota, r.nguyenlieu,r.hinhanh,"
 					+ " r.luotthich,r.tgdang, r.tgthuchien, u.avatar, u.fullname FROM recipe r,user u,  album_recipe ar WHERE ar.id_user=u.id AND r.id = ar.recipe_id AND ar.id_user=?";
 
+	public static final String INSERT_COMMENT ="INSERT comment(idrecipe,iduser,content,ngaydang) value(?,?,?,?)";
 }
 
 
