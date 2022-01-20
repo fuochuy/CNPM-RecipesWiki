@@ -319,3 +319,9 @@ SỐT chấm:
 1/2 chén nhỏ đậu phộng rang thơm, giã nhỏ' ,
 'Image/Recipe/goi.png',
 0, '2022-01-18', 40);
+
+insert into album_recipe value(1,1);
+insert into album_recipe value(1,3);
+insert into album_recipe value(1,5);
+insert into album_recipe value(2,2);
+insert into album_recipe value(2,4);
