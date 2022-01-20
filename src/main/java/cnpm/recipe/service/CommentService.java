@@ -13,4 +13,7 @@ public class CommentService {
 	public List<Comment> getListCommentByIdRecipe(int id){
 		return repository.getListCommentByIdRecipe(id);
 	}
+	public boolean insertComment(Comment comment) {
+		return repository.insertComment(comment) ==1?true:false;
+	}
 }

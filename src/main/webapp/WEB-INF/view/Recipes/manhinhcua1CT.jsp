@@ -176,7 +176,7 @@
                 <span> #ansang </span>
                 <span> #HaNoi </span>
               </div>
-
+	
               <div class="profile">
                 <img src="<%=recipe.getAvatarUser() %>" alt="" />
                 <div class="content_profile">
@@ -239,10 +239,10 @@
               <img src="Image/manhinhcua1CT/comment.png" alt="" />
               <label>Bình luận</label>
             </div>
-			<form action="" id="">
+			<form action="recipe-comment" id="" method="get">
             <input
               type="text"
-              name=""
+              name="comment"
               class="form-control"
               placeholder="Nhập bình luận"
             />
@@ -257,10 +257,7 @@
 	              	</div>
             	</div>
 			<%} %>
-            
-
-            
-            
+             
           </div>
         
       </div>

@@ -10,6 +10,7 @@ import java.util.List;
 import cnpm.recipe.db.DbConst;
 import cnpm.recipe.db.MySQLConnection;
 import cnpm.recipe.model.Comment;
+import cnpm.recipe.model.Recipe;
 
 
 public class CommentRepository {
@@ -51,5 +52,34 @@ public class CommentRepository {
 			}
 		}
 		return comments;
+	}
+	public int insertComment(Comment comment) {
+		try {
+			connection = MySQLConnection.getConnection();
+			String query = DbConst.INSERT_COMMENT;
+
+			statement = connection.prepareStatement(query);
+			statement.setInt(1, comment.getIdrecipe());
+			statement.setInt(2, comment.getIduser());
+			statement.setNString(3, comment.getContent());	
+			statement.setDate(4, comment.getNgayDang());
+		
+			
+			
+			return statement.executeUpdate();
+		} catch (SQLException e) {
+			System.out.println("Không thể kết nối đến cơ sở dữ liệu");
+			e.printStackTrace();
+		} finally {
+			try {
+				connection.close();
+				statement.close();
+			} catch (SQLException e) {
+				System.out.println("Lỗi đóng kết nối");
+				e.printStackTrace();
+			}
+		}
+		return 0;
+
 	}
 }

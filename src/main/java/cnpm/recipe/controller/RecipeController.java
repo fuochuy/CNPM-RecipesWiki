@@ -16,11 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
 import cnpm.recipe.model.Chude;
-
 import cnpm.recipe.model.Comment;
-
-import cnpm.recipe.model.Album;
-
 import cnpm.recipe.model.Recipe;
 import cnpm.recipe.model.Step;
 import cnpm.recipe.model.TheLoai;
@@ -36,7 +32,8 @@ import cnpm.recipe.url.UrlConst;
 @MultipartConfig
 @WebServlet(name="recipeController", urlPatterns = {
 
-		UrlConst.BST, UrlConst.MAN_HINH_CUA_1_CT,UrlConst.CREATE_A_RECIPE,UrlConst.MYRECIPE,UrlConst.DELETE_RECIPE
+		UrlConst.BST, UrlConst.MAN_HINH_CUA_1_CT,UrlConst.CREATE_A_RECIPE,
+		UrlConst.MYRECIPE,UrlConst.DELETE_RECIPE,UrlConst.COMMENT,UrlConst.YEUTHICH
 
 		})
 
@@ -52,6 +49,7 @@ public class RecipeController extends HttpServlet{
 	private int idEvent;
 	private String acction;
 	private int idRecipe;
+	private int id;
 	
 	@Override
 	public void init() throws ServletException {
@@ -67,6 +65,7 @@ public class RecipeController extends HttpServlet{
 		acction="";
 		idEvent=0;
 		idRecipe=11;
+		id=0;
 	}
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -80,9 +79,8 @@ public class RecipeController extends HttpServlet{
 		switch(acction) {
 		case UrlConst.MAN_HINH_CUA_1_CT:			
 			
-			
 			if(req.getParameter("id")!=null) {
-				int id= Integer.parseInt(req.getParameter("id"));
+				id= Integer.parseInt(req.getParameter("id"));
 				Recipe recipe = service.getRecipeById(id);
 				List<Step> listStep = stepService.getgetListStepByIdRecipeStep(id);
 				List<Comment> listComment = commentService.getListCommentByIdRecipe(id);
@@ -95,9 +93,10 @@ public class RecipeController extends HttpServlet{
 			break;		
 			
 		case UrlConst.YEUTHICH:			
-		
+			
 			if(req.getParameter("id")!=null) {
-				int id= Integer.parseInt(req.getParameter("id"));
+				id= Integer.parseInt(req.getParameter("id"));
+				System.out.println(id);
 				service.updateLuotThich(id);
 				Recipe recipe = service.getRecipeById(id);
 				List<Step> listStep = stepService.getgetListStepByIdRecipeStep(id);
@@ -108,6 +107,29 @@ public class RecipeController extends HttpServlet{
 				req.getRequestDispatcher(JspConst.MAN_HINH_CUA_1_CT).forward(req, resp);
 			}
 			break;		
+		case UrlConst.COMMENT:			
+			
+				int iduser = (int) req.getSession().getAttribute("iduser");
+				String content = req.getParameter("comment");
+				long millis=System.currentTimeMillis(); 
+				Date now = new Date(millis);
+				
+				Comment comment = new Comment();
+				comment.setIdrecipe(id);
+				comment.setIduser(iduser);
+				comment.setContent(content);
+				comment.setNgayDang(now);
+				commentService.insertComment(comment);
+				
+				Recipe recipe = service.getRecipeById(id);
+				List<Step> listStep = stepService.getgetListStepByIdRecipeStep(id);
+				List<Comment> listComment = commentService.getListCommentByIdRecipe(id);
+				req.setAttribute("listComment", listComment);
+				req.setAttribute("listStep", listStep);
+				req.setAttribute("recipe", recipe);
+				req.getRequestDispatcher(JspConst.MAN_HINH_CUA_1_CT).forward(req, resp);
+			
+			break;	
 		case UrlConst.CREATE_A_RECIPE:
 			if(req.getParameter("thamgiaEvent")!=null) {
 				idEvent = Integer.parseInt(req.getParameter("thamgiaEvent"));
@@ -122,8 +144,8 @@ public class RecipeController extends HttpServlet{
 			break;
 		case UrlConst.MYRECIPE:
 			
-			int iduser = (int) req.getSession().getAttribute("iduser");
-			List<Recipe> listRecipe =  service.getRecipeByIdUser(iduser);
+			int iduser1 = (int) req.getSession().getAttribute("iduser");
+			List<Recipe> listRecipe =  service.getRecipeByIdUser(iduser1);
 			req.setAttribute("listRecipe", listRecipe);
 			req.getRequestDispatcher(JspConst.MYRECIPE).forward(req, resp);
 			break;
@@ -136,8 +158,8 @@ public class RecipeController extends HttpServlet{
 			
 			break;
 		case UrlConst.BST: 
-			int iduser1 = (int) req.getSession().getAttribute("iduser");			
-			List<Recipe> listBSTRecipe =  service.getBSTRecipeByIdUser(iduser1);
+			int iduser2 = (int) req.getSession().getAttribute("iduser");			
+			List<Recipe> listBSTRecipe =  service.getBSTRecipeByIdUser(iduser2);
 			req.setAttribute("listBSTRecipe", listBSTRecipe);
 			req.getRequestDispatcher(JspConst.BST).forward(req, resp);
 			break;
