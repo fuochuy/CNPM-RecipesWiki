@@ -67,5 +67,7 @@ public class UrlConst {
 	
 	/*CHU DE*/
 	public static final String CHUDE = "/chude";
+	
+	public static final String SEARCH = "/search";
 
 }

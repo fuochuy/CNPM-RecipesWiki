@@ -57,7 +57,8 @@ public class RecipeController extends HttpServlet{
 		theLoaiService = new TheLoaiService();
 		userService = new UserService();
 		acction="";
-		idRecipe=50;
+		idEvent=0;
+		idRecipe=11;
 	}
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -78,6 +79,7 @@ public class RecipeController extends HttpServlet{
 		case UrlConst.CREATE_A_RECIPE:
 			if(req.getParameter("thamgiaEvent")!=null) {
 				idEvent = Integer.parseInt(req.getParameter("thamgiaEvent"));
+				
 			}
 			
 			List<Chude> listChuDe = chuDeService.getChude();
@@ -171,7 +173,10 @@ public class RecipeController extends HttpServlet{
 				
 				service.insertRecipe(recipe);
 	
-				thamGiaEventService.thamGiaEvent(iduser, idEvent, idRecipe);
+				if(idEvent!=0) {
+					thamGiaEventService.thamGiaEvent(iduser, idEvent, idRecipe);
+				}
+			
 				
 				
 				
