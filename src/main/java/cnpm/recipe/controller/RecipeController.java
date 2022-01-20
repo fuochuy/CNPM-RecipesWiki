@@ -16,11 +16,11 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
 import cnpm.recipe.model.Chude;
-<<<<<<< Updated upstream
+
 import cnpm.recipe.model.Comment;
-=======
+
 import cnpm.recipe.model.Album;
->>>>>>> Stashed changes
+
 import cnpm.recipe.model.Recipe;
 import cnpm.recipe.model.Step;
 import cnpm.recipe.model.TheLoai;
@@ -35,11 +35,9 @@ import cnpm.recipe.url.UrlConst;
 
 @MultipartConfig
 @WebServlet(name="recipeController", urlPatterns = {
-<<<<<<< Updated upstream
-		UrlConst.MAN_HINH_CUA_1_CT,UrlConst.CREATE_A_RECIPE,UrlConst.MYRECIPE,UrlConst.DELETE_RECIPE,UrlConst.YEUTHICH
-=======
+
 		UrlConst.BST, UrlConst.MAN_HINH_CUA_1_CT,UrlConst.CREATE_A_RECIPE,UrlConst.MYRECIPE,UrlConst.DELETE_RECIPE
->>>>>>> Stashed changes
+
 		})
 
 public class RecipeController extends HttpServlet{

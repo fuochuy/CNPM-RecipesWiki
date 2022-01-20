@@ -70,16 +70,15 @@ public class DbConst {
 	public static final String GET_ALL_THELOAI = "SELECT tl.id, tl.tentheloai from theloai tl";
 	
 	public static final String UPDATE_LUOTTHICH ="CALL SP_Tangluotthich(?)";
-<<<<<<< Updated upstream
+
 	public static final String GET_COMMENT_BYID_RECIPE ="SELECT c.id, c.idrecipe, u.fullname, u.avatar,c.content, c.ngaydang FROM comment c, user u WHERE c.iduser=u.id AND c.idrecipe=?";
 		
-=======
+
 	
 	public static final String GET_BST_RECIPES =
 			"SELECT r.id, r.iduser, r.ten, r.mota, r.nguyenlieu,r.hinhanh,"
 					+ " r.luotthich,r.tgdang, r.tgthuchien, u.avatar, u.fullname FROM recipe r,user u,  album_recipe ar WHERE ar.id_user=u.id AND r.id = ar.recipe_id AND ar.id_user=?";
-	
->>>>>>> Stashed changes
+
 }
 
 
