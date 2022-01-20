@@ -118,324 +118,137 @@ pageEncoding="UTF-8"%>
     </header>
 
     <div>
-      <div class="container-checkbox">
-        <!-- checkbox tên chủ đề -->
-        <div class="checkbox0">
-          <input type="checkbox" id="vehicle1" name="vehicle1" value="" />
-          <label for="vehicle1"> Món ăn hàng ngày</label><br />
-        </div>
-        <div class="checkbox1">
-          <!-- checkbox tên thể loại -->
-          <input type="checkbox" id="vehicle2" name="vehicle2" value="" />
-          <label for="vehicle2"> Món luộc</label><br />
-        </div>
-        <div class="checkbox1">
-          <input type="checkbox" id="vehicle3" name="vehicle3" value="" />
-          <label for="vehicle3"> Bún</label><br />
-        </div>
-
-        <div class="checkbox1">
-          <input type="checkbox" id="vehicle3" name="vehicle3" value="" />
-          <label for="vehicle3"> Bún</label><br />
-        </div>
-        <div class="checkbox1">
-          <input type="checkbox" id="vehicle3" name="vehicle3" value="" />
-          <label for="vehicle3"> Phở</label><br />
-        </div>
-        <div class="checkbox1">
-          <input type="checkbox" id="vehicle3" name="vehicle3" value="" />
-          <label for="vehicle3"> Cơm</label><br />
-        </div>
-        <div class="checkbox1">
-          <input type="checkbox" id="vehicle3" name="vehicle3" value="" />
-          <label for="vehicle3"> Món xào</label><br />
-        </div>
-        <div class="checkbox1">
-          <input type="checkbox" id="vehicle3" name="vehicle3" value="" />
-          <label for="vehicle3"> Thịt chiên</label><br />
-        </div>
-        <div class="checkbox1">
-          <input type="checkbox" id="vehicle3" name="vehicle3" value="" />
-          <label for="vehicle3"> Thịt ram</label><br />
-        </div>
-        <div class="checkbox1">
-          <input type="checkbox" id="vehicle3" name="vehicle3" value="" />
-          <label for="vehicle3"> Món hấp</label><br />
-        </div>
-        <div class="checkbox1">
-          <input type="checkbox" id="vehicle3" name="vehicle3" value="" />
-          <label for="vehicle3"> Thịt kho</label><br />
-        </div>
-
-        <div class="checkbox1">
-          <input type="checkbox" id="vehicle3" name="vehicle3" value="" />
-          <label for="vehicle3"> Thịt nướng</label><br />
-        </div>
-      </div>
-      <div class="menu" id="menu">
-        <div class="box-container">
-          <div class="box">
-            <div class="image">
-              <img src="Image/menu/menu-1.jpg" alt="" />
+      <div class="row">
+        <div class="col-md-2">
+          <div class="container-checkbox">
+            <!-- checkbox tên chủ đề -->
+            <div class="checkbox1">
+              <!-- checkbox tên thể loại -->
+              <input type="radio" id="vehicle3" name="vehicle3" value="" />
+              <label for="vehicle3"> Món luộc</label><br />
             </div>
-            <div class="content">
-              <h3>Ốc hương rang muối</h3>
-              <p>
-                Mùa đông lạnh lạnh tranh thủ dậy sớm làm món bún ốc sườn cho cả
-                nhà
-              </p>
+            <div class="checkbox1">
+              <input type="radio" id="vehicle3" name="vehicle3" value="" />
+              <label for="vehicle3"> Bún</label><br />
             </div>
-            <div class="profile">
-              <img src="Image/user/DucDam.png" alt="" />
-              <div class="content_profile">
-                <p class="name">Lê Thái Bình Minh</p>
-                <p>12/12/2021</p>
-              </div>
+            <div class="checkbox1">
+              <input type="radio" id="vehicle3" name="vehicle3" value="" />
+              <label for="vehicle3"> Bún</label><br />
+            </div>
+            <div class="checkbox1">
+              <input type="radio" id="vehicle3" name="vehicle3" value="" />
+              <label for="vehicle3"> Phở</label><br />
+            </div>
+            <div class="checkbox1">
+              <input type="radio" id="vehicle3" name="vehicle3" value="" />
+              <label for="vehicle3"> Cơm</label><br />
+            </div>
+            <div class="checkbox1">
+              <input type="radio" id="vehicle3" name="vehicle3" value="" />
+              <label for="vehicle3"> Món xào</label><br />
+            </div>
+            <div class="checkbox1">
+              <input type="radio" id="vehicle3" name="vehicle3" value="" />
+              <label for="vehicle3"> Thịt chiên</label><br />
+            </div>
+            <div class="checkbox1">
+              <input type="radio" id="vehicle3" name="vehicle3" value="" />
+              <label for="vehicle3"> Thịt ram</label><br />
+            </div>
+            <div class="checkbox1">
+              <input type="radio" id="vehicle3" name="vehicle3" value="" />
+              <label for="vehicle3"> Món hấp</label><br />
+            </div>
+            <div class="checkbox1">
+              <input type="radio" id="vehicle3" name="vehicle3" value="" />
+              <label for="vehicle3"> Thịt kho</label><br />
+            </div>
+            <div class="checkbox1">
+              <input type="radio" id="vehicle3" name="vehicle3" value="" />
+              <label for="vehicle3"> Thịt nướng</label><br />
             </div>
           </div>
-
-          <div class="box">
-            <div class="image">
-              <img src="Image/menu/menu-2.jpg" alt="" />
-            </div>
-            <div class="content">
-              <h3>Ốc hương rang muối</h3>
-              <p>
-                Mùa đông lạnh lạnh tranh thủ dậy sớm làm món bún ốc sườn cho cả
-                nhà
-              </p>
-            </div>
-            <div class="profile">
-              <img src="Image/user/DucDam.png" alt="" />
-              <div class="content_profile">
-                <p class="name">Đàm Hồng Đức</p>
-                <p>12/12/2021</p>
+        </div>
+        <div class="col-md-9">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="menu" id="menu">
+                <div class="box-container">
+                  <div class="box">
+                    <div class="image">
+                      <img src="Image/menu/menu-1.jpg" alt="" />
+                    </div>
+                    <div class="content">
+                      <h3>Ốc hương rang muối</h3>
+                      <p>
+                        Mùa đông lạnh lạnh tranh thủ dậy sớm làm món bún ốc sườn
+                        cho cả nhà
+                      </p>
+                    </div>
+                    <div class="profile">
+                      <img src="Image/user/DucDam.png" alt="" />
+                      <div class="content_profile">
+                        <p class="name">Lê Thái Bình Minh</p>
+                        <p>12/12/2021</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-
-          <div class="box">
-            <div class="image">
-              <img src="Image/menu/menu-4.jpg" alt="" />
-            </div>
-            <div class="content">
-              <h3>Ốc hương rang muối</h3>
-              <p>
-                Mùa đông lạnh lạnh tranh thủ dậy sớm làm món bún ốc sườn cho cả
-                nhà
-              </p>
-            </div>
-            <div class="profile">
-              <img src="Image/user/DucDam.png" alt="" />
-              <div class="content_profile">
-                <p class="name">Đàm Hồng Đức</p>
-                <p>12/12/2021</p>
+            <div class="col-md-4">
+              <div class="menu" id="menu">
+                <div class="box-container">
+                  <div class="box">
+                    <div class="image">
+                      <img src="Image/menu/menu-1.jpg" alt="" />
+                    </div>
+                    <div class="content">
+                      <h3>Ốc hương rang muối</h3>
+                      <p>
+                        Mùa đông lạnh lạnh tranh thủ dậy sớm làm món bún ốc sườn
+                        cho cả nhà
+                      </p>
+                    </div>
+                    <div class="profile">
+                      <img src="Image/user/DucDam.png" alt="" />
+                      <div class="content_profile">
+                        <p class="name">Lê Thái Bình Minh</p>
+                        <p>12/12/2021</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-
-          <div class="box">
-            <div class="image">
-              <img src="Image/menu/menu-3.jpg" alt="" />
-            </div>
-            <div class="content">
-              <h3>Ốc hương rang muối</h3>
-              <p>
-                Mùa đông lạnh lạnh tranh thủ dậy sớm làm món bún ốc sườn cho cả
-                nhà
-              </p>
-            </div>
-            <div class="profile">
-              <img src="Image/user/DucDam.png" alt="" />
-              <div class="content_profile">
-                <p class="name">Đàm Hồng Đức</p>
-                <p>12/12/2021</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="box">
-            <div class="image">
-              <img src="Image/menu/menu-4.jpg" alt="" />
-            </div>
-            <div class="content">
-              <h3>Ốc hương rang muối</h3>
-              <p>
-                Mùa đông lạnh lạnh tranh thủ dậy sớm làm món bún ốc sườn cho cả
-                nhà
-              </p>
-            </div>
-            <div class="profile">
-              <img src="Image/user/DucDam.png" alt="" />
-              <div class="content_profile">
-                <p class="name">Đàm Hồng Đức</p>
-                <p>12/12/2021</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="box">
-            <div class="image">
-              <img src="Image/menu/menu-5.jpg" alt="" />
-            </div>
-            <div class="content">
-              <h3>Ốc hương rang muối</h3>
-              <p>
-                Mùa đông lạnh lạnh tranh thủ dậy sớm làm món bún ốc sườn cho cả
-                nhà
-              </p>
-            </div>
-            <div class="profile">
-              <img src="Image/user/DucDam.png" alt="" />
-              <div class="content_profile">
-                <p class="name">Đàm Hồng Đức</p>
-                <p>12/12/2021</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="box">
-            <div class="image">
-              <img src="Image/menu/menu-6.jpg" alt="" />
-            </div>
-            <div class="content">
-              <h3>Ốc hương rang muối</h3>
-              <p>
-                Mùa đông lạnh lạnh tranh thủ dậy sớm làm món bún ốc sườn cho cả
-                nhà
-              </p>
-            </div>
-            <div class="profile">
-              <img src="Image/user/DucDam.png" alt="" />
-              <div class="content_profile">
-                <p class="name">Đàm Hồng Đức</p>
-                <p>12/12/2021</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="box">
-            <div class="image">
-              <img src="Image/menu/menu-7.jpg" alt="" />
-            </div>
-            <div class="content">
-              <h3>Ốc hương rang muối</h3>
-              <p>
-                Mùa đông lạnh lạnh tranh thủ dậy sớm làm món bún ốc sườn cho cả
-                nhà
-              </p>
-            </div>
-            <div class="profile">
-              <img src="Image/user/DucDam.png" alt="" />
-              <div class="content_profile">
-                <p class="name">Đàm Hồng Đức</p>
-                <p>12/12/2021</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="box">
-            <div class="image">
-              <img src="Image/menu/menu-8.jpg" alt="" />
-            </div>
-            <div class="content">
-              <h3>Ốc hương rang muối</h3>
-              <p>
-                Mùa đông lạnh lạnh tranh thủ dậy sớm làm món bún ốc sườn cho cả
-                nhà
-              </p>
-            </div>
-            <div class="profile">
-              <img src="Image/user/DucDam.png" alt="" />
-              <div class="content_profile">
-                <p class="name">Đàm Hồng Đức</p>
-                <p>12/12/2021</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="box">
-            <div class="image">
-              <img src="Image/menu/menu-9.jpg" alt="" />
-            </div>
-
-            <div class="content">
-              <h3>Ốc hương rang muối</h3>
-              <p>
-                Mùa đông lạnh lạnh tranh thủ dậy sớm làm món bún ốc sườn cho cả
-                nhà
-              </p>
-            </div>
-            <div class="profile">
-              <img src="Image/user/DucDam.png" alt="" />
-              <div class="content_profile">
-                <p class="name">Đàm Hồng Đức</p>
-                <p>12/12/2021</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="box">
-            <div class="image">
-              <img src="Image/menu/menu-7.jpg" alt="" />
-            </div>
-            <div class="content">
-              <h3>Ốc hương rang muối</h3>
-              <p>
-                Mùa đông lạnh lạnh tranh thủ dậy sớm làm món bún ốc sườn cho cả
-                nhà
-              </p>
-            </div>
-            <div class="profile">
-              <img src="Image/user/DucDam.png" alt="" />
-              <div class="content_profile">
-                <p class="name">Đàm Hồng Đức</p>
-                <p>12/12/2021</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="box">
-            <div class="image">
-              <img src="Image/menu/menu-8.jpg" alt="" />
-            </div>
-            <div class="content">
-              <h3>Ốc hương rang muối</h3>
-              <p>
-                Mùa đông lạnh lạnh tranh thủ dậy sớm làm món bún ốc sườn cho cả
-                nhà
-              </p>
-            </div>
-            <div class="profile">
-              <img src="Image/user/DucDam.png" alt="" />
-              <div class="content_profile">
-                <p class="name">Đàm Hồng Đức</p>
-                <p>12/12/2021</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="box">
-            <div class="image">
-              <img src="Image/menu/menu-9.jpg" alt="" />
-            </div>
-
-            <div class="content">
-              <h3>Ốc hương rang muối</h3>
-              <p>
-                Mùa đông lạnh lạnh tranh thủ dậy sớm làm món bún ốc sườn cho cả
-                nhà
-              </p>
-            </div>
-            <div class="profile">
-              <img src="Image/user/DucDam.png" alt="" />
-              <div class="content_profile">
-                <p class="name">Đàm Hồng Đức</p>
-                <p>12/12/2021</p>
+            <div class="col-md-4">
+              <div class="menu" id="menu">
+                <div class="box-container">
+                  <div class="box">
+                    <div class="image">
+                      <img src="Image/menu/menu-1.jpg" alt="" />
+                    </div>
+                    <div class="content">
+                      <h3>Ốc hương rang muối</h3>
+                      <p>
+                        Mùa đông lạnh lạnh tranh thủ dậy sớm làm món bún ốc sườn
+                        cho cả nhà
+                      </p>
+                    </div>
+                    <div class="profile">
+                      <img src="Image/user/DucDam.png" alt="" />
+                      <div class="content_profile">
+                        <p class="name">Lê Thái Bình Minh</p>
+                        <p>12/12/2021</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
+        <div class="col-md-1"></div>
       </div>
     </div>
 
