@@ -19,6 +19,9 @@ public class RecipeService {
 	public List<Recipe> getRecipeByIdUser(int id){
 		return repository.getRecipeByIdUser(id);
 	}
+	public List<Recipe> getBSTRecipeByIdUser(int id){
+		return repository.getBSTRecipeByIdUser(id);
+	}
 	public boolean insertRecipe(Recipe recipe) {
 		return repository.insertRecipe(recipe) == 1? true:false;
 	}

@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@page import="cnpm.recipe.model.Recipe"%>
+<%@page import="java.util.List"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -123,45 +126,46 @@ pageEncoding="UTF-8"%>
       </nav>
     </header>
 
+
     <div class="container">
       <div class="row">
         <div class="Mycook">
           <span>Bộ sưu tập của tôi</span>
         </div>
       </div>
+      <%List<Recipe> recipes =(List<Recipe>) request.getAttribute("listBSTRecipe"); %>
+        <%for (Recipe recipe:recipes){ %>
       <div class="content">
-        <img src="Image/BST/pic1.jpg" alt="" />
+        <img src=<%=recipe.getHinhAnh() %> alt="" />
         <div class="content-text">
-          <h3>Khổ qua nhồi thịt</h3>
+          <h3><%=recipe.getTen() %></h3>
           <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-            Distinctio, aspernatur neque? Esse debitis soluta alias rem,
-            delectus excepturi sapiente laborum provident molestias possimus
-            quas reprehenderit eum velit consectetur praesentium doloribus?
+            <%=recipe.getMoTa() %>
           </p>
         </div>
         <div class="row dish">
           <div class="col-md-6">
             <div class="row">
               <div class="col-md-3 profie-img">
-                <img src="Image/user/Profile.png" alt="" />
+                <img src=<%=recipe.getAvatarUser() %> alt="" />
               </div>
               <div class="col-md-9">
                 <div class="row">
-                  <p class="username">Phước Huy</p>
+                  <p class="username"><%=recipe.getNameUser() %></p>
                 </div>
                 <div class="row">
-                  <p class="ngaydang">17/12/2021</p>
+                  <p class="ngaydang"><%=recipe.getTgDang() %></p>
                 </div>
               </div>
             </div>
           </div>
-          <div class="col-md-6 btn-xoa">
-            <button><a href="">Xóa món này khỏi bộ sưu tập</a></button>
+          <div class="col-md-6 btn-xoa">    
+         	<button><a href="">Xóa món này khỏi bộ sưu tập</a></button>
           </div>
         </div>
       </div>
     </div>
+    <%} %>
 
     <div class="more">
       <button><a href="">Xem thêm</a></button>

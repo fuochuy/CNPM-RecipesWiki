@@ -197,6 +197,7 @@ public class RecipeRepository {
 		}
 		return 0;
 	}
+<<<<<<< Updated upstream
 	public int updateLuotThich(int idrecipe) {
 		try {
 			connection = MySQLConnection.getConnection();
@@ -208,6 +209,33 @@ public class RecipeRepository {
 			statement.setInt(1, idrecipe);
 
 			return statement.executeUpdate();
+=======
+	
+	public List<Recipe> getBSTRecipeByIdUser(int id) {
+		List<Recipe> recipes = new LinkedList<Recipe>();
+		try {
+			connection = MySQLConnection.getConnection();
+			String query = DbConst.GET_BST_RECIPES;
+			statement = connection.prepareStatement(query);
+			statement.setInt(1, id);
+			rs = statement.executeQuery();
+	
+			while (rs.next()) {
+				Recipe recipe = new Recipe();
+				recipe.setId(rs.getInt("r.id"));
+				recipe.setIdUser(rs.getInt("r.iduser"));
+				recipe.setTen(rs.getNString("r.ten"));
+				recipe.setMoTa(rs.getNString("r.mota"));
+				recipe.setHinhAnh(rs.getString("r.hinhanh"));
+				recipe.setNguyenLieu(rs.getNString("r.nguyenlieu"));
+				recipe.setLuotThich(rs.getInt("r.luotthich"));
+				recipe.setTgDang(rs.getDate("r.tgdang"));
+				recipe.setTgThucHien(rs.getInt("r.tgthuchien"));
+				recipe.setAvatarUser(rs.getString("u.avatar"));
+				recipe.setNameUser(rs.getNString("u.fullname"));
+				recipes.add(recipe);
+			}
+>>>>>>> Stashed changes
 		} catch (SQLException e) {
 			System.out.println("Không thể kết nối đến cơ sở dữ liệu");
 			e.printStackTrace();
@@ -215,11 +243,19 @@ public class RecipeRepository {
 			try {
 				connection.close();
 				statement.close();
+<<<<<<< Updated upstream
+=======
+				rs.close();
+>>>>>>> Stashed changes
 			} catch (SQLException e) {
 				System.out.println("Lỗi đóng kết nối");
 				e.printStackTrace();
 			}
 		}
+<<<<<<< Updated upstream
 		return 0;
+=======
+		return recipes;
+>>>>>>> Stashed changes
 	}
 }
