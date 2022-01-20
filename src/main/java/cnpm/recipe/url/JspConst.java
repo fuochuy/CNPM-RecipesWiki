@@ -60,5 +60,8 @@ public class JspConst {
 	
 	/*BO SUU TAP 0kq*/
 	public static final String CHUDE = "/WEB-INF/view/Topic/TatCaChuDe.jsp";
+	
+	public static final String LANDING_PAGE = "/WEB-INF/view/auth/landing-page.jsp";
+	
 
 }

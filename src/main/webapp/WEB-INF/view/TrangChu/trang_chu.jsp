@@ -47,19 +47,19 @@
         </div>
         <ul class="nav-list">
           <li class="nav-item">
-            <a href="#" class="nav-link">Tải lên công thức</a>
+            <a href="create-recipe" class="nav-link">Tải lên công thức</a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">Sự kiện</a>
+            <a href="all-event" class="nav-link">Sự kiện</a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">Sự kiện của tôi</a>
+            <a href="myevent" class="nav-link">Sự kiện của tôi</a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">Bộ sưu tập của tôi</a>
+            <a href="album" class="nav-link">Bộ sưu tập của tôi</a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">Món của tôi</a>
+            <a href="my-Recipe" class="nav-link">Món của tôi</a>
           </li>
           <div class="hot-tag">
             <li class="nav-item">
@@ -89,13 +89,13 @@
       <nav>
         <ul class="menu-ul">
           <li class="">
-            <a href="./trang_chu.html" class="menu-item">Trang chủ</a>
+            <a href="home" class="menu-item">Trang chủ</a>
           </li>
           <li class="">
             <a href="./search1.html" class="menu-item">Tìm kiếm</a>
           </li>
           <li class="">
-            <a href="./trang_chu.html" class="menu-item"
+            <a href="home" class="menu-item"
               ><span>RecipesWiki</span></a
             >
           </li>
@@ -115,8 +115,8 @@
               <li><a href="chude"  >Tất cả chủ đề</a></li>
             </ul>
           </li>
-          <li class="active">
-            <a href="./aboutus.html" class="menu-item">About us</a>
+          <li class="">
+            <a href="aboutus" class="menu-item">About us</a>
           </li>
           <li class="btn_account">
             <a href="profile" class="menu-item"
