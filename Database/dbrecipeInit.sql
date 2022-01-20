@@ -74,33 +74,23 @@ CREATE TABLE IF NOT EXISTS event(
     PRIMARY KEY(id)
 );
 
-CREATE TABLE IF NOT EXISTS album(
-	id INT auto_increment,
-	id_user INT,
-    PRIMARY KEY(id)
-);
-
 CREATE TABLE IF NOT EXISTS comment(
-    id INT auto_increment,
+	id INT auto_increment,
     idrecipe INT, 
-
-    PRIMARY KEY(id)
-);
-CREATE TABLE IF NOT EXISTS chitiet_comment(
-	idcomment INT,
     iduser INT,
     content NVARCHAR(255),
     ngaydang DATE,
-    PRIMARY KEY(idcomment,iduser)
+    PRIMARY KEY(id)
 );
 
 
 CREATE TABLE IF NOT EXISTS album_recipe(
-	album_id INT,
+	id_user INT,
     recipe_id INT,
     
-    PRIMARY KEY(album_id,recipe_id)
+    PRIMARY KEY(id_user,recipe_id)
 );
+
 CREATE TABLE IF NOT EXISTS thamgiaevent(
 	iduser INT,
     idevent INT,
@@ -108,14 +98,11 @@ CREATE TABLE IF NOT EXISTS thamgiaevent(
     primary key(idrecipe,idevent)
 );
 
-ALTER TABLE album ADD FOREIGN KEY(id_user) REFERENCES user(id);
-ALTER TABLE album_recipe ADD FOREIGN KEY(album_id) REFERENCES album(id);
+ALTER TABLE album_recipe ADD FOREIGN KEY(id_user) REFERENCES user(id);
 ALTER TABLE album_recipe ADD FOREIGN KEY(recipe_id) REFERENCES recipe(id);
 
 ALTER TABLE comment ADD FOREIGN KEY(idrecipe) REFERENCES recipe(id);
-
-ALTER TABLE chitiet_comment ADD FOREIGN KEY(idcomment) REFERENCES comment(id);
-ALTER TABLE chitiet_comment ADD FOREIGN KEY(iduser) REFERENCES user(id);
+ALTER TABLE comment ADD FOREIGN KEY(iduser) REFERENCES user(id);
 
 ALTER TABLE event ADD FOREIGN KEY(iduser) REFERENCES user(id);
 
