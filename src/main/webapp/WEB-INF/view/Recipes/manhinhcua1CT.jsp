@@ -6,6 +6,7 @@
 <%@page import="cnpm.recipe.model.Comment"%>
 <%@page import="java.util.List"%>
 
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -107,9 +108,17 @@
           <li class="has-submenu">
             <a href="" class="menu-item">Chủ đề</a>
             <ul class="submenu">
-              <li><a href="#">Ăn sáng</a></li>
-              <li><a href="#">Ăn trưa</a></li>
-              <li><a href="#">Ăn sáng</a></li>
+              <li><a href="search?id=1">Ăn sáng</a></li>
+              <li><a href="search?id=3">Ăn trưa</a></li>
+              <li><a href="search?id=2">Ăn tối</a></li>
+              <li><a href="search?id=4">Dã ngoại</a></li>
+              <li><a href="search?id=5">Giáng sinh</a></li>
+              <li><a href="search?id=6">Halloween</a></li>
+              <li><a href="search?id=7">Lễ tình nhân</a></li>
+              <li><a href="search?id=8">Món chay</a></li>
+              <li><a href="search?id=9">Ngày tết</a></li>
+              <li><a href="search?id=10">Sinh nhật</a></li>
+              <li><a href="chude">Tất cả chủ đề</a></li>
             </ul>
           </li>
           <li class="active">
@@ -123,7 +132,7 @@
         </ul>
       </nav>
     </header>
-	<%Recipe recipe =(Recipe) request.getAttribute("recipe"); %>
+    <%Recipe recipe =(Recipe) request.getAttribute("recipe"); %>
     <div class="container">
       <div class="content">
         
@@ -177,9 +186,7 @@
               </div>
 
               <div class="recipes-mota">
-                <span>
-                  <%=recipe.getMoTa() %>
-                </span>
+                <span> <%=recipe.getMoTa() %> </span>
               </div>
             </div>
           </div>
@@ -193,7 +200,6 @@
               <div class="nguyenlieu-content">
                 <span> <%=recipe.getNguyenLieu() %> </span>
               </div>
-
             </div>
           </div>
 
