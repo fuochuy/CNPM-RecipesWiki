@@ -152,13 +152,13 @@ insert into chude_theloai value(10,37);
 insert into chude_theloai value(10,38);
 
 insert into user(email,password,status,fullname,DOB,avatar) 
-value('FuocHuy@gmail.com','huydeptrai',1,N'Nguyễn Phước Huy','2001-7-10','Image/aboutus/Huy.png');
+value('fuochuy@gmail.com','huydeptrai',1,N'Nguyễn Phước Huy','2001-7-10','Image/aboutus/Huy.png');
 
 insert into user(email,password,status,fullname,DOB,avatar) 
-value('HongDuc@gmail.com','123',1,N'Đàm Hồng Đức','2001-8-30','Image/aboutus/Đức.png');
+value('hongduc001h@gmail.com','123',1,N'Đàm Hồng Đức','2001-8-30','Image/aboutus/Duc.png');
 
 insert into user(email,password,status,fullname,DOB,avatar) 
-value('BinhMinh@gmail.com','huydeptrai',1,N'Lê Thái Bình Minh','2001-11-30','Image/aboutus/Minh.png');
+value('binhminh@gmail.com','huydeptrai',1,N'Lê Thái Bình Minh','2001-11-30','Image/aboutus/Minh.png');
 
 select * from theloai;
 select * from chude;
@@ -319,3 +319,9 @@ SỐT chấm:
 1/2 chén nhỏ đậu phộng rang thơm, giã nhỏ' ,
 'Image/Recipe/goi.png',
 0, '2022-01-18', 40);
+
+insert into album_recipe value(1,1);
+insert into album_recipe value(1,3);
+insert into album_recipe value(1,5);
+insert into album_recipe value(2,2);
+insert into album_recipe value(2,4);

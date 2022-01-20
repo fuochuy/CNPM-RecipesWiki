@@ -17,7 +17,8 @@ import cnpm.recipe.url.UrlConst;
 @WebServlet(name = "auth", urlPatterns = {
 		UrlConst.SIGN_IN,
 		UrlConst.SIGN_UP,
-		UrlConst.SIGN_OUT
+		UrlConst.SIGN_OUT,
+		UrlConst.LANDING_PAGE
 })
 public class AuthController extends HttpServlet {
 
@@ -49,6 +50,10 @@ public class AuthController extends HttpServlet {
 			req.getRequestDispatcher(JspConst.SIGN_UP)
 			.forward(req,resp);
 			break;
+		case UrlConst.LANDING_PAGE:
+			req.getRequestDispatcher(JspConst.LANDING_PAGE)
+			.forward(req,resp);
+			break;
 		default:
 			break;
 		}
@@ -65,7 +70,7 @@ public class AuthController extends HttpServlet {
 			user.setUsername(username);
 			user.setPassword(password1);
 			if(service.insertUser(user)) {
-				resp.sendRedirect(req.getContextPath() + UrlConst.SIGN_IN);
+				resp.sendRedirect(req.getContextPath() + UrlConst.EDIT_PROFILE);
 			}
 			else {
 				resp.sendRedirect(req.getContextPath() + UrlConst.SIGN_UP);
@@ -85,7 +90,7 @@ public class AuthController extends HttpServlet {
 				//req.setAttribute("username", login.getUsername());
 				//req.setAttribute("AccountId", login.getId());
 				//req.getRequestDispatcher(JspConst.EDIT_PROFILE).forward(req, resp);
-				resp.sendRedirect(req.getContextPath() + UrlConst.PROFILE);
+				resp.sendRedirect(req.getContextPath() + UrlConst.TRANG_CHU);
 			}
 			else {
 				resp.sendRedirect(req.getContextPath() + UrlConst.SIGN_IN);

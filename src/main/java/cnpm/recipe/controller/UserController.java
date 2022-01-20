@@ -22,7 +22,7 @@ import cnpm.recipe.url.UrlConst;
 
 @MultipartConfig()
 @WebServlet(name = "userServlet", urlPatterns = {
-		UrlConst.EDIT_PROFILE,UrlConst.PROFILE
+		UrlConst.EDIT_PROFILE,UrlConst.PROFILE, UrlConst.ABOUT_US
 })
 public class UserController extends HttpServlet{
 	
@@ -49,6 +49,9 @@ public class UserController extends HttpServlet{
 		switch(acction) {
 		case UrlConst.EDIT_PROFILE:
 			req.getRequestDispatcher(JspConst.EDIT_PROFILE).forward(req, resp);
+			break;
+		case UrlConst.ABOUT_US:
+			req.getRequestDispatcher(JspConst.ABOUT_US).forward(req, resp);
 			break;
 		case UrlConst.PROFILE: 
 			int iduser = (int) req.getSession().getAttribute("iduser");
