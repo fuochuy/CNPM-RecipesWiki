@@ -96,9 +96,25 @@ public class RecipeRepository {
 		try {
 			connection = MySQLConnection.getConnection();
 			String query = DbConst.GET_RECIPE;
-			statement = connection.prepareStatement(query);
+			statement = connection.prepareStatement(query);			
+			statement.setInt(1, id);
 			rs = statement.executeQuery();
 	
+			while (rs.next()) {
+				
+				recipe.setId(rs.getInt("r.id"));
+				recipe.setIdUser(rs.getInt("r.iduser"));
+				recipe.setTen(rs.getNString("r.ten"));
+				recipe.setMoTa(rs.getNString("r.mota"));
+				recipe.setHinhAnh(rs.getString("r.hinhanh"));
+				recipe.setNguyenLieu(rs.getNString("r.nguyenlieu"));
+				recipe.setLuotThich(rs.getInt("r.luotthich"));
+				recipe.setTgDang(rs.getDate("r.tgdang"));
+				recipe.setTgThucHien(rs.getInt("r.tgthuchien"));
+				recipe.setAvatarUser(rs.getString("u.avatar"));
+				recipe.setNameUser(rs.getNString("u.fullname"));
+				
+			}
 			
 		} catch (SQLException e) {
 			System.out.println("Không thể kết nối đến cơ sở dữ liệu");

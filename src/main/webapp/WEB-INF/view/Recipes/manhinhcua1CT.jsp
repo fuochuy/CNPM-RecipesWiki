@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@page import="cnpm.recipe.model.Recipe"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -117,14 +119,14 @@
         </ul>
       </nav>
     </header>
-
+	<%Recipe recipe =(Recipe) request.getAttribute("recipe"); %>
     <div class="container">
       <div class="content">
         <form action="" id="">
           <div class="row">
             <div class="col-md-6">
               <div class="recipes-image">
-                <img src="Image/manhinhcua1CT/bunocsuonHN.png" alt="" />
+                <img src="<%=recipe.getHinhAnh() %>" alt="" />
               </div>
             </div>
 
@@ -134,7 +136,7 @@
                   <div class="col-md-4">
                     <img src="Image/manhinhcua1CT/heart.png" alt="" />
                     <a> Like </a>
-                    <span>5710</span>
+                    <span><%=recipe.getLuotThich() %></span>
                   </div>
 
                   <div class="col-md-3">
@@ -145,7 +147,7 @@
                   <div class="col-md-5">
                     <img src="Image/manhinhcua1CT/time.png" alt="" />
                     <a> Thời gian: </a>
-                    <span>600</span>
+                    <span><%=recipe.getTgThucHien() %></span>
                     <a> phút </a>
                   </div>
                 </div>
@@ -163,20 +165,16 @@
               </div>
 
               <div class="profile">
-                <img src="Image/user/DucDam.png" alt="" />
+                <img src="<%=recipe.getAvatarUser() %>" alt="" />
                 <div class="content_profile">
-                  <p class="name">Đàm Hồng Đức</p>
-                  <p>12/12/2021</p>
+                  <p class="name"><%=recipe.getNameUser() %></p>
+                  <p><%=recipe.getTgDang() %></p>
                 </div>
               </div>
 
               <div class="recipes-mota">
                 <span>
-                  Mùa đông lành lạnh tranh thủ dậy sớm làm món bún ốc sườn Hà
-                  Nội cho cả nhà. Có phải bạn đã từng thưởng thức món bún ốc
-                  sườn non, bạn nhớ và thích hương vị của nó. Vậy hôm nay, hãy
-                  cùng mình ghi nhớ công thức để thực hiện lại món nước hấp dẫn
-                  này nhé. Nhanh vào bếp ngay thôi!
+                  <%=recipe.getMoTa() %>
                 </span>
               </div>
             </div>
@@ -189,32 +187,9 @@
                 <a> Export </a>
               </div>
               <div class="nguyenlieu-content">
-                <span> + Bún tươi </span>
+                <span> <%=recipe.getNguyenLieu() %> </span>
               </div>
-              <div class="nguyenlieu-content">
-                <span> + Nước luộc ốc </span>
-              </div>
-              <div class="nguyenlieu-content">
-                <span> + Ốc vặn </span>
-              </div>
-              <div class="nguyenlieu-content">
-                <span> + Cà chua </span>
-              </div>
-              <div class="nguyenlieu-content">
-                <span>
-                  + Tiêu, bột nghệ, nước mắm, bột canh, mỳ chính, đường, dấm
-                  bỗng
-                </span>
-              </div>
-              <div class="nguyenlieu-content">
-                <span> + ống Xương sườn, xương </span>
-              </div>
-              <div class="nguyenlieu-content">
-                <span> + Rau thơm tía tô, đậu phụ </span>
-              </div>
-              <div class="nguyenlieu-content">
-                <span> + Tỏi, hành khô </span>
-              </div>
+
             </div>
           </div>
 

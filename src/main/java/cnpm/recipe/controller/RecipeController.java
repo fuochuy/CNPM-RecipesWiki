@@ -69,13 +69,17 @@ public class RecipeController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		switch(acction) {
-		case UrlConst.MAN_HINH_CUA_1_CT:
-			//Recipe recipe = service.getRecipeById("123");
-		//	req.setAttribute("view-a-recipe", recipe);
+		case UrlConst.MAN_HINH_CUA_1_CT:			
+			int id= Integer.parseInt(req.getParameter("id"));
+			Recipe recipe = service.getRecipeById(id);
+			req.setAttribute("recipe", recipe);
 			req.getRequestDispatcher(JspConst.MAN_HINH_CUA_1_CT).forward(req, resp);
 			break;		
 		case UrlConst.CREATE_A_RECIPE:
-			idEvent = Integer.parseInt(req.getParameter("thamgiaEvent"));
+			if(req.getParameter("thamgiaEvent")!=null) {
+				idEvent = Integer.parseInt(req.getParameter("thamgiaEvent"));
+			}
+			
 			List<Chude> listChuDe = chuDeService.getChude();
 			List<TheLoai> listTheLoai = theLoaiService.getAllTheLoai();
 
@@ -92,8 +96,8 @@ public class RecipeController extends HttpServlet{
 			break;
 		case UrlConst.DELETE_RECIPE:
 			
-			int id = (int) req.getSession().getAttribute("id");
-			if(service.deleteRecipeById(id)) {
+			int idrecipt_delete = (int) req.getSession().getAttribute("id");
+			if(service.deleteRecipeById(idrecipt_delete)) {
 				req.getRequestDispatcher(JspConst.MYRECIPE).forward(req, resp);
 			}
 			

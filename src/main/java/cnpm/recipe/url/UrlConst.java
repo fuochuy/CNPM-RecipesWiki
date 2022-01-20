@@ -39,7 +39,7 @@ public class UrlConst {
 	public static final String TRANG_CHU = "/home";
 	
 	/*MAN HINH CUA 1 CT*/
-	public static final String MAN_HINH_CUA_1_CT = "/manhinhcua1CT";
+	public static final String MAN_HINH_CUA_1_CT = "/recipe";
 
 	/*MAN HINH about us*/
 	public static final String ABOUT_US = "/aboutus";

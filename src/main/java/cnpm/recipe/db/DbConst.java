@@ -48,7 +48,7 @@ public class DbConst {
 			+ "WHERE idevent = ";
 	
 	/*Insert ThamGiaEvent*/
-	public static final String INSERT_TGEvent = "SP_ThamgiaEvent(?,?,?)";
+	public static final String INSERT_TGEvent = "CALL SP_ThamgiaEvent(?,?,?)";
 	//INSERT thamgiaevent (iduser, idevent, idrecipe) VALUE(?,?,?)
 	/*THEM 1 EVENT*/
 	public static final String INSERT_EVENT = "INSERT event(iduser,tenuser, ten, mota, tgbatdau, tgketthuc, soluong, hinhanh,hinhquangcao, giaithuong) VALUE (?,?,?,?,?,?,?,?,?,?)";
@@ -57,7 +57,7 @@ public class DbConst {
 	public static final String INSERT_BUOC = "INSERT step(buoc,idrecipe,des,hinhanh) VALUE (?,?,?,?)";
 	/*LAY 1 CT VOI ID*/
 	public static final String GET_RECIPE = "SELECT r.id, r.iduser, r.ten, r.mota, r.nguyenlieu,r.hinhanh,"
-			+ " r.luotthich,r.tgdang, r.tgthuchien, u.avatar, u.fullname FROM recipe r, user u WHERE r.iduser=u.id";
+			+ " r.luotthich,r.tgdang, r.tgthuchien, u.avatar, u.fullname FROM recipe r, user u WHERE r.iduser=u.id AND r.id=?";
 	
 	public static final String GET_RECIPE_BY_IDUSER = "SELECT r.id, r.iduser, r.ten, r.mota, r.nguyenlieu,r.hinhanh,"
 			+ " r.luotthich,r.tgdang, r.tgthuchien, u.avatar, u.fullname FROM recipe r,user u WHERE r.iduser=u.id AND r.iduser=?";
@@ -68,6 +68,8 @@ public class DbConst {
 	
 	/*lay 1 Event*/
 	public static final String GET_ALL_THELOAI = "SELECT tl.id, tl.tentheloai from theloai tl";
+	
+	public static final String UPDATE_LUOTTHICH ="CALL SP_Tangluotthich(?)";
 	
 }
 

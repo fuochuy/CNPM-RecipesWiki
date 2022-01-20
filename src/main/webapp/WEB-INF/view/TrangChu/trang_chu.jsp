@@ -169,7 +169,7 @@
       	<%int temp = rand.nextInt(length); %>
       	<div class="box">
           <div class="image">
-            <img src="<%=recipes.get(temp).getHinhAnh() %>" alt="" />
+          <a href="recipe?id=<%=recipes.get(temp).getId()%>"><img src="<%=recipes.get(temp).getHinhAnh() %>" alt="" /></a>
           </div>
           <div class="content">
             <h3><%=recipes.get(temp).getTen() %></h3>
@@ -194,7 +194,7 @@
       	<%int temp = rand.nextInt(length); %>
       	<div class="box">
           <div class="image">
-            <img src="<%=recipes.get(temp).getHinhAnh() %>" alt="" />
+            <a href="recipe?id=<%=recipes.get(temp).getId()%>"><img src="<%=recipes.get(temp).getHinhAnh() %>" alt="" /></a>
           </div>
           <div class="content">
             <h3><%=recipes.get(temp).getTen() %></h3>
@@ -221,7 +221,7 @@
 	      	<%int temp = rand.nextInt(length); %>
 	      	<div class="box">
 	          <div class="image">
-	            <img src="<%=recipes.get(temp).getHinhAnh() %>" alt="" />
+	           	<a href="recipe?id=<%=recipes.get(temp).getId()%>"><img src="<%=recipes.get(temp).getHinhAnh() %>" alt="" /></a>
 	          </div>
 	          <div class="content">
 	            <h3><%=recipes.get(temp).getTen() %></h3>
