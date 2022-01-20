@@ -70,6 +70,9 @@ public class UrlConst {
 	public static final String CHUDE = "/chude";
 	
 	public static final String SEARCH = "/search";
+	public static final String SEARCH_RECIPE = "/search-recipe";
 	public static final String COMMENT = "/recipe-comment";
+	public static final String SEARCH_TOPIC = "/search-topic";
+	
 
 }

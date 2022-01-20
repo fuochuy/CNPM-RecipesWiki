@@ -15,4 +15,8 @@ private ChudeRepository repository;
 	public List<Chude> getChude(){
 		return repository.getChude();
 	}
+	public Chude getChudeById(int id){
+		return repository.getChudeById(id);
+	}
+	
 }

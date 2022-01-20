@@ -234,7 +234,8 @@
               cho mọi người biết nhé !!!
             </label>
           </div>
-          <div class="comment">
+          <%List<Comment> listComment= (List<Comment>) request.getAttribute("listComment");%>
+          <div class="comment" style="margin-bottom: <%=listComment.size()*60%>>px;">
             <div class="comment-title">
               <img src="Image/manhinhcua1CT/comment.png" alt="" />
               <label>Bình luận</label>
@@ -247,7 +248,7 @@
               placeholder="Nhập bình luận"
             />
             </form>
-			<%List<Comment> listComment= (List<Comment>) request.getAttribute("listComment");%>
+			
 			<%for(Comment c:listComment){ %>
 				<div class="profile">
               		<img src="<%=c.getAvatar() %>" alt="" />

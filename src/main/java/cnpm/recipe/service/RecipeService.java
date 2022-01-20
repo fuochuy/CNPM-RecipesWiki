@@ -36,4 +36,14 @@ public class RecipeService {
 	public boolean updateLuotThich(int idrecipe) {
 		return repository.updateLuotThich(idrecipe) ==1?true:false;
 	}
+	public List<Recipe> getRecipeByName(String name){
+		return repository.getRecipeByName(name);
+	}
+	
+	public List<Recipe> getRecipeByTopic(int topic){
+		return repository.getRecipeByTopic(topic);
+	}
+	public List<Recipe> getRecipeByTopic_Category(int topic, int category){
+		return repository.getRecipeByTopic_Category(topic,category);
+	}
 }

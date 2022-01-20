@@ -48,4 +48,36 @@ public class ChudeRepository {
 		}
 		return chudes;
 	}
+	
+	public Chude getChudeById(int id) {
+		Chude chude = new Chude();
+		try {
+			connection = MySQLConnection.getConnection();
+			String query = DbConst.GET_CHUDE_BYID;
+			statement = connection.prepareStatement(query);
+			statement.setInt(1, id);
+			rs = statement.executeQuery();
+	
+			while (rs.next()) {
+				
+				chude.setId(rs.getInt("cd.id"));
+				chude.setTen(rs.getString("cd.ten"));
+				
+				
+			}
+		} catch (SQLException e) {
+			System.out.println("Không thể kết nối đến cơ sở dữ liệu");
+			e.printStackTrace();
+		} finally {
+			try {
+				connection.close();
+				statement.close();
+				rs.close();
+			} catch (SQLException e) {
+				System.out.println("Lỗi đóng kết nối");
+				e.printStackTrace();
+			}
+		}
+		return chude;
+	}
 }

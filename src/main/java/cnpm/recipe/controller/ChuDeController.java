@@ -17,7 +17,8 @@ import cnpm.recipe.url.UrlConst;
 
 @MultipartConfig
 @WebServlet(name="chuDeController", urlPatterns = {
-		UrlConst.CHUDE})
+		UrlConst.CHUDE
+		})
 public class ChuDeController extends HttpServlet{
 	
 	private ChudeService service;
@@ -48,6 +49,5 @@ public class ChuDeController extends HttpServlet{
 			break;
 		
 		}
-	
 	}
 }

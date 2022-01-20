@@ -33,7 +33,8 @@ import cnpm.recipe.url.UrlConst;
 @WebServlet(name="recipeController", urlPatterns = {
 
 		UrlConst.BST, UrlConst.MAN_HINH_CUA_1_CT,UrlConst.CREATE_A_RECIPE,
-		UrlConst.MYRECIPE,UrlConst.DELETE_RECIPE,UrlConst.COMMENT,UrlConst.YEUTHICH
+		UrlConst.MYRECIPE,UrlConst.DELETE_RECIPE,UrlConst.COMMENT,UrlConst.YEUTHICH,UrlConst.SEARCH,
+		UrlConst.SEARCH_RECIPE,UrlConst.SEARCH_TOPIC
 
 		})
 
@@ -50,6 +51,7 @@ public class RecipeController extends HttpServlet{
 	private String acction;
 	private int idRecipe;
 	private int id;
+	private int topic;
 	
 	@Override
 	public void init() throws ServletException {
@@ -66,6 +68,7 @@ public class RecipeController extends HttpServlet{
 		idEvent=0;
 		idRecipe=11;
 		id=0;
+		topic=0;
 	}
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -163,93 +166,117 @@ public class RecipeController extends HttpServlet{
 			req.setAttribute("listBSTRecipe", listBSTRecipe);
 			req.getRequestDispatcher(JspConst.BST).forward(req, resp);
 			break;
-		
+		case UrlConst.SEARCH:
+			req.getRequestDispatcher(JspConst.SEARCH).forward(req, resp);
+			break;
+		case UrlConst.SEARCH_TOPIC:
+			if(req.getParameter("topic")!=null) {
+				topic = Integer.parseInt(req.getParameter("topic"));
+				List<Recipe> listRecipeTopic= service.getRecipeByTopic(topic);
+				List<TheLoai> listTheLoaiByTopic = theLoaiService.getTheLoaiByTopic(topic);
+				Chude chude = chuDeService.getChudeById(topic);
+				req.setAttribute("chude", chude);
+				req.setAttribute("listRecipeTopic", listRecipeTopic);
+				req.setAttribute("listTheLoaiByTopic", listTheLoaiByTopic);
+				req.getRequestDispatcher(JspConst.SEARCH_TOPIC).forward(req, resp);
+			}
+			
+			break;
 		}
+			
 	}
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		try {
-			
-			
-			Part part = req.getPart("hinhanhmh");
-			String realPath = req.getServletContext().getRealPath("/recipe");
-			String fileName = Path.of(part.getSubmittedFileName()).getFileName().toString();
-			if(!Files.exists(Path.of(realPath))) {
-				Files.createDirectory(Path.of(realPath));
-			}
-			
-			part.write(realPath+"/"+fileName);
-			String hinhanh = "recipe/"+fileName;
-
-			String tenmon = req.getParameter("tenmon");
-			int chude = Integer.parseInt(req.getParameter("chude"));
-			int theloai = Integer.parseInt(req.getParameter("theloai"));
-			String mota = req.getParameter("mota");
-			String nguyenlieu = req.getParameter("nguyenlieu");
-			int thoigian =Integer.parseInt( req.getParameter("thoigian"));
-			List<Step> cacBuoc = new ArrayList<>();
-			
-			int i=1;
-			
-			while(req.getParameter("buoc"+i)!=null) {
-				String buoc = req.getParameter("buoc"+i);
-				Part part1 = req.getPart("hinhanh"+i);
-				String realPath1 = req.getServletContext().getRealPath("/recipe");
-				String fileName1 = Path.of(part.getSubmittedFileName()).getFileName().toString();
+		if(req.getParameter("search")!=null) {
+			String search = req.getParameter("search");
+			List<Recipe> listRecipe =  service.getRecipeByName(search);
+			req.setAttribute("listRecipe-search", listRecipe);
+			req.getRequestDispatcher(JspConst.SEARCH_REICIPE).forward(req, resp);
+		}
+		
+		if(req.getParameter("tenmon")!=null) {
+			try {
+				
+				
+				Part part = req.getPart("hinhanhmh");
+				String realPath = req.getServletContext().getRealPath("/recipe");
+				String fileName = Path.of(part.getSubmittedFileName()).getFileName().toString();
 				if(!Files.exists(Path.of(realPath))) {
 					Files.createDirectory(Path.of(realPath));
 				}
 				
-				part1.write(realPath1+"/"+fileName1);
-				String hinhanh1 = "recipe/"+fileName1;
+				part.write(realPath+"/"+fileName);
+				String hinhanh = "recipe/"+fileName;
+
+				String tenmon = req.getParameter("tenmon");
+				int chude = Integer.parseInt(req.getParameter("chude"));
+				int theloai = Integer.parseInt(req.getParameter("theloai"));
+				String mota = req.getParameter("mota");
+				String nguyenlieu = req.getParameter("nguyenlieu");
+				int thoigian =Integer.parseInt( req.getParameter("thoigian"));
+				List<Step> cacBuoc = new ArrayList<>();
 				
-				Step step = new Step();
-				step.setBuoc(i);
-				step.setId_recipe(idRecipe);
-				step.setDes(buoc);
-				step.setHinhanh(hinhanh1);
-				cacBuoc.add(step);
-				i++;
+				int i=1;
+				
+				while(req.getParameter("buoc"+i)!=null) {
+					String buoc = req.getParameter("buoc"+i);
+					Part part1 = req.getPart("hinhanh"+i);
+					String realPath1 = req.getServletContext().getRealPath("/recipe");
+					String fileName1 = Path.of(part.getSubmittedFileName()).getFileName().toString();
+					if(!Files.exists(Path.of(realPath))) {
+						Files.createDirectory(Path.of(realPath));
+					}
+					
+					part1.write(realPath1+"/"+fileName1);
+					String hinhanh1 = "recipe/"+fileName1;
+					
+					Step step = new Step();
+					step.setBuoc(i);
+					step.setId_recipe(idRecipe);
+					step.setDes(buoc);
+					step.setHinhanh(hinhanh1);
+					cacBuoc.add(step);
+					i++;
+					
+				}
+				
+				if(tenmon!=null) {
+					Recipe recipe = new Recipe();
+					recipe.setId(idRecipe);
+					int iduser = (int) req.getSession().getAttribute("iduser");
+					recipe.setIdUser(iduser);
+					recipe.setIdchude(chude);
+					recipe.setIdtheloai(theloai);
+					recipe.setTen(tenmon);
+					recipe.setMoTa(mota);
+					recipe.setNguyenLieu(nguyenlieu);
+					recipe.setTgThucHien(thoigian);
+					recipe.setHinhAnh(hinhanh);
+					long millis=System.currentTimeMillis(); 
+					Date now = new Date(millis);
+					recipe.setTgDang(now);
+					
+					
+					service.insertRecipe(recipe);
+		
+					if(idEvent!=0) {
+						thamGiaEventService.thamGiaEvent(iduser, idEvent, idRecipe);
+					}
+				
+
+					for(Step b:cacBuoc) {
+						serviceBuoc.insertStep(b);
+					}
+					idRecipe++;
+				}
+							
+				
+			} catch (Exception e) {
+				// TODO: handle exception
 				
 			}
-			
-			if(tenmon!=null) {
-				Recipe recipe = new Recipe();
-				recipe.setId(idRecipe);
-				int iduser = (int) req.getSession().getAttribute("iduser");
-				recipe.setIdUser(iduser);
-				recipe.setIdchude(chude);
-				recipe.setIdtheloai(theloai);
-				recipe.setTen(tenmon);
-				recipe.setMoTa(mota);
-				recipe.setNguyenLieu(nguyenlieu);
-				recipe.setTgThucHien(thoigian);
-				recipe.setHinhAnh(hinhanh);
-				long millis=System.currentTimeMillis(); 
-				Date now = new Date(millis);
-				recipe.setTgDang(now);
-				
-				
-				service.insertRecipe(recipe);
-	
-				if(idEvent!=0) {
-					thamGiaEventService.thamGiaEvent(iduser, idEvent, idRecipe);
-				}
-			
-				
-				
-				
-				for(Step b:cacBuoc) {
-					serviceBuoc.insertStep(b);
-				}
-				idRecipe++;
-			}
-						
-			
-		} catch (Exception e) {
-			// TODO: handle exception
-			
 		}
+		
 	}
 }

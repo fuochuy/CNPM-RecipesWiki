@@ -80,7 +80,16 @@ public class DbConst {
 					+ " r.luotthich,r.tgdang, r.tgthuchien, u.avatar, u.fullname FROM recipe r,user u,  album_recipe ar WHERE ar.id_user=u.id AND r.id = ar.recipe_id AND ar.id_user=?";
 
 	public static final String INSERT_COMMENT ="INSERT comment(idrecipe,iduser,content,ngaydang) value(?,?,?,?)";
-}
+	
+	public static final String GET_RECIPE_SEARCH = "SELECT r.id, r.iduser, r.ten, r.mota, r.nguyenlieu,r.hinhanh,"
+			+ " r.luotthich,r.tgdang, r.tgthuchien,u.avatar, u.fullname FROM recipe r,user u WHERE r.iduser=u.id AND r.ten like CONCAT('%',?, '%')";
+	public static final String GET_RECIPE_BY_TOPIC ="SELECT r.id, r.iduser, r.ten, r.mota, r.nguyenlieu,r.hinhanh, r.luotthich,r.tgdang, r.tgthuchien,u.avatar, u.fullname FROM recipe r,user u WHERE r.iduser=u.id AND r.idchude = ?";
 
+	public static final String GET_RECIPE_BY_TOPIC_THELOAI ="SELECT r.id, r.iduser, r.ten, r.mota, r.nguyenlieu,r.hinhanh, r.luotthich,r.tgdang, r.tgthuchien,u.avatar, u.fullname FROM recipe r,user u WHERE r.iduser=u.id AND r.idchude = ? AND r.idtheloai=?";
+
+	public static final String GET_THELOAI_BY_TOPIC ="select tl.id, tl.tentheloai from chude_theloai cdtl, chude cd, theloai tl where cd.id=? and cdtl.idchude=cd.id and cdtl.idtheloai=tl.id";
+	public static final String GET_CHUDE_BYID="SELECT cd.id, cd.ten FROM chude cd WHERE cd.id=?";
+	
+}
 
 

@@ -15,4 +15,8 @@ private TheLoai_Repository repository;
 	public List<TheLoai> getAllTheLoai(){
 		return repository.getAllTheLoai();
 	}
+	public List<TheLoai> getTheLoaiByTopic(int topic){
+		return repository.getTheLoaiByTopic(topic);
+	}
+	
 }

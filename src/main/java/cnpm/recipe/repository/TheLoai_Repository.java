@@ -46,4 +46,35 @@ public class TheLoai_Repository {
 		}
 		return listTheLoai;
 	}
+	
+	public List<TheLoai> getTheLoaiByTopic(int topic) {
+		List<TheLoai> listTheLoai = new LinkedList<TheLoai>();
+		try {
+			connection = MySQLConnection.getConnection();
+			String query = DbConst.GET_THELOAI_BY_TOPIC;
+			statement = connection.prepareStatement(query);
+			statement.setInt(1, topic);
+			rs = statement.executeQuery();
+	
+			while (rs.next()) {
+				TheLoai theLoai = new TheLoai();
+				theLoai.setId(rs.getInt("tl.id"));
+				theLoai.setTentheloai(rs.getString("tl.tentheloai"));
+				listTheLoai.add(theLoai);
+			}
+		} catch (SQLException e) {
+			System.out.println("Không thể kết nối đến cơ sở dữ liệu");
+			e.printStackTrace();
+		} finally {
+			try {
+				connection.close();
+				statement.close();
+				rs.close();
+			} catch (SQLException e) {
+				System.out.println("Lỗi đóng kết nối");
+				e.printStackTrace();
+			}
+		}
+		return listTheLoai;
+	}
 }
