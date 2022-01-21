@@ -74,7 +74,8 @@ public class UrlConst {
 	public static final String COMMENT = "/recipe-comment";
 	public static final String SEARCH_TOPIC = "/search-topic";
 	
-	
 	public static final String LANDING_PAGE = "/landing-page";
+	
+	public static final String SAVE_RECIPE_TO_ALBUM = "/recipe-save";
 
 }

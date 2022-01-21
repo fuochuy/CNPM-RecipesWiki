@@ -34,7 +34,7 @@ import cnpm.recipe.url.UrlConst;
 
 		UrlConst.BST, UrlConst.MAN_HINH_CUA_1_CT,UrlConst.CREATE_A_RECIPE,
 		UrlConst.MYRECIPE,UrlConst.DELETE_RECIPE,UrlConst.COMMENT,UrlConst.YEUTHICH,UrlConst.SEARCH,
-		UrlConst.SEARCH_RECIPE,UrlConst.SEARCH_TOPIC
+		UrlConst.SEARCH_RECIPE,UrlConst.SEARCH_TOPIC, UrlConst.SAVE_RECIPE_TO_ALBUM
 
 		})
 
@@ -98,9 +98,22 @@ public class RecipeController extends HttpServlet{
 		case UrlConst.YEUTHICH:			
 			
 			if(req.getParameter("id")!=null) {
-				id= Integer.parseInt(req.getParameter("id"));
-				System.out.println(id);
+				id= Integer.parseInt(req.getParameter("id"));			
 				service.updateLuotThich(id);
+				Recipe recipe = service.getRecipeById(id);
+				List<Step> listStep = stepService.getgetListStepByIdRecipeStep(id);
+				List<Comment> listComment = commentService.getListCommentByIdRecipe(id);
+				req.setAttribute("listComment", listComment);
+				req.setAttribute("listStep", listStep);
+				req.setAttribute("recipe", recipe);
+				req.getRequestDispatcher(JspConst.MAN_HINH_CUA_1_CT).forward(req, resp);
+			}
+			break;	
+		case UrlConst.SAVE_RECIPE_TO_ALBUM:				
+			if(req.getParameter("id")!=null) {
+				int iduser1 = (int) req.getSession().getAttribute("iduser");
+				id= Integer.parseInt(req.getParameter("id"));			
+				service.SaveToAlbum(id, iduser1);
 				Recipe recipe = service.getRecipeById(id);
 				List<Step> listStep = stepService.getgetListStepByIdRecipeStep(id);
 				List<Comment> listComment = commentService.getListCommentByIdRecipe(id);

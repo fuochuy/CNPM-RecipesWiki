@@ -36,6 +36,9 @@ public class RecipeService {
 	public boolean updateLuotThich(int idrecipe) {
 		return repository.updateLuotThich(idrecipe) ==1?true:false;
 	}
+	public boolean SaveToAlbum(int idrecipe, int iduser) {
+		return repository.SaveToAlbum(idrecipe, iduser) ==1?true:false;
+	}
 	public List<Recipe> getRecipeByName(String name){
 		return repository.getRecipeByName(name);
 	}
