@@ -165,19 +165,20 @@ pageEncoding="UTF-8"%>
             accept="image/*"
             onchange="showPreview(event);"
           />
+          <div class="preview">
+            <img id="file-ip-0-preview" />
+          </div>
           <p>Ảnh quảng cáo</p>
           <input
             type="file"
             name="hinhanhquangcao"
-            id="file-ip-0"
+            id="file-ip-1"
             accept="image/*"
             onchange="showPreview(event);"
           />
-          <div class="preview">
-            <img id="file-ip-0-preview" />
-          </div>
-          <div class="preview">
-            <img id="file-ip-0-preview" />
+          
+          <div class="preview" style="margin-top: 10px">
+            <img id="file-ip-1-preview" />
           </div>
 
           <button type="submit">

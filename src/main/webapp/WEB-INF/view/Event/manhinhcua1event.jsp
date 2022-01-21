@@ -135,7 +135,7 @@ prefix="c"%> <%@page import="cnpm.recipe.model.Event"%>
         <div class="col-md-1"></div>
         <div class="col-md-10">
           <div class="image-header">
-            <img src="<%=event.getHinhanhquangcao() %>" alt="" />
+            <img src="<%=event.getHinhanhquangcao()%>" alt="" />
           </div>
         </div>
         <div class="col-md-1"></div>

@@ -248,7 +248,7 @@ public class RecipeController extends HttpServlet{
 				}
 				
 				part.write(realPath+"/"+fileName);
-				String hinhanh = "recipe/"+fileName;
+				String hinhanh = "Image/Recipe/"+fileName;
 
 				String tenmon = req.getParameter("tenmon");
 				System.out.println(tenmon);

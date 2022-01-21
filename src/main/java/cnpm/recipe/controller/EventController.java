@@ -47,8 +47,7 @@ public class EventController extends HttpServlet{
 		case UrlConst.CREATE_A_EVENT:			
 			req.getRequestDispatcher(JspConst.CREATE_A_EVENT).forward(req, resp);
 			break;		
-		case UrlConst.VIEW_A_EVENT:			
-			
+		case UrlConst.VIEW_A_EVENT:						
 			if (req.getParameter("id") != null) {
 				int idEvent = Integer.parseInt(req.getParameter("id"));
 				Event event = service.getEventById(idEvent);
@@ -90,7 +89,7 @@ public class EventController extends HttpServlet{
 			}
 			
 			part.write(realPath+"/"+fileName);
-			String anhminhhoa = "Event/"+fileName;
+			String anhminhhoa = "Image/EventDefault/"+fileName;
 			
 			
 			Part part1 = req.getPart("hinhanhquangcao");
@@ -101,7 +100,7 @@ public class EventController extends HttpServlet{
 			}
 			
 			part1.write(realPath1+"/"+fileName1);
-			String anhquangcao = "Event/"+fileName1;
+			String anhquangcao = "Image/EventDefault/"+fileName1;
 			
 			String tensukien = req.getParameter("tensk");
 		
@@ -115,7 +114,8 @@ public class EventController extends HttpServlet{
 				
 				Event event = new Event();
 				
-				int iduser = (int) req.getSession().getAttribute("iduser");			
+				int iduser = (int) req.getSession().getAttribute("iduser");	
+				event.setTenuser("Đàm Hồng Đức");
 				event.setId_user(iduser);
 				event.setTen(tensukien);
 				event.setMota(mota);
@@ -128,9 +128,12 @@ public class EventController extends HttpServlet{
 				event.setHinhanhquangcao(anhquangcao);
 				System.out.println(event.getTen());	
 				
-				if (service.insertEvent(event));
+				if (service.insertEvent(event)) {
+					req.setAttribute("event", event);
+					req.getRequestDispatcher(JspConst.VIEW_A_EVENT).forward(req, resp);	
+				}
 					
-					resp.sendRedirect(req.getContextPath() + UrlConst.VIEW_A_EVENT);			
+							
 			}
 			
 		} catch (Exception e) {

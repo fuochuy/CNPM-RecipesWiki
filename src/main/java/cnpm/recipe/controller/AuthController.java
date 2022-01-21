@@ -77,6 +77,7 @@ public class AuthController extends HttpServlet {
 		String username = req.getParameter("username");
 		String password1 = req.getParameter("password1");
 		String password2 = req.getParameter("password2");
+		
 		if(username != null && password1 != null && password2!=null ) {
 			
 			User user = new User();
@@ -110,5 +111,6 @@ public class AuthController extends HttpServlet {
 				resp.sendRedirect(req.getContextPath() + UrlConst.SIGN_IN);
 			}
 		}
-	}
+	
+}
 }
