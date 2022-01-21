@@ -16,6 +16,7 @@ public class DbConst {
 	public static final String GET_RECIPES = "SELECT r.id, r.iduser, r.ten, r.mota, r.nguyenlieu,r.hinhanh,"
 			+ " r.luotthich,r.tgdang, r.tgthuchien,u.avatar, u.fullname FROM recipe r,user u WHERE r.iduser=u.id";
 	public static final String DELETE_RECIPES = "DELETE FROM recipe WHERE id=?";
+	public static final String DELETE_STEP = "delete from step where idrecipe=?";
 	/*Event*/
 	public static final String GET_EVENT = "SELECT e.id, e.iduser,e.tenuser, e.ten, e.mota, e.tgbatdau, e.tgketthuc,"
 			+ " e.soluong, e.hinhanh,e.hinhquangcao, e.giaithuong  FROM event e, user u WHERE e.iduser = u.id ";

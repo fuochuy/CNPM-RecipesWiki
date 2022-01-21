@@ -172,14 +172,13 @@ public class RecipeRepository {
 	}
 	
 	public int deleteRecipeById(int id) {
-		List<Recipe> recipes = new LinkedList<Recipe>();
+		
 		try {
 			connection = MySQLConnection.getConnection();
 			String query = DbConst.DELETE_RECIPES;
 			statement = connection.prepareStatement(query);
 			statement.setInt(1, id);
-			rs = statement.executeQuery();
-	
+			
 			return statement.executeUpdate();
 			
 		} catch (SQLException e) {
@@ -189,7 +188,7 @@ public class RecipeRepository {
 			try {
 				connection.close();
 				statement.close();
-				rs.close();
+				
 			} catch (SQLException e) {
 				System.out.println("Lỗi đóng kết nối");
 				e.printStackTrace();

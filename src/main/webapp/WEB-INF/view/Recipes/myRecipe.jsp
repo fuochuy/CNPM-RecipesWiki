@@ -149,7 +149,7 @@
                         </div>
                     </div>
                     <div class="col-md-6 btn-xoa">
-                        <button><a href="my-Recipe?id=<%=recipe.getId()%>">Xóa món này</a></button>
+                        <button><a href="delete-recipe?idrecipe=<%=recipe.getId()%>">Xóa món này</a></button>
                     </div>
                 </div>
           </div> 

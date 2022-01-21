@@ -24,6 +24,10 @@ private StepRepository repository;
 		return repository.getListStepByIdRecipe(id);
 	}
 	
+	public boolean deleteStepByIdRecipe(int id) {
+		return repository.deleteStepByIdRecipe(id) == 1? true:false;
+	}
+	
 	
 	
 }

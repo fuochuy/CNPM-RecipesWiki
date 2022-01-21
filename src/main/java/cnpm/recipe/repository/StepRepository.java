@@ -113,4 +113,30 @@ public class StepRepository {
 		}
 		return Steps;
 	}
+	
+		public int deleteStepByIdRecipe(int id) {
+		
+		try {
+			connection = MySQLConnection.getConnection();
+			String query = DbConst.DELETE_STEP;
+			statement = connection.prepareStatement(query);
+			statement.setInt(1, id);
+			
+			return statement.executeUpdate();
+			
+		} catch (SQLException e) {
+			System.out.println("Không thể kết nối đến cơ sở dữ liệu");
+			e.printStackTrace();
+		} finally {
+			try {
+				connection.close();
+				statement.close();
+
+			} catch (SQLException e) {
+				System.out.println("Lỗi đóng kết nối");
+				e.printStackTrace();
+			}
+		}
+		return 0;
+	}
 }

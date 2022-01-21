@@ -92,7 +92,6 @@ public class RecipeController extends HttpServlet{
 				req.setAttribute("recipe", recipe);
 				req.getRequestDispatcher(JspConst.MAN_HINH_CUA_1_CT).forward(req, resp);
 			}
-			
 			break;		
 			
 		case UrlConst.YEUTHICH:			
@@ -158,20 +157,34 @@ public class RecipeController extends HttpServlet{
 			req.setAttribute("listChuDe", listChuDe);
 			req.getRequestDispatcher(JspConst.CREATE_RECIPE).forward(req, resp);
 			break;
-		case UrlConst.MYRECIPE:
-			
+		case UrlConst.MYRECIPE:			
 			int iduser1 = (int) req.getSession().getAttribute("iduser");
 			List<Recipe> listRecipe =  service.getRecipeByIdUser(iduser1);
 			req.setAttribute("listRecipe", listRecipe);
 			req.getRequestDispatcher(JspConst.MYRECIPE).forward(req, resp);
 			break;
-		case UrlConst.DELETE_RECIPE:
+		case UrlConst.DELETE_RECIPE:			
 			
-			int idrecipt_delete = (int) req.getSession().getAttribute("id");
-			if(service.deleteRecipeById(idrecipt_delete)) {
-				req.getRequestDispatcher(JspConst.MYRECIPE).forward(req, resp);
+			if(req.getSession().getAttribute("id")!=null) {
+				int idrecipt_delete = (int) req.getSession().getAttribute("id");
+				if(stepService.deleteStepByIdRecipe(idrecipt_delete)) {
+					if(service.deleteRecipeById(idrecipt_delete)) {
+						resp.sendRedirect(req.getContextPath() + UrlConst.MYRECIPE);
+					}
+				}
+				
 			}
 			
+			if(req.getParameter("idrecipe")!=null) {
+				
+				int id_delete = Integer.parseInt(req.getParameter("idrecipe"));
+				if(stepService.deleteStepByIdRecipe(id_delete)) {
+					if(service.deleteRecipeById(id_delete)) {
+						resp.sendRedirect(req.getContextPath() + UrlConst.MYRECIPE);
+					}
+				}
+				
+			}
 			break;
 		case UrlConst.BST: 
 			int iduser2 = (int) req.getSession().getAttribute("iduser");			
@@ -193,8 +206,7 @@ public class RecipeController extends HttpServlet{
 				req.setAttribute("listTheLoaiByTopic", listTheLoaiByTopic);
 				
 				req.getRequestDispatcher(JspConst.SEARCH_TOPIC).forward(req, resp);
-			}
-			
+			}			
 			break;
 		}
 			
@@ -239,6 +251,7 @@ public class RecipeController extends HttpServlet{
 				String hinhanh = "recipe/"+fileName;
 
 				String tenmon = req.getParameter("tenmon");
+				System.out.println(tenmon);
 				int chude = Integer.parseInt(req.getParameter("chude"));
 				int theloai = Integer.parseInt(req.getParameter("theloai"));
 				String mota = req.getParameter("mota");
@@ -282,6 +295,7 @@ public class RecipeController extends HttpServlet{
 					recipe.setNguyenLieu(nguyenlieu);
 					recipe.setTgThucHien(thoigian);
 					recipe.setHinhAnh(hinhanh);
+					System.out.println(recipe.getTen());
 					long millis=System.currentTimeMillis(); 
 					Date now = new Date(millis);
 					recipe.setTgDang(now);
@@ -298,6 +312,7 @@ public class RecipeController extends HttpServlet{
 						serviceBuoc.insertStep(b);
 					}
 					idRecipe++;
+					resp.sendRedirect(req.getContextPath() + UrlConst.MYRECIPE);
 				}
 							
 				
