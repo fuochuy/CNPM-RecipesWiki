@@ -89,9 +89,9 @@
   
           <nav>
               <ul>
-                  <li class=""><a href="./trang_chu.html" class="menu-item">Trang chủ</a></li>
-                  <li class=""><a href="./search1.html" class="menu-item">Tìm kiếm</a></li>
-                  <li class="" ><a href="./trang_chu.html" class="menu-item"><span >RecipesWiki</span></a></li>
+                  <li class=""><a href="home" class="menu-item">Trang chủ</a></li>
+                  <li class=""><a href="search" class="menu-item">Tìm kiếm</a></li>
+                  <li class="" ><a href="home" class="menu-item"><span >RecipesWiki</span></a></li>
                   <li class="has-submenu">
                       <a href="" class="menu-item">Chủ đề</a>
                       <ul class="submenu">
@@ -109,8 +109,8 @@
                        
                       </ul>
                   </li>
-                  <li class="active"><a href="./aboutus.html" class="menu-item">About us</a></li>
-                  <li class="btn_account"> <a href="./account.html" class="menu-item"><img src="./Image/icon/account.png" /></a></li>
+                  <li class="active"><a href="aboutus" class="menu-item">About us</a></li>
+                  <li class="btn_account"> <a href="profile" class="menu-item"><img src="./Image/icon/account.png" /></a></li>
               </ul>  
           </nav>
  
@@ -148,7 +148,8 @@
       <%for(int i=0; i<topics.size(); i++){ %>
       	<div class="row" id="<%="topic"+(i+1)%>">
           <div class="col-md-3">
-            <img class="pic-menu" src="<%=topics.get(i).getHinhanh() %>" alt="" />
+          <a href="search-topic?topic=<%=topics.get(i).getId()%>"> <img class="pic-menu" src="<%=topics.get(i).getHinhanh() %>" alt="" /></a>
+         
           </div>
           <div class="col-md-9">
             <h3><%=topics.get(i).getTen() %></h3>
