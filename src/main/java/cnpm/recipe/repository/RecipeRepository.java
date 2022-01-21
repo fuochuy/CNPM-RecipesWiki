@@ -228,6 +228,36 @@ public class RecipeRepository {
 		return 0;
 	}		
 	
+	public int SaveToAlbum(int idrecipe, int iduser) {
+		try {
+			connection = MySQLConnection.getConnection();
+			String query = DbConst.SAVE_TO_ALBUM;
+
+			statement = connection.prepareStatement(query);
+		
+			statement.setInt(1, iduser);
+			statement.setInt(2, idrecipe);
+
+			return statement.executeUpdate();
+		} catch (SQLException e) {
+			System.out.println("Không thể kết nối đến cơ sở dữ liệu");
+			e.printStackTrace();
+		} finally {
+			try {
+				connection.close();
+				statement.close();
+
+				rs.close();
+
+			} catch (SQLException e) {
+				System.out.println("Lỗi đóng kết nối");
+				e.printStackTrace();
+			}
+		}
+
+		return 0;
+	}		
+	
 	public List<Recipe> getBSTRecipeByIdUser(int id) {
 		List<Recipe> recipes = new LinkedList<Recipe>();
 		try {

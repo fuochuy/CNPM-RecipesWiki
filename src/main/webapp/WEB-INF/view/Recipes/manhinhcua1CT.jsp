@@ -154,7 +154,7 @@
 
                   <div class="col-md-3">
                     <img src="Image/manhinhcua1CT/save.png" alt="" />
-                    <a> Save </a>
+                    <a href="recipe-save?id=<%=recipe.getId()%>"> Save </a>
                   </div>
 
                   <div class="col-md-5">

@@ -72,6 +72,8 @@ public class DbConst {
 	public static final String GET_ALL_THELOAI = "SELECT tl.id, tl.tentheloai from theloai tl";
 	
 	public static final String UPDATE_LUOTTHICH ="CALL SP_Tangluotthich(?)";
+	
+	public static final String SAVE_TO_ALBUM ="insert into album_recipe value(?,?)";
 
 	public static final String GET_COMMENT_BYID_RECIPE ="SELECT c.id, c.idrecipe, u.fullname, u.avatar,c.content, c.ngaydang FROM comment c, user u WHERE c.iduser=u.id AND c.idrecipe=?";
 		
