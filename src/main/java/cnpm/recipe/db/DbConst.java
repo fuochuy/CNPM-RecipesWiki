@@ -67,6 +67,8 @@ public class DbConst {
 			+ " e.soluong, e.hinhanh,e.hinhquangcao, e.giaithuong  FROM event e WHERE e.id = ?";
 	
 	/*lay 1 Event*/
+	public static final String GET_EVENT_BY_IDUSEr = "SELECT e.id, e.iduser, e.tenuser, e.ten, e.mota, e.tgbatdau, e.tgketthuc,"
+			+ " e.soluong, e.hinhanh,e.hinhquangcao, e.giaithuong  FROM event e WHERE e.iduser = ?";
 	public static final String GET_ALL_THELOAI = "SELECT tl.id, tl.tentheloai from theloai tl";
 	
 	public static final String UPDATE_LUOTTHICH ="CALL SP_Tangluotthich(?)";
@@ -91,6 +93,8 @@ public class DbConst {
 
 	public static final String GET_THELOAI_BY_TOPIC ="select tl.id, tl.tentheloai from chude_theloai cdtl, chude cd, theloai tl where cd.id=? and cdtl.idchude=cd.id and cdtl.idtheloai=tl.id";
 	public static final String GET_CHUDE_BYID="SELECT cd.id, cd.ten FROM chude cd WHERE cd.id=?";
+	public static final String DELETE_TGEVENT="delete from thamgiaevent where idevent=?";
+	public static final String DELETE_EVENT="delete from event where id=?";
 	
 }
 

@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@page import="cnpm.recipe.model.Event"%>
+<%@page import="java.util.List"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -34,19 +37,19 @@
         </div>
         <ul class="nav-list">
           <li class="nav-item">
-            <a href="#" class="nav-link">Tải lên công thức</a>
+            <a href="create-recipe" class="nav-link">Tải lên công thức</a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">Sự kiện</a>
+            <a href="all-event" class="nav-link">Sự kiện</a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">Sự kiện của tôi</a>
+            <a href="myevent" class="nav-link">Sự kiện của tôi</a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">Bộ sưu tập của tôi</a>
+            <a href="album" class="nav-link">Bộ sưu tập của tôi</a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">Món của tôi</a>
+            <a href="my-Recipe" class="nav-link">Món của tôi</a>
           </li>
           <div class="hot-tag">
             <li class="nav-item">
@@ -64,60 +67,55 @@
             <li class="nav-tag">
               <a href="#" class="nav-link">#AnToi</a>
             </li>
-            <div class="hot-tag">
-              <li class="nav-item">
-                <p>Hot tag</p>
-              </li>
-              <li class="nav-tag">
-                <a href="#" class="nav-link">#monanngayTet</a>
-              </li>
-              <li class="nav-tag">
-                <a href="#" class="nav-link">#AnSang</a>
-              </li>
-              <li class="nav-tag">
-                <a href="#" class="nav-link">#AnTrua</a>
-              </li>
-              <li class="nav-tag">
-                <a href="#" class="nav-link">#AnToi</a>
-              </li>
-              <li class="nav-tag">
-                <a href="#" class="nav-link">#Dauhu</a>
-              </li>
-            </div>
-          </ul>
+            <li class="nav-tag">
+              <a href="#" class="nav-link">#Dauhu</a>
+            </li>
+          </div>
+        </ul>
         </nav>
       </div>
   
       <header class="header__menu" id="myHeader">
-  
-          <nav>
-              <ul class="menu-ul">
-                  <li class=""><a href="./trang_chu.html" class="menu-item">Trang chủ</a></li>
-                  <li class=""><a href="./search1.html" class="menu-item">Tìm kiếm</a></li>
-                  <li class="active" ><a href="./trang_chu.html" class="menu-item"><span >RecipesWiki</span></a></li>
-                  <li class="has-submenu">
-                      <a href="" class="menu-item">Chủ đề</a>
-                      <ul class="submenu">
-                        <li><a href="search?id=1"  >Ăn sáng</a></li>
-              <li><a href="search?id=3" >Ăn trưa</a></li>
-              <li><a href="search?id=2"  >Ăn tối</a></li>
-              <li><a href="search?id=4"  >Dã ngoại</a></li>
-              <li><a href="search?id=5"  >Giáng sinh</a></li>
-              <li><a href="search?id=6"  >Halloween</a></li>
-              <li><a href="search?id=7" >Lễ tình nhân</a></li>
-              <li><a href="search?id=8"  >Món chay</a></li>
-              <li><a href="search?id=9"  >Ngày tết</a></li>
-              <li><a href="search?id=10"  >Sinh nhật</a></li>
-              <li><a href="chude"  >Tất cả chủ đề</a></li>
-                        
-                      </ul>
-                  </li>
-                  <li><a href="./aboutus.html" class="menu-item">About us</a></li>
-                  <li class="btn_account"> <a href="./account.html" class="menu-item"><img src="./Image/icon/account.png" /></a></li>
-              </ul>  
-          </nav>
-  
-      </header>
+      <nav>
+        <ul class="menu-ul">
+          <li class="">
+            <a href="home" class="menu-item">Trang chủ</a>
+          </li>
+          <li class="">
+            <a href="search" class="menu-item">Tìm kiếm</a>
+          </li>
+          <li class="">
+            <a href="home" class="menu-item"
+              ><span>RecipesWiki</span></a
+            >
+          </li>
+          <li class="has-submenu">
+            <a href="" class="menu-item">Chủ đề</a>
+            <ul class="submenu">
+              			<li><a href="search-topic?topic=1"  >Ăn sáng</a></li>
+                        <li><a href="search-topic?topic=3" >Ăn trưa</a></li>
+                        <li><a href="search-topic?topic=2"  >Ăn tối</a></li>
+                        <li><a href="search-topic?topic=4"  >Dã ngoại</a></li>
+                        <li><a href="search-topic?topic=5"  >Giáng sinh</a></li>
+                        <li><a href="search-topic?topic=6"  >Halloween</a></li>
+                        <li><a href="search-topic?topic=7" >Lễ tình nhân</a></li>
+                        <li><a href="search-topic?topic=8"  >Món chay</a></li>
+                        <li><a href="search-topic?topic=9"  >Ngày tết</a></li>
+                        <li><a href="search-topic?topic=10"  >Sinh nhật</a></li>
+                        <li><a href="chude"  >Tất cả chủ đề</a></li>
+            </ul>
+          </li>
+          <li class="">
+            <a href="aboutus" class="menu-item">About us</a>
+          </li>
+          <li class="btn_account">
+            <a href="profile" class="menu-item"
+              ><img src="./Image/icon/account.png"
+            /></a>
+          </li>
+        </ul>
+      </nav>
+    </header>
    
     <div class="container">
          
@@ -133,66 +131,35 @@
                     <div class="col-md-2" >
                         
                     </div>
-                    <a href="">
+                    <a href="tao_event">
                         <div class="col-md-2 newevent" >
                             <span class="newevent-child1">+</span>
                             <span class="newevent-child2">Sự kiện mới</span>
                         </div>
                     </a>
                 </div>
-                <div class="row">
+                 <%List<Event> listEvent =(List<Event>) request.getAttribute("list_events_ByIdUser"); %>
+		
+				<%for(Event event:listEvent){ %>
+					 <div class="row">
                     <div class="col-md-1"></div>
+                    
                     <div class="col-md-5 image">
-                        <img src="Image/manhinhcua1event/monnhau.png" alt="">
+                        <img src="<%=event.getHinhanh() %>" alt="">
                     </div>
                     <div class="col-md-5 content">
-                        <h3>Cuộc thi làm món nhậu đỉnh cao</h3>
-                        <p>Tham gia: 20</p>
-                        <p>Sự kiện của: Huy</p>
-                        <p>Thời gian: 20/11/2021</p>
-                        <p>Kết thúc: 28/11/2021</p>
-                        <p>Giải thưởng: 1 thùng bia SAIGON</p>
+                        <h3><%=event.getTen() %></h3>
+                        <p>Tham gia: <%=event.getSoluong() %></p>
+                        <p>Sự kiện của: <%=event.getTenuser() %></p>
+                        <p>Thời gian: <%=event.getTgbatdau() %></p>
+                        <p>Kết thúc: <%=event.getTgketthuc() %></p>
+                        <p>Giải thưởng: <%=event.getGiaithuong() %></p>
                         <button class="moi"><a href=""><span>Mời</span></a></button>
-                        <button class="xoa"><a href=""><span>Xóa</span></a></button>
+                        <button class="xoa"><a href="myevent?id=<%=event.getId()%>"><span>Xóa</span></a></button>
                     </div>
                     <div class="col-md-1"></div>
                 </div>
-                <div class="row">
-                    <div class="col-md-1"></div>
-                    <div class="col-md-5 image">
-                        <img src="Image/manhinhcua1event/monnhau.png" alt="">
-                    </div>
-                    <div class="col-md-5 content">
-                        <h3>Cuộc thi làm món nhậu đỉnh cao</h3>
-                        <p>Tham gia: 20</p>
-                        <p>Sự kiện của: Huy</p>
-                        <p>Thời gian: 20/11/2021</p>
-                        <p>Kết thúc: 28/11/2021</p>
-                        <p>Giải thưởng: 1 thùng bia SAIGON</p>
-                        <button class="moi"><a href=""><span>Mời</span></a></button>
-                        <button class="xoa"><a href=""><span>Xóa</span></a></button>
-                    </div>
-                    <div class="col-md-1"></div>
-                </div>
-
-                <div class="row">
-                    <div class="col-md-1"></div>
-                    <div class="col-md-5 image">
-                        <img src="Image/manhinhcua1event/monnhau.png" alt="">
-                    </div>
-                    <div class="col-md-5 content">
-                        <h3>Cuộc thi làm món nhậu đỉnh cao</h3>
-                        <p>Tham gia: 20</p>
-                        <p>Sự kiện của: Huy</p>
-                        <p>Thời gian: 20/11/2021</p>
-                        <p>Kết thúc: 28/11/2021</p>
-                        <p>Giải thưởng: 1 thùng bia SAIGON</p>
-                        <button class="moi"><a href=""><span>Mời</span></a></button>
-                        <button class="xoa"><a href=""><span>Xóa</span></a></button>
-                    </div>
-                    <div class="col-md-1"></div>
-                </div>
-                
+				<%} %>   
           </div>
           
     </div>

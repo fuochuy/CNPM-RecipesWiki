@@ -62,6 +62,17 @@ public class EventController extends HttpServlet{
 			req.setAttribute("xem-tatca-event", list_events);
 			req.getRequestDispatcher(JspConst.VIEW_ALL_EVENT).forward(req, resp);			
 			break;
+		case UrlConst.MY_EVENT:
+			if(req.getParameter("id")!=null) {
+				int idEvent = Integer.parseInt(req.getParameter("id"));
+				service.deleteTGEvent(idEvent);
+				service.deleteEvent(idEvent);
+			}
+			int idUser = (int) req.getSession().getAttribute("iduser");	
+			List<Event> list_events_ByIdUser = service.getEventByIdUser(idUser);
+			req.setAttribute("list_events_ByIdUser", list_events_ByIdUser);
+			req.getRequestDispatcher(JspConst.MY_EVENT).forward(req, resp);			
+			break;
 		}
 	
 	}

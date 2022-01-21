@@ -130,4 +130,100 @@ public class EventRepository {
 		}
 		return event;
 	}
+	
+	public List<Event> getEventByIDUser(int iduser) {
+		List<Event> events = new LinkedList<Event>();
+		try {
+			connection = MySQLConnection.getConnection();
+			String query = DbConst.GET_EVENT_BY_IDUSEr;
+			statement = connection.prepareStatement(query);
+			statement.setInt(1, iduser);
+			rs = statement.executeQuery();
+	
+			while (rs.next()) {
+				Event event = new Event();
+				event.setId(rs.getInt("e.id"));				
+				event.setId_user(rs.getInt("e.iduser"));
+				event.setTenuser(rs.getString("e.tenuser"));
+				event.setTen(rs.getString("e.ten"));
+				event.setMota(rs.getString("e.mota"));			
+				event.setTgbatdau(rs.getDate("e.tgbatdau"));
+				event.setTgketthuc(rs.getDate("e.tgbatdau"));
+				event.setSoluong(rs.getInt("e.soluong"));
+				event.setHinhanh(rs.getString("e.hinhanh"));
+				event.setHinhanhquangcao(rs.getString("e.hinhquangcao"));
+				event.setGiaithuong(rs.getString("e.giaithuong"));
+					
+				events.add(event);
+			}
+		} catch (SQLException e) {
+			System.out.println("Không thể kết nối đến cơ sở dữ liệu");
+			e.printStackTrace();
+		} finally {
+			try {
+				connection.close();
+				statement.close();
+				rs.close();
+			} catch (SQLException e) {
+				System.out.println("Lỗi đóng kết nối");
+				e.printStackTrace();
+			}
+		}
+		return events;
+	}
+	
+	
+	public int deleteTGEvent(int id) {
+		try {
+			connection = MySQLConnection.getConnection();
+			String query = DbConst.DELETE_TGEVENT;
+
+			statement = connection.prepareStatement(query);
+
+		
+			statement.setInt(1, id);
+			
+			
+			return statement.executeUpdate();
+		} catch (SQLException e) {
+			System.out.println("Không thể kết nối đến cơ sở dữ liệu");
+			e.printStackTrace();
+		} finally {
+			try {
+				connection.close();
+				statement.close();
+			} catch (SQLException e) {
+				System.out.println("Lỗi đóng kết nối");
+				e.printStackTrace();
+			}
+		}
+		return 0;
+	}
+	
+	public int deleteEvent(int id) {
+		try {
+			connection = MySQLConnection.getConnection();
+			String query = DbConst.DELETE_EVENT;
+
+			statement = connection.prepareStatement(query);
+
+		
+			statement.setInt(1, id);
+			
+			
+			return statement.executeUpdate();
+		} catch (SQLException e) {
+			System.out.println("Không thể kết nối đến cơ sở dữ liệu");
+			e.printStackTrace();
+		} finally {
+			try {
+				connection.close();
+				statement.close();
+			} catch (SQLException e) {
+				System.out.println("Lỗi đóng kết nối");
+				e.printStackTrace();
+			}
+		}
+		return 0;
+	}
 }
