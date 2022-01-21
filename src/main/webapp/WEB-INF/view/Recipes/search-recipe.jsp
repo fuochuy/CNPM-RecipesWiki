@@ -109,35 +109,51 @@
         </form>
     </div>
 
-    <div class="menu" id="menu">
-      <div class="box-container">
-      <%List<Recipe> listRecipe =(List<Recipe> ) request.getAttribute("listRecipe-search"); %>
-      <%for(Recipe r:listRecipe){ %>
-      	<div class="box">
-          
-          <div class="image">
-            <a href="recipe?id=<%=r.getId()%>"> <img src="<%=r.getHinhAnh() %>" alt="" /></a>
+<%List<Recipe> listRecipe =(List<Recipe> ) request.getAttribute("listRecipe-search"); %>
+      
+   <div class="menu" id="menu">
+      <div class="row dish">
+          <div class="col-md-1"></div>
+          <div class="col-md-10">
+             <div class="box-container">
+             <div class="row">
+             <%int n=listRecipe.size(); %>            
+             <%for(int i=0; i<n; i++){ %>
+             	 
+             	 <div class="col-md-4">
+                <div class="box">
+                  <a href="recipe?id=<%=listRecipe.get(i).getId()%>">
+                    <div class="image">
+                      <img src="<%=listRecipe.get(i).getHinhAnh() %>" alt="" />
+                    </div>
+                    <div class="content">
+                      <h3><%= listRecipe.get(i).getTen()%></h3>
+                      <p>
+                        <%= listRecipe.get(i).getMoTa()%>
+                      </p>
+                    </div>
+                    <div class="profile">
+                      <img src="<%= listRecipe.get(i).getAvatarUser()%>" alt="" />
+                      <div class="content_profile">
+                        <p class="name"><%= listRecipe.get(i).getNameUser()%></p>
+                        <p><%= listRecipe.get(i).getTgDang()%></p>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+
+             	 <%} %>
+             	 </div>
+            
+            
           </div>
-          <div class="content">
-            <h3><%=r.getTen() %></h3>
-            <p>
-              <%=r.getMoTa() %>
-            </p>
-          </div>
-          
-          <div class="profile">
-            <img src="<%=r.getAvatarUser() %>" alt="" />
-            <div class="content_profile">
-              <p class="name"><%=r.getNameUser() %></p>
-              <p><%=r.getTgDang() %></p>
-            </div>
-          </div>
-        
+
+          <div class="col-md-1"></div>
+
         </div>
-      <%} %>
-       
-        </div>
-      </div>
+    </div>
+  </div>
 
   <div class="xemthem">
     <h3 type="submit">Xem thêm</h3>

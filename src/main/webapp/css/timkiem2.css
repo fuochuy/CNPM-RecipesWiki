@@ -235,7 +235,7 @@ body {
   z-index: 1;
 }
 
-input[type="checkbox"] {
+input[type="radio"] {
   -ms-transform: scale(2);
   -moz-transform: scale(2);
   -webkit-transform: scale(2);

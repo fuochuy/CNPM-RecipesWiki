@@ -25,6 +25,11 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
     />
+    <!--link bootstrap-->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    />
     <link rel="stylesheet" href="css\timkiem2.css" />
     <title>RecipesWiki</title>
   </head>
@@ -83,7 +88,7 @@
 
     <header class="header__menu" id="myHeader">
       <nav>
-        <ul class="menu-ul">
+        <ul>
           <li class="">
             <a href="./trang_chu.html" class="menu-item">Trang chủ</a>
           </li>
@@ -116,32 +121,35 @@
     </header>
 
     <div>
-      <div>
-      <%Chude chude =(Chude) request.getAttribute("chude"); %>.
-        <div class="container-checkbox">
-          <!-- checkbox tên chủ đề -->
-          <div class="checkbox0">
-            <input type="radio" id="vehicle1" name="vehicle1" value="" />
-            <label for="vehicle1">Thể Loại</label><br />
+      <div class="row">
+        <div class="col-md-2">
+          <div class="container-checkbox">
+             <%List<TheLoai> listTheLoai= (List<TheLoai> )request.getAttribute("listTheLoaiByTopic"); %>
+		          <form action="search-topic" method="post">
+		          <%for(TheLoai tl:listTheLoai){ %>
+		          
+		          	<div class="checkbox1">
+		            <!-- checkbox tên thể loại -->
+		            <input type="radio" id="vehicle3" name="theLoaiTimKiem" value="<%= tl.getId() %>" />
+		            <label for="vehicle3"> <%= tl.getTentheloai() %></label><br />
+		          </div>
+		          <%} %>
+		         
+				</form>
           </div>
-          <%List<TheLoai> listTheLoai= (List<TheLoai> )request.getAttribute("listTheLoaiByTopic"); %>
-          <%for(TheLoai tl:listTheLoai){ %>
-          	<div class="checkbox1">
-            <!-- checkbox tên thể loại -->
-            <input type="radio" id="vehicle3" name="vehicle3" value="<%= tl.getId() %>" />
-            <label for="vehicle3"> <%= tl.getTentheloai() %></label><br />
-          </div>
-          <%} %>
-          </div>
-          
-         
+        </div>
+        <div class="col-md-9">
+        <%List<Recipe> listRecipe =(List<Recipe>) request.getAttribute("listRecipeTopic"); %>
+          <div class="row">
+           <%for(Recipe r:listRecipe){ %>
+             <div class="col-md-4">
         <div class="menu" id="menu">
           <div class="box-container">
-          <%List<Recipe> listRecipe =(List<Recipe>) request.getAttribute("listRecipeTopic"); %>
-          <%for(Recipe r:listRecipe){ %>
+          
           	  <div class="box">
               <div class="image">
-                <img src="<%= r.getHinhAnh() %>" alt="" />
+              <a href="recipe?id=<%=r.getId()%>"><img src="<%= r.getHinhAnh() %>" alt="" /></a>
+                
               </div>
               <div class="content">
                 <h3><%= r.getTen() %></h3>
@@ -157,10 +165,15 @@
                 </div>
               </div>
             </div>
-          <%} %>
-          
+             </div>
           </div>
         </div>
+        <%} %>
+          </div>
+            
+          </div>
+        </div>
+        <div class="col-md-1"></div>
       </div>
     </div>
 
@@ -184,6 +197,9 @@
       }
     </script>
     <script src="./js/burger.js"></script>
+    <!-- menu section ends -->
+    <script src="//code.jquery.com/jquery.js"></script>
+    <!-- Bootstrap JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </body>
 </html>
-    

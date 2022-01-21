@@ -352,7 +352,7 @@ public class RecipeRepository {
 		List<Recipe> recipes = new LinkedList<Recipe>();
 		try {
 			connection = MySQLConnection.getConnection();
-			String query = DbConst.GET_RECIPE_BY_TOPIC;
+			String query = DbConst.GET_RECIPE_BY_TOPIC_THELOAI;
 			statement = connection.prepareStatement(query);
 			statement.setInt(1, topic);
 			statement.setInt(2, category);

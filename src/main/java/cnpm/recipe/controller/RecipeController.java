@@ -188,6 +188,18 @@ public class RecipeController extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
+		
+		if(req.getParameter("theLoaiTimKiem")!=null) {
+			int theLoaiTimKiem = Integer.parseInt(req.getParameter("theLoaiTimKiem"));
+			
+			List<Recipe> listRecipeTopic= service.getRecipeByTopic_Category(topic, theLoaiTimKiem);
+			List<TheLoai> listTheLoaiByTopic = theLoaiService.getTheLoaiByTopic(topic);
+			Chude chude = chuDeService.getChudeById(topic);
+			req.setAttribute("chude", chude);
+			req.setAttribute("listRecipeTopic", listRecipeTopic);
+			req.setAttribute("listTheLoaiByTopic", listTheLoaiByTopic);
+			req.getRequestDispatcher(JspConst.SEARCH_TOPIC).forward(req, resp);
+		}
 		if(req.getParameter("search")!=null) {
 			String search = req.getParameter("search");
 			List<Recipe> listRecipe =  service.getRecipeByName(search);
