@@ -88,7 +88,7 @@
     <header class="header__menu" id="myHeader">
       <nav>
         <ul class="menu-ul">
-          <li class="">
+          <li class="active">
             <a href="home" class="menu-item">Trang chủ</a>
           </li>
           <li class="">
