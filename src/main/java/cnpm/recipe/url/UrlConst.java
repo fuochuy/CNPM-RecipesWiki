@@ -80,6 +80,8 @@ public class UrlConst {
 	public static final String SAVE_RECIPE_TO_ALBUM = "/recipe-save";
 
 	public static final String LOG_OUT = "/log-out";
+	
+	public static final String MY_EVENT404 = "/my-event404";
 
 
 }

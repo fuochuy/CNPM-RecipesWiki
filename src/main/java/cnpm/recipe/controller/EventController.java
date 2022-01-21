@@ -21,7 +21,7 @@ import cnpm.recipe.url.UrlConst;
 
 @MultipartConfig
 @WebServlet(name="eventController", urlPatterns = {
-		UrlConst.CREATE_A_EVENT,UrlConst.VIEW_A_EVENT, UrlConst.VIEW_ALL_EVENT,UrlConst.MY_EVENT})
+		UrlConst.MY_EVENT404,UrlConst.CREATE_A_EVENT,UrlConst.VIEW_A_EVENT, UrlConst.VIEW_ALL_EVENT,UrlConst.MY_EVENT})
 public class EventController extends HttpServlet{
 	
 	private EventService service;
@@ -46,7 +46,7 @@ public class EventController extends HttpServlet{
 		switch(acction) {
 		case UrlConst.CREATE_A_EVENT:			
 			req.getRequestDispatcher(JspConst.CREATE_A_EVENT).forward(req, resp);
-			break;
+			break;		
 		case UrlConst.VIEW_A_EVENT:			
 			
 			if (req.getParameter("id") != null) {
@@ -58,9 +58,10 @@ public class EventController extends HttpServlet{
 			req.getRequestDispatcher(JspConst.VIEW_A_EVENT).forward(req, resp);
 			break;	
 		case UrlConst.VIEW_ALL_EVENT:
-			List<Event> list_events = service.getEvent();
+			List<Event> list_events = service.getEvent();			
 			req.setAttribute("xem-tatca-event", list_events);
-			req.getRequestDispatcher(JspConst.VIEW_ALL_EVENT).forward(req, resp);			
+			req.getRequestDispatcher(JspConst.VIEW_ALL_EVENT).forward(req, resp);	
+			
 			break;
 		case UrlConst.MY_EVENT:
 			if(req.getParameter("id")!=null) {

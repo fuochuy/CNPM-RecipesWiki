@@ -82,14 +82,14 @@ public class AuthController extends HttpServlet {
 			User user = new User();
 			user.setUsername(username);
 			user.setPassword(password1);
-			if(service.insertUser(user)&& password1.length()>8) {
+			
+			if(password1.length()>8 && service.insertUser(user)) {
 				resp.sendRedirect(req.getContextPath() + UrlConst.EDIT_PROFILE);
 			}
 			else {
 				resp.sendRedirect(req.getContextPath() + UrlConst.SIGN_UP);
 			}
-			
-			
+				
 		}
 		
 		String password = req.getParameter("password");

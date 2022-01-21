@@ -67,4 +67,6 @@ public class JspConst {
 	public static final String SEARCH = "/WEB-INF/view/Recipes/search.jsp";
 	public static final String SEARCH_REICIPE = "/WEB-INF/view/Recipes/search-recipe.jsp";
 	public static final String SEARCH_TOPIC = "/WEB-INF/view/Recipes/search-topic.jsp";
+	
+	public static final String MY_EVENT404 = "/WEB-INF/view/Menu/MyEvent_404.jsp";
 }

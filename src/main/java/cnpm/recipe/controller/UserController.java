@@ -82,8 +82,12 @@ public class UserController extends HttpServlet{
 				
 				User user =  (User) req.getSession().getAttribute("user");
 				Date DOB = Date.valueOf(ngaysinh);
-				service.updateUser(user.getId(), hoten, DOB, avatar);
-				req.getRequestDispatcher(JspConst.PROFILE);
+				service.updateUser(user.getId(), hoten, DOB, avatar);									
+				//req.getRequestDispatcher(JspConst.PROFILE);
+				
+				User user2 = service.getUserById(user.getId());
+				req.setAttribute("user", user2);
+				req.getRequestDispatcher(JspConst.PROFILE).forward(req, resp);
 			}
 			
 		} catch (Exception e) {
