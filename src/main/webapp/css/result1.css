@@ -310,8 +310,14 @@
 
 
 .menu {
-  margin-top: -200px;
+  margin: 0 auto;
+  width: 1000px;
 }
+
+.menu h3 {
+	font-weight:bold;
+}
+
 .menu .box-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -327,6 +333,7 @@
   margin-left: 15px;
   margin-right: 15px;
   margin-top: 10px;
+  border-color: #E6E6FA;
 }
 
 .menu .box-container .box .image {
@@ -351,12 +358,18 @@
 
 .menu .box-container .box .content h3 {
   font-size: 20px;
+  height:40px;
+  font-weight:bold;
 }
 
 .menu .box-container .box .content p {
   font-size: 15px;
   padding: 10px 0;
   line-height: 1.5;
+  width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .menu .box-container .box .profile img {
@@ -370,13 +383,13 @@
 .menu .box-container .box .profile .content_profile {
   padding: 5px;
   padding-top: 0;
+  display: inline-block;
   width: 80%;
   margin-top: 3px;
   float: left;
 }
 .menu .box-container .box .profile .content_profile .name {
   font-weight: bold;
-  margin-bottom: 8px;
 }
 .xemthem {
   display: flex;

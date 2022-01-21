@@ -324,6 +324,9 @@ button:hover i {
 .menu {
   margin-top: 50px;
 }
+.menu h3 {
+	font-weight:bold;
+}
 .menu .box-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -339,6 +342,7 @@ button:hover i {
   margin-left: 15px;
   margin-right: 15px;
   margin-top: 10px;
+    border-color: #E6E6FA;
 }
 
 .menu .box-container .box .image {
@@ -363,14 +367,19 @@ button:hover i {
 
 .menu .box-container .box .content h3 {
   font-size: 20px;
+  height:40px;
+  font-weight:bold;
 }
 
 .menu .box-container .box .content p {
   font-size: 15px;
   padding: 10px 0;
   line-height: 1.5;
+  width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-
 .menu .box-container .box .profile img {
   width: 50px;
   padding: 5px;
@@ -382,7 +391,8 @@ button:hover i {
 .menu .box-container .box .profile .content_profile {
   padding: 5px;
   padding-top: 0;
-  width: 60%;
+  display: inline-block;
+  width: 80%;
   margin-top: 3px;
   float: left;
 }

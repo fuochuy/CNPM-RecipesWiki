@@ -223,9 +223,7 @@
 
       <h3>Món ăn dành cho bạn</h3>
       <div class="box-container">
-       <%for(int i=0; i<3; i++){ %>
-	      	
-	      	
+       <%for(int i=0; i<3; i++){ %> 	
 	      	<%int temp = rand.nextInt(length); %>
 	      	<div class="box">
 	          <div class="image">

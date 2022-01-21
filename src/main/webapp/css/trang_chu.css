@@ -342,6 +342,11 @@ body {
   margin: 0 auto;
   width: 1000px;
 }
+
+.menu h3 {
+	font-weight:bold;
+}
+
 .menu .box-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -357,6 +362,7 @@ body {
   margin-left: 15px;
   margin-right: 15px;
   margin-top: 10px;
+  border-color: #E6E6FA;
 }
 
 .menu .box-container .box .image {
@@ -381,6 +387,8 @@ body {
 
 .menu .box-container .box .content h3 {
   font-size: 20px;
+  height:40px;
+  font-weight:bold;
 }
 
 .menu .box-container .box .content p {
@@ -394,15 +402,20 @@ body {
 }
 
 .menu .box-container .box .profile img {
+  width: 50px;
   padding: 5px;
   padding-top: 0;
-  width: 50px;
-  display: inline-block;
+  width: 20%;
+  float: left;
+  margin-top: 5px;
 }
 .menu .box-container .box .profile .content_profile {
   padding: 5px;
   padding-top: 0;
   display: inline-block;
+  width: 80%;
+  margin-top: 3px;
+  float: left;
 }
 .menu .box-container .box .profile .content_profile .name {
   font-weight: bold;
