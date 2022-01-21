@@ -141,7 +141,7 @@
              	 
              	 <div class="col-md-4">
                 <div class="box">
-                  <a href="recipe?id=<%=listRecipe.get(i).getId()%>">
+                  <a class ="test" href="recipe?id=<%=listRecipe.get(i).getId()%>">
                     <div class="image">
                       <img src="<%=listRecipe.get(i).getHinhAnh() %>" alt="" />
                     </div>

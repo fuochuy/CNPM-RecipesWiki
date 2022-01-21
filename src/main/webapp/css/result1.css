@@ -315,11 +315,15 @@
 .menu h3 {
 	font-weight:bold;
 }
-.menu .box-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 10px;
-  margin-bottom: 50px;
+.menu .box-container .box {
+  background: #fff;
+  border: 1px solid #f7f7f7;
+  border-radius: 10px;
+  box-shadow: var(--box-shadow);
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-top: 10px;
+  border-color: #E6E6FA;
 }
 
 .menu .box-container .box {
@@ -330,7 +334,6 @@
   margin-left: 15px;
   margin-right: 15px;
   margin-top: 10px;
-  border-color: #E6E6FA;
 }
 
 .menu .box-container .box .image {
@@ -420,4 +423,13 @@
   margin-bottom: 60px;
   font-weight: bold;
   text-decoration: underline;
+}
+
+.test{
+	color: black;
+}
+
+.test:hover{
+	color:black;
+	 text-decoration: none;
 }
