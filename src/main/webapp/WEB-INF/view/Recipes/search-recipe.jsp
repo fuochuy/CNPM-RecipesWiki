@@ -121,7 +121,7 @@
     <div class="logo"><img src="./Image/burger/food_logo.png" alt=""></div>
     <div class="search">
         <form action="search" method="post">
-            <input type="text" name="search" class="form-search" >
+            <input type="text" name="search" class="form-search" placeholder="Ốc hương rang muối" >
             <button type="submit" class="btn-search">Tìm kiếm
                 <img  src="Image/icon/search.png" alt="">
             </button>
