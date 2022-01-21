@@ -76,5 +76,6 @@ public class UrlConst {
 	
 	
 	public static final String LANDING_PAGE = "/landing-page";
+	public static final String LOG_OUT = "/log-out";
 
 }

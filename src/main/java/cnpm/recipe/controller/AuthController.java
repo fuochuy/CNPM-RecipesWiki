@@ -18,13 +18,15 @@ import cnpm.recipe.url.UrlConst;
 		UrlConst.SIGN_IN,
 		UrlConst.SIGN_UP,
 		UrlConst.SIGN_OUT,
-		UrlConst.LANDING_PAGE
+		UrlConst.LANDING_PAGE,
+		UrlConst.LOG_OUT
 })
 public class AuthController extends HttpServlet {
 
 	
 	private UserService service;
 	private String action;
+	private HttpSession session;
 	
 	@Override
 	public void init() throws ServletException {
@@ -35,6 +37,7 @@ public class AuthController extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		action=req.getServletPath();
+		session = req.getSession();
 		super.service(req, resp);
 	}
 	@Override
@@ -54,6 +57,16 @@ public class AuthController extends HttpServlet {
 			req.getRequestDispatcher(JspConst.LANDING_PAGE)
 			.forward(req,resp);
 			break;
+		case UrlConst.LOG_OUT:
+			
+			//.removeValue(request, "login");
+			session.removeAttribute("user");
+			session.removeAttribute("iduser");
+			session.invalidate();
+			req.getRequestDispatcher(JspConst.LANDING_PAGE)
+			.forward(req,resp);
+			break;
+			
 		default:
 			break;
 		}
@@ -82,7 +95,7 @@ public class AuthController extends HttpServlet {
 		if(username!=null && password!=null) {
 			User login = service.checkLogIn(username, password);
 			if(login!=null) {
-				HttpSession session = req.getSession();
+				
 				session.setAttribute("user", login);
 				session.setAttribute("iduser", login.getId());
 				session.setMaxInactiveInterval(360);
