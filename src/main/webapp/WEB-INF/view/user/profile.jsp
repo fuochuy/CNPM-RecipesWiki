@@ -151,6 +151,9 @@
           <div class="edit" >
             <button><a href="edit-profile">Chỉnh sửa thông tin</a></button>
         </div>
+        <div class="edit" >
+          <button><a href="log-out">Đăng xuất</a></button>
+      </div>
     </div>
 
 

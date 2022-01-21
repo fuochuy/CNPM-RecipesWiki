@@ -75,7 +75,11 @@ public class UrlConst {
 	public static final String SEARCH_TOPIC = "/search-topic";
 	
 	public static final String LANDING_PAGE = "/landing-page";
+
 	
 	public static final String SAVE_RECIPE_TO_ALBUM = "/recipe-save";
+
+	public static final String LOG_OUT = "/log-out";
+
 
 }
