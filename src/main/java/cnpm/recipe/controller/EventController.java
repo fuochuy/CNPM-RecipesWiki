@@ -21,7 +21,7 @@ import cnpm.recipe.url.UrlConst;
 
 @MultipartConfig
 @WebServlet(name="eventController", urlPatterns = {
-		UrlConst.CREATE_A_EVENT,UrlConst.VIEW_A_EVENT, UrlConst.VIEW_ALL_EVENT})
+		UrlConst.CREATE_A_EVENT,UrlConst.VIEW_A_EVENT, UrlConst.VIEW_ALL_EVENT,UrlConst.MY_EVENT})
 public class EventController extends HttpServlet{
 	
 	private EventService service;

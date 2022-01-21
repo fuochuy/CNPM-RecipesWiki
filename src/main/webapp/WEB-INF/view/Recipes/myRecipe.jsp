@@ -35,43 +35,43 @@
         <div class="mn_logo">
           <img src="./Image/burger/food_logo.png" alt="" />
         </div>
-        <ul class="nav-list">
-          <li class="nav-item">
-            <a href="#" class="nav-link">Tải lên công thức</a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">Sự kiện</a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">Sự kiện của tôi</a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">Bộ sưu tập của tôi</a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">Món của tôi</a>
-          </li>
-          <div class="hot-tag">
+         <ul class="nav-list">
             <li class="nav-item">
-              <p>Hot tag</p>
+              <a href="create-recipe" class="nav-link">Tải lên công thức</a>
             </li>
-            <li class="nav-tag">
-              <a href="#" class="nav-link">#monanngayTet</a>
+            <li class="nav-item">
+              <a href="all-event" class="nav-link">Sự kiện</a>
             </li>
-            <li class="nav-tag">
-              <a href="#" class="nav-link">#AnSang</a>
+            <li class="nav-item">
+              <a href="myevent" class="nav-link">Sự kiện của tôi</a>
             </li>
-            <li class="nav-tag">
-              <a href="#" class="nav-link">#AnTrua</a>
+            <li class="nav-item">
+              <a href="album" class="nav-link">Bộ sưu tập của tôi</a>
             </li>
-            <li class="nav-tag">
-              <a href="#" class="nav-link">#AnToi</a>
+            <li class="nav-item">
+              <a href="my-Recipe" class="nav-link">Món của tôi</a>
             </li>
-            <li class="nav-tag">
-              <a href="#" class="nav-link">#Dauhu</a>
-            </li>
-          </div>
-        </ul>
+            <div class="hot-tag">
+              <li class="nav-item">
+                <p>Hot tag</p>
+              </li>
+              <li class="nav-tag">
+                <a href="search-topic?topic=9" class="nav-link">#monanngayTet</a>
+              </li>
+              <li class="nav-tag">
+                <a href="search-topic?topic=1" class="nav-link">#AnSang</a>
+              </li>
+              <li class="nav-tag">
+                <a href="search-topic?topic=3" class="nav-link">#AnTrua</a>
+              </li>
+              <li class="nav-tag">
+                <a href="search-topic?topic=2" class="nav-link">#AnToi</a>
+              </li>
+              <li class="nav-tag">
+                <a href="search-topic?topic=8" class="nav-link">#Dauhu</a>
+              </li>
+            </div>
+          </ul>
       </nav>
     </div>
 
