@@ -34,13 +34,13 @@ CREATE TABLE IF NOT EXISTS step(
     buoc INT,
     idrecipe INT,
     hinhanh VARCHAR(255),
-    des NVARCHAR(255) NOT NULL,
+    des NVARCHAR(1000) NOT NULL,
     PRIMARY KEY(id)
 );
 CREATE TABLE IF NOT EXISTS chude(
 	id INT auto_increment,
     ten NVARCHAR(255) NOT NULL,
-    mota NVARCHAR(500) NOT NULL,
+    mota NVARCHAR(1000) NOT NULL,
     hinhanh VARCHAR(255) NOT NULL,
    
    PRIMARY KEY(id)
@@ -63,7 +63,7 @@ CREATE TABLE IF NOT EXISTS event(
     iduser INT NOT NULL,
     tenuser NVARCHAR(255),
     ten NVARCHAR(255) NOT NULL,
-    mota NVARCHAR(500) NOT NULL,
+    mota NVARCHAR(1000) NOT NULL,
     tgbatdau DATE NOT NULL,
     tgketthuc DATE NOT NULL,
     soluong INT NOT NULL,
