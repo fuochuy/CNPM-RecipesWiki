@@ -191,6 +191,7 @@ public class RecipeController extends HttpServlet{
 				req.setAttribute("chude", chude);
 				req.setAttribute("listRecipeTopic", listRecipeTopic);
 				req.setAttribute("listTheLoaiByTopic", listTheLoaiByTopic);
+				
 				req.getRequestDispatcher(JspConst.SEARCH_TOPIC).forward(req, resp);
 			}
 			
@@ -216,6 +217,9 @@ public class RecipeController extends HttpServlet{
 		if(req.getParameter("search")!=null) {
 			String search = req.getParameter("search");
 			List<Recipe> listRecipe =  service.getRecipeByName(search);
+			if(listRecipe.size()==0) {
+				req.getRequestDispatcher(JspConst.NO_RESULT1).forward(req, resp);
+			}
 			req.setAttribute("listRecipe-search", listRecipe);
 			req.getRequestDispatcher(JspConst.SEARCH_REICIPE).forward(req, resp);
 		}
