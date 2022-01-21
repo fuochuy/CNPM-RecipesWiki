@@ -131,7 +131,7 @@
                     <div class="col-md-2" >
                         
                     </div>
-                    <a href="">
+                    <a href="tao_event">
                         <div class="col-md-2 newevent" >
                             <span class="newevent-child1">+</span>
                             <span class="newevent-child2">Sự kiện mới</span>
