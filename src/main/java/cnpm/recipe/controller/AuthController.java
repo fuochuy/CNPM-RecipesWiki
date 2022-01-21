@@ -77,7 +77,7 @@ public class AuthController extends HttpServlet {
 		String username = req.getParameter("username");
 		String password1 = req.getParameter("password1");
 		String password2 = req.getParameter("password2");
-		if(username != null && password1 != null && password2!=null) {
+		if(username != null && password1 != null && password2!=null && password1.length()>8) {
 			
 			User user = new User();
 			user.setUsername(username);
@@ -90,6 +90,9 @@ public class AuthController extends HttpServlet {
 			}
 			
 			
+		}
+		else {
+			resp.sendRedirect(req.getContextPath() + UrlConst.SIGN_UP);
 		}
 		String password = req.getParameter("password");
 		if(username!=null && password!=null) {
