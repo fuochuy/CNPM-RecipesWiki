@@ -132,10 +132,12 @@ public class EventController extends HttpServlet{
 				event.setSoluong(0);
 				event.setGiaithuong(giaithuong);
 				event.setHinhanh(anhminhhoa);
-				event.setHinhanhquangcao(anhquangcao);	
+				event.setHinhanhquangcao(anhquangcao);  
 				
 				if (service.insertEvent(event)) {
-					req.setAttribute("event", event);
+					req.setAttribute("event", event);				
+					List<Recipe> listRecipe =  serviceRecipe.getRecipes();
+					req.setAttribute("listRecipe", listRecipe);
 					req.getRequestDispatcher(JspConst.VIEW_A_EVENT).forward(req, resp);	
 				}
 					
