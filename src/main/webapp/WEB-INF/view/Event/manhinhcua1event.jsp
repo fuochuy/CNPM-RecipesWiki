@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 pageEncoding="UTF-8"%> <%@ taglib uri="http://java.sun.com/jsp/jstl/core"
 prefix="c"%> <%@page import="cnpm.recipe.model.Event"%>
+<%@page import="cnpm.recipe.model.Recipe"%>
+<%@page import="java.util.Random"%>
+<%@page import="java.util.List"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -177,189 +180,41 @@ prefix="c"%> <%@page import="cnpm.recipe.model.Event"%>
         <div class="col-md-10">
           <div class="menu" id="menu">
             <div class="box-container">
-              <div class="box">
+            <%List<Recipe> recipes = (List<Recipe>)request.getAttribute("listRecipe"); %>
+            <%int length = recipes.size(); %>
+			<%Random rand = new Random(); %>
+            <%int n=9; %>
+            <%if(recipes.size()<9){ %>
+            <%n=recipes.size();} %>
+        	<%for(int i=0; i<n; i++){ %>
+        	<div class="box">
+        	<%int temp = rand.nextInt(length); %>
                 <div class="image">
-                  <img src="Image/menu/menu-1.jpg" alt="" />
+                  <a href="recipe?id=<%=recipes.get(temp).getId()%>"><img src="<%=recipes.get(temp).getHinhAnh() %>" alt="" /></a>
                 </div>
                 <div class="content">
-                  <h3>Ốc hương rang muối</h3>
+                  <h3><%= recipes.get(temp).getTen() %></h3>
                   <p>
-                    Mùa đông lạnh lạnh tranh thủ dậy sớm làm món bún ốc sườn cho
-                    cả nhà
+                   <%= recipes.get(temp).getMoTa()%>
                   </p>
                 </div>
                 <div class="profile">
-                  <img src="Image/user/DucDam.png" alt="" />
+                  <img src="<%= recipes.get(temp).getAvatarUser() %>" alt="" />
                   <div class="content_profile">
-                    <p class="name">Đàm Hồng Đức</p>
-                    <p>12/12/2021</p>
+                    <p class="name"><%= recipes.get(temp).getNameUser() %></p>
+                    <p><%= recipes.get(temp).getTgDang() %></p>
                   </div>
                 </div>
               </div>
+        	<%} %>
+              
 
-              <div class="box">
-                <div class="image">
-                  <img src="Image/menu/menu-2.jpg" alt="" />
-                </div>
-                <div class="content">
-                  <h3>Ốc hương rang muối</h3>
-                  <p>
-                    Mùa đông lạnh lạnh tranh thủ dậy sớm làm món bún ốc sườn cho
-                    cả nhà
-                  </p>
-                </div>
-                <div class="profile">
-                  <img src="Image/user/DucDam.png" alt="" />
-                  <div class="content_profile">
-                    <p class="name">Đàm Hồng Đức</p>
-                    <p>12/12/2021</p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="box">
-                <div class="image">
-                  <img src="Image/menu/menu-3.jpg" alt="" />
-                </div>
-                <div class="content">
-                  <h3>Ốc hương rang muối</h3>
-                  <p>
-                    Mùa đông lạnh lạnh tranh thủ dậy sớm làm món bún ốc sườn cho
-                    cả nhà
-                  </p>
-                </div>
-                <div class="profile">
-                  <img src="Image/user/DucDam.png" alt="" />
-                  <div class="content_profile">
-                    <p class="name">Đàm Hồng Đức</p>
-                    <p>12/12/2021</p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="box">
-                <div class="image">
-                  <img src="Image/menu/menu-4.jpg" alt="" />
-                </div>
-                <div class="content">
-                  <h3>Ốc hương rang muối</h3>
-                  <p>
-                    Mùa đông lạnh lạnh tranh thủ dậy sớm làm món bún ốc sườn cho
-                    cả nhà
-                  </p>
-                </div>
-                <div class="profile">
-                  <img src="Image/user/DucDam.png" alt="" />
-                  <div class="content_profile">
-                    <p class="name">Đàm Hồng Đức</p>
-                    <p>12/12/2021</p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="box">
-                <div class="image">
-                  <img src="Image/menu/menu-5.jpg" alt="" />
-                </div>
-                <div class="content">
-                  <h3>Ốc hương rang muối</h3>
-                  <p>
-                    Mùa đông lạnh lạnh tranh thủ dậy sớm làm món bún ốc sườn cho
-                    cả nhà
-                  </p>
-                </div>
-                <div class="profile">
-                  <img src="Image/user/DucDam.png" alt="" />
-                  <div class="content_profile">
-                    <p class="name">Đàm Hồng Đức</p>
-                    <p>12/12/2021</p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="box">
-                <div class="image">
-                  <img src="Image/menu/menu-6.jpg" alt="" />
-                </div>
-                <div class="content">
-                  <h3>Ốc hương rang muối</h3>
-                  <p>
-                    Mùa đông lạnh lạnh tranh thủ dậy sớm làm món bún ốc sườn cho
-                    cả nhà
-                  </p>
-                </div>
-                <div class="profile">
-                  <img src="Image/user/DucDam.png" alt="" />
-                  <div class="content_profile">
-                    <p class="name">Đàm Hồng Đức</p>
-                    <p>12/12/2021</p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="box">
-                <div class="image">
-                  <img src="Image/menu/menu-7.jpg" alt="" />
-                </div>
-                <div class="content">
-                  <h3>Ốc hương rang muối</h3>
-                  <p>
-                    Mùa đông lạnh lạnh tranh thủ dậy sớm làm món bún ốc sườn cho
-                    cả nhà
-                  </p>
-                </div>
-                <div class="profile">
-                  <img src="Image/user/DucDam.png" alt="" />
-                  <div class="content_profile">
-                    <p class="name">Đàm Hồng Đức</p>
-                    <p>12/12/2021</p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="box">
-                <div class="image">
-                  <img src="Image/menu/menu-8.jpg" alt="" />
-                </div>
-                <div class="content">
-                  <h3>Ốc hương rang muối</h3>
-                  <p>
-                    Mùa đông lạnh lạnh tranh thủ dậy sớm làm món bún ốc sườn cho
-                    cả nhà
-                  </p>
-                </div>
-                <div class="profile">
-                  <img src="Image/user/DucDam.png" alt="" />
-                  <div class="content_profile">
-                    <p class="name">Đàm Hồng Đức</p>
-                    <p>12/12/2021</p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="box">
-                <div class="image">
-                  <img src="Image/menu/menu-9.jpg" alt="" />
-                </div>
-
-                <div class="content">
-                  <h3>Ốc hương rang muối</h3>
-                  <p>
-                    Mùa đông lạnh lạnh tranh thủ dậy sớm làm món bún ốc sườn cho
-                    cả nhà
-                  </p>
-                </div>
-                <div class="profile">
-                  <img src="Image/user/DucDam.png" alt="" />
-                  <div class="content_profile">
-                    <p class="name">Đàm Hồng Đức</p>
-                    <p>12/12/2021</p>
-                  </div>
+              
                 </div>
               </div>
             </div>
-          </div>
-        </div>
+      
+   
         <div class="col-md-1"></div>
       </div>
     </div>

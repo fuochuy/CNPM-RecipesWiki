@@ -15,8 +15,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
 import cnpm.recipe.model.Event;
+import cnpm.recipe.model.Recipe;
 import cnpm.recipe.model.User;
 import cnpm.recipe.service.EventService;
+import cnpm.recipe.service.RecipeService;
 import cnpm.recipe.url.JspConst;
 import cnpm.recipe.url.UrlConst;
 
@@ -27,12 +29,14 @@ public class EventController extends HttpServlet{
 	
 	private EventService service;
 	private String acction;
+	private RecipeService serviceRecipe;
 	
 	@Override
 	public void init() throws ServletException {
 		// TODO Auto-generated method stub
 		super.init();
 		service= new EventService();
+		serviceRecipe= new RecipeService();
 		acction="";
 	}
 	@Override
@@ -53,7 +57,10 @@ public class EventController extends HttpServlet{
 				int idEvent = Integer.parseInt(req.getParameter("id"));
 				Event event = service.getEventById(idEvent);
 				req.setAttribute("event", event);
+				List<Recipe> listRecipe =  serviceRecipe.getRecipes();
+				req.setAttribute("listRecipe", listRecipe);
 			}
+			
 			
 			req.getRequestDispatcher(JspConst.VIEW_A_EVENT).forward(req, resp);
 			break;	

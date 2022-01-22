@@ -145,7 +145,7 @@
                     <div class="col-md-1"></div>
                     
                     <div class="col-md-5 image">
-                        <img src="<%=event.getHinhanh() %>" alt="">
+                        <a href="event?id=<%=event.getId() %>"> <img src="<%=event.getHinhanh()%>" alt="" /></a>
                     </div>
                     <div class="col-md-5 content">
                         <h3><%=event.getTen() %></h3>
