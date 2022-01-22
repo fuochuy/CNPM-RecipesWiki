@@ -102,7 +102,7 @@ public class EventController extends HttpServlet{
 			
 			Part part1 = req.getPart("hinhanhquangcao");
 			String realPath1 = req.getServletContext().getRealPath("/Event");
-			String fileName1 = Path.of(part.getSubmittedFileName()).getFileName().toString();
+			String fileName1 = Path.of(part1.getSubmittedFileName()).getFileName().toString();
 			if(!Files.exists(Path.of(realPath1))) {
 				Files.createDirectory(Path.of(realPath1));
 			}
