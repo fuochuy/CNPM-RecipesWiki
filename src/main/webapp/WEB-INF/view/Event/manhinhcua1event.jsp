@@ -153,7 +153,7 @@ prefix="c"%> <%@page import="cnpm.recipe.model.Event"%>
             <div class="text">
               <h3><%=event.getTen()%></h3>
               <p>Tham gia: <%=event.getSoluong()%></p>
-              <p>Sự kiện của: <%=event.getId_user()%></p>
+              <p>Sự kiện của: <%=event.getTenuser()%></p>
               <p>Ngày bắt đầu: <%=event.getTgbatdau()%></p>
               <p>Ngày kết thúc: <%=event.getTgketthuc()%></p>
               <p>Giải thưởng: <%=event.getGiaithuong()%></p>

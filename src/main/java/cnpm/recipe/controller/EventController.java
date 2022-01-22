@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
 import cnpm.recipe.model.Event;
+import cnpm.recipe.model.User;
 import cnpm.recipe.service.EventService;
 import cnpm.recipe.url.JspConst;
 import cnpm.recipe.url.UrlConst;
@@ -89,7 +90,7 @@ public class EventController extends HttpServlet{
 			}
 			
 			part.write(realPath+"/"+fileName);
-			String anhminhhoa = "Image/EventDefault/"+fileName;
+			String anhminhhoa = "Event/"+fileName;
 			
 			
 			Part part1 = req.getPart("hinhanhquangcao");
@@ -100,7 +101,7 @@ public class EventController extends HttpServlet{
 			}
 			
 			part1.write(realPath1+"/"+fileName1);
-			String anhquangcao = "Image/EventDefault/"+fileName1;
+			String anhquangcao = "Event/"+fileName1;
 			
 			String tensukien = req.getParameter("tensk");
 		
@@ -114,19 +115,17 @@ public class EventController extends HttpServlet{
 				
 				Event event = new Event();
 				
-				int iduser = (int) req.getSession().getAttribute("iduser");	
-				event.setTenuser("Đàm Hồng Đức");
-				event.setId_user(iduser);
+				User user = (User) req.getSession().getAttribute("user");	
+				event.setTenuser(user.getFullname());
+				event.setId_user(user.getId());
 				event.setTen(tensukien);
 				event.setMota(mota);
 				event.setTgbatdau(Date.valueOf(ngaybd));
-				System.out.println(7);
 				event.setTgketthuc(Date.valueOf(ngaykt));			
 				event.setSoluong(0);
 				event.setGiaithuong(giaithuong);
 				event.setHinhanh(anhminhhoa);
-				event.setHinhanhquangcao(anhquangcao);
-				System.out.println(event.getTen());	
+				event.setHinhanhquangcao(anhquangcao);	
 				
 				if (service.insertEvent(event)) {
 					req.setAttribute("event", event);
