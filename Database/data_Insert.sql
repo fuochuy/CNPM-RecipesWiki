@@ -325,3 +325,73 @@ insert into album_recipe value(1,3);
 insert into album_recipe value(1,5);
 insert into album_recipe value(2,2);
 insert into album_recipe value(2,4);
+
+insert into step(buoc, idrecipe, hinhanh, des) value(1,1,'Image/Recipe/B1_PT.jpg',N'Đun 1l nước với củ cải trắng cắt khúc cùng hồi, quế, đinh hương 15 phút rồi cho 2 viên súp phở bò vào nấu thêm 5 phút cho tan sau đó vớt bỏ hồi quế đinh hương.');
+insert into step(buoc, idrecipe, hinhanh, des) value(2,1,'Image/Recipe/b2_PT.jpg',N'Bò cắt lát mỏng trong khi hầm nước dùng.');
+insert into step(buoc, idrecipe, hinhanh, des) value(3,1,'Image/Recipe/b3_PT.jpg',N'Giá rửa sạch, hành tây thái lát, rau thơm hành lá cắt nhỏ, húng quế nhặt lá.');
+insert into step(buoc, idrecipe, hinhanh, des) value(4,1,'Image/Recipe/b4_PT.jpg',N'Luộc phở theo thời gian trên bao bì sau đó vớt ra để ráo, trụng giá trong nồi luộc phở luôn.');
+insert into step(buoc, idrecipe, hinhanh, des) value(5,1,'Image/Recipe/b5_PT.jpg',N'Cho phở, giá trụng vào tô, thêm bò tái, củ hành tây cắt lát');
+insert into step(buoc, idrecipe, hinhanh, des) value(6,1,'Image/Recipe/b6_PT.jpg',N'Dùng muôi trụng trứng chín lòng đào trong nồi nước dùng rồi chan vào tô, chan nước dùng nóng lên bò cho chín tái. Cho hành lá rau thơm lên trên, rắc tiêu. Thêm tương đen tương đỏ dùng nóng.');
+
+insert into step(buoc, idrecipe, hinhanh, des) value(1,2,'Image/Recipe/B1_CC.jpg',N'Chuẩn bị nguyên liệu:
+Cắt thịt bò, kim chi, ớt chuông, xúc xích thành miếng nhỏ tuỳ ý
+Trộn các gia vị trong nguyên liệu sốt trộn +1-2 nước kim chi cho đều.');
+insert into step(buoc, idrecipe, hinhanh, des) value(2,2,'Image/Recipe/B2_CC.jpg',N'Phi hành tỏi, xào bò với 1m sốt trộn
+Bò chín tái chút ra để riêng.');
+insert into step(buoc, idrecipe, hinhanh, des) value(3,2,'Image/Recipe/B1_CC.jpg',N'Cho ít dầu vào chảo, cho hành tây vào phi kế đến lần lượt cho ớt chuông > kim chi > cơm, xúc xích với nước sốt vào đảo cơm đều ráo lại.');
+insert into step(buoc, idrecipe, hinhanh, des) value(4,2,'Image/Recipe/B1_CC.jpg',N'Cho bò cùng hành ngò vào đảo lại là xong
+Cho thêm trứng ốp lết ăn kèm nè
+Thưởng thức thôi chờ chi nữa.');
+
+
+insert into step(buoc, idrecipe, des) value(1,3,N'Luộc rau mình thích lên, bày ra đĩa.');
+insert into step(buoc, idrecipe, des) value(2,3,N'Cho dầu vào phi tỏi.');
+insert into step(buoc, idrecipe,  des) value(3,3,N'Thêm nước mắm vào, đường, bột ngọt. Nêm vừa ăn theo ý thích.');
+insert into step(buoc, idrecipe, des) value(4,3,N'Tắt bếp, cho hành, ớt, tiêu vào.');
+
+
+insert into step(buoc, idrecipe, hinhanh, des) value(1,4, 'Image/Recipe/B1_KB.jpg',N'Dưa chuột chẻ miếng nhỏ vừa ăn.
+Cà rốt trần qua nước sôi tầm 2-3 phút, thái dọc mỏng hơn dưa chuột.
+Đậu phụ rán già, thái sợi dài.
+Nấm đùi gà cũng thái sợi dài.
+Đem nấm và đậu phụ rán đảo qua với xì dầu/ nước tương cho thật ngấm.
+Cuộn vào với cơm nát chút là xong!
+');
+insert into step(buoc, idrecipe, hinhanh, des) value(2, 4, 'Image/Recipe/B2_KB.jpg', N'Hehee em vẫn làm 1 cái có xúc xích vì vẫn hơi nhớ thịt ấy mọi người. Chúc mọi người thành công!');
+
+
+insert into step(buoc, idrecipe, hinhanh, des) value(1, 5, 'Image/Recipe/B1_GT.jpg',N'Gà tây rất lớn nên tôi chỉ làm nữa con thôi, rửa sạch bằng muối xong xát nhẹ lên gà miếng chanh. Kế tất cả gia vị ở trên cho vào chén hòa đều rồi xoa lên khắp mình gà vừa xoa vừa massage cho thịt cũng mềm hơn, cuối cùng cho hành tím và tỏi nhiều nhất vào bụng gà, để gà cho thấm 1 ngày trong tủ lạnh có thể ướp qua đêm thì tốt nhất.
+');
+insert into step(buoc, idrecipe, hinhanh, des) value(2, 5, 'Image/Recipe/B2_GT.jpg',N'Khi gà thấm gia vị, chế dầu vào chảo chiên cho gà vàng đều với lửa trung bình. Khi chiên gà vét cho sạch hành tỏi, chiên xong phần hành tỏi lại cho vào gà để đem nướng cho thơm. Còn phần nước gia vị ướp thì đun sôi để làm nước dùng khi ăn rưới lên gà. Gà cho vào khay nướng dùng giấy bạc phủ lên mình gà đem đút lò với nhiệt độ 300 nướng trong 40"');
+insert into step(buoc, idrecipe, hinhanh, des) value(3, 5, 'Image/Recipe/B3_GT.jpg',N'Gà đút lò được 40", lấy ra thử bằng que nhiệt độ xâm thấy nhiệt độ lên đủ thì gà chín, cho gà ra dĩa, cắt từng miếng khi ăn rưới phần nước sauce lên ăn kèm cùng bánh mì pumpkin.');
+
+
+insert into step(buoc, idrecipe, des) value(1, 6,N'Ngâm gelatin 50 cho nở rồi vớt ráo.');
+insert into step(buoc, idrecipe, des) value(2, 6,N'Cho nước ép trái cây lên bếp đun nóg cho gelatin vào khuấy đều cho tan.Hỗn hợp sôi thì tắt bếp.');
+insert into step(buoc, idrecipe, hinhanh, des) value(3, 6, 'Image/Recipe/B3_KT.jpg',N'Cho hỗn hợp vừa được vào khuôn.');
+insert into step(buoc, idrecipe, hinhanh, des) value(4, 6, 'Image/Recipe/B4_KT.jpg',N'Cho vào tủ lạnh 2 tiếg được thành quả và lấy cho bé ăn phần còn lại cất tủ ăn dần ạ.');
+
+insert into step(buoc, idrecipe, hinhanh, des) value(1, 7, 'Image/Recipe/B1_BK.jpg',N'Bánh qui cho vào túi zip đập dập hoặc cho máy xay sinh tố xay khô. 
+Xoài gọt vỏ cắt miếng bản rộng, mỏng 5mm.
+Kem đánh bông mềm. Nếu muốn bánh kem quyện hơn với xoài thì sau khi kem bông, fold cùng 1 chút thịt xoài xay nhuyễn.
+Lấy hộp đựng, xếp theo từng lớp: bánh qui - kem tươi - xoài, lần lượt đến hết nguyên liệu rồi phủ lớp bánh qui lên trên.');
+insert into step(buoc, idrecipe, hinhanh, des) value(2, 7, 'Image/Recipe/B2_BK.jpg',N'Để ngăn mát tủ lạnh 3-4 tiếng rồi ăn nè! Món tráng miệng tuyệt vời luôn á!');
+
+
+
+insert into step(buoc, idrecipe, des) value(1, 8, N'Sườn non ngâm mềm sau đó rửa sạch vài lần với nước. Mang băm nhỏ.');
+insert into step(buoc, idrecipe, des) value(2, 8, N'Đậu hũ mình rửa sạch lại với nước để ráo rồi bóp nát.');
+insert into step(buoc, idrecipe, des) value(3, 8, N'Rau răm thái nhỏ. Hành băm nhỏ
+Cho tất cả các nguyên liệu trên vào tô, thêm chút tiêu, muối và dầu điều cùng chút hạt nêm. Để 15p cho ngấm.');
+insert into step(buoc, idrecipe, des) value(4, 8, N'Nặn miếng vừa ăn và chiên vàng đều hai mặt.');
+
+insert into step(buoc, idrecipe, des) value(1, 9, N'Thịt ba chỉ thái vừa ăn ướp với hành khô, tỏi khô băm, thêm chút bột nêm, nước mắm, dầu hào.');
+insert into step(buoc, idrecipe, des) value(2, 9, N'Trứng cút luộc chín bóc.');
+insert into step(buoc, idrecipe, des) value(3, 9, N'Cho dầu ăn và đường vào nồi thắng lên, sau đó cho thịt vào đảo cho săn lại, tiếp theo cho trứng cút vào đảo (nếu thích có thể rán sơ trứng cút rồi cho vào với thịt càng ngon).');
+insert into step(buoc, idrecipe, hinhanh, des) value(4, 9, 'Image/Recipe/B4_TK.jpg',N'Đổ hết lon coca vào nồi, mới đầu để lửa to sau đó hạ nhỏ, đun đến kho cạn, cắt hành lá vào là xong.');
+
+insert into step(buoc, idrecipe, hinhanh, des) value(1, 10, 'Image/Recipe/B1_G.jpg',N'Trải bánh tráng ra đĩa, xếp các nguyên liệu lên trên bánh tráng, sau đó cuộn chặt tay, phết xíu nước ở mép bánh tráng để cuốn không bị bung. * SỐT chấm:
+- Phi tỏi với xíu dầu cho thơm --> cho bơ đậu phộng + nước cốt tắc + nước tương + mật mía --> đảo đều với lửa nhỏ khoảng 2 phút --> cho nước vào khuấy đều khoảng 2 phút --> nêm nếm lại cho vừa ăn. Tắt bếp.');
+insert into step(buoc, idrecipe, hinhanh, des) value(2, 10, 'Image/Recipe/B2_G.jpg',N'Trình bày:
+- Xếp cuốn ra đĩa, có thể cắt đôi cho đẹp.
+- Múc sốt ra chén, rắc xíu đậu phộng và trang trí vài khoanh ớt.');
